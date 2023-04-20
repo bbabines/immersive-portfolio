@@ -1,4 +1,4 @@
-import { RigidBody } from "@react-three/rapier";
+import { RigidBody, useRapier } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
 import { useKeyboardControls } from "@react-three/drei";
 import { useRef, useEffect } from "react";
@@ -9,27 +9,37 @@ const Player = () => {
 	// Keys set in index.jsx mapped to here
 	const [subscribeKeys, getKeys] = useKeyboardControls();
 
-	const jump = () => {
-		// To disable jumping multiple times, calculate distance off the ground
-		const origin = body.current.translation;
+	const { rapier, world } = useRapier();
+	const rapierWorld = world.raw();
 
+	const jump = () => {
+		const origin = body.current.translation();
 		origin.y -= 0.31;
 		const direction = { x: 0, y: -1, z: 0 };
 
-		body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
+		// To disable jumping multiple times, calculate distance off the ground
+
+		// origin and direction needed for .Ray()
+		const ray = new rapier.Ray(origin, direction);
+
+		// 10 is max distance of the ray; The true treats everything as solid.
+		const hit = rapierWorld.castRay(ray, 10, true);
+
+		if (hit.toi < 0.15) body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
 	};
 
 	// Listen for jump and only apply on one frame.
 	useEffect(() => {
-		subscribeKeys(
+		const unsubscribeJump = subscribeKeys(
 			(state) => state.jump,
-
 			(value) => {
-				if (value) {
-					jump();
-				}
+				if (value) jump();
 			}
 		);
+
+		return () => {
+			unsubscribeJump();
+		};
 	}, []);
 
 	// Checking keys on each frame
