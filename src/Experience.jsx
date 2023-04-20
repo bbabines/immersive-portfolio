@@ -16,8 +16,9 @@ const Experience = () => {
 		return (
 			<>
 				<color args={["#252731"]} attach="background" />
+
 				{/* SCENE UTILS */}
-				<OrbitControls makeDefault />
+				{/* <OrbitControls makeDefault /> */}
 				<Lights />
 
 				<Physics>
