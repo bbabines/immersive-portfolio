@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
 
 export default create(
@@ -23,6 +23,7 @@ export default create(
 					if (state.phase === "ready")
 						return { phase: "playing", startTime: Date.now() };
 
+					// Returning empty object so the initial return only runs once
 					return {};
 				});
 			},
@@ -34,6 +35,7 @@ export default create(
 
 					return {};
 				});
+				s;
 			},
 
 			end: () => {

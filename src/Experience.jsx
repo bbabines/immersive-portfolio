@@ -1,7 +1,7 @@
 import * as THREE from "three";
 
 import { OrbitControls } from "@react-three/drei";
-import { Physics, Debug } from "@react-three/rapier";
+import { Physics } from "@react-three/rapier";
 
 import Lights from "./Lights.jsx";
 import Player from "./Player.jsx";
@@ -15,14 +15,10 @@ const Experience = () => {
 	{
 		return (
 			<>
-				<color args={["#252731"]} attach="background" />
-
 				{/* SCENE UTILS */}
 				{/* <OrbitControls makeDefault /> */}
 				<Lights />
-
 				<Physics>
-					{/* <Debug /> */}
 					<Level count={blocksCount} seed={blocksSeed} />
 					<Player />
 				</Physics>

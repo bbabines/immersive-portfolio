@@ -9,8 +9,6 @@ const Interface = () => {
 
 	return (
 		<div className="interface">
-			<div className="time">Time: 0.00</div>
-			<div className="restart">Restart</div>
 			<div className="controls">
 				<div className="raw">
 					<div className={`key ${forward ? "active" : null}`}></div>

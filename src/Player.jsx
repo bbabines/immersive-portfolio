@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { useKeyboardControls } from "@react-three/drei";
 import { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
+import useGame from "./useGame";
 
 const Player = () => {
 	const body = useRef();
@@ -35,8 +36,22 @@ const Player = () => {
 		if (hit.toi < 0.15) body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
 	};
 
+	const reset = () => {
+		console.log("reset");
+		body.current.setTranslation({ x: 0, y: 1, z: 0 });
+		body.current.setLinvel({ x: 0, y: 0, z: 0 });
+		body.current.setAngvel({ x: 0, y: 0, z: 0 });
+	};
+
 	// Listen for jump and only apply on one frame.
 	useEffect(() => {
+		const unsubscribeReset = useGame.subscribe(
+			(state) => state.phase,
+			(value) => {
+				if (value === "ready") reset();
+			}
+		);
+
 		const unsubscribeJump = subscribeKeys(
 			(state) => state.jump,
 			(value) => {
@@ -44,10 +59,25 @@ const Player = () => {
 			}
 		);
 
+		const unsubscribeAny = subscribeKeys(() => {
+			start();
+		});
+
 		return () => {
+			unsubscribeReset();
 			unsubscribeJump();
+			unsubscribeAny();
 		};
 	}, []);
+
+	// Starts game wheUSEFRAMEn a key is pressed. NOT IMPLEMENTED IN THE BELOW
+	const start = useGame((state) => state.start);
+	// End game when arriving at the end. NOT IMPLEMENTED IN THE BELOW
+	const end = useGame((state) => state.end);
+	// Restart when out of bounds.
+	const restart = useGame((state) => state.restart);
+	// NOT IMPLEMENTED IN THE BELOW
+	const blockCount = useGame((state) => state.blockCount);
 
 	// Checking keys on each frame
 	useFrame((state, delta) => {
@@ -105,6 +135,14 @@ const Player = () => {
 
 		body.current.applyImpulse(impulse);
 		body.current.applyTorqueImpulse(torque);
+
+		// PHASES
+
+		// Start
+		if (bodyPosition.z < -(blockCount * 4 + 2)) end();
+
+		// Restart
+		if (bodyPosition.y < -4) restart();
 	});
 
 	return (
