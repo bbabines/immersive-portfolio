@@ -1,12 +1,15 @@
 import { RigidBody, useRapier } from "@react-three/rapier";
-import { useFrame } from "@react-three/fiber";
-import { useKeyboardControls } from "@react-three/drei";
+import { useFrame, useLoader } from "@react-three/fiber";
+import { useKeyboardControls, useAnimations } from "@react-three/drei";
 import { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 import useGame from "./useGame";
+import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+import Racer from "../Racer";
+import { Test } from "../Test";
 
 const Player = () => {
-	const body = useRef();
+	const oldManRef = useRef();
 
 	// Keys set in index.jsx mapped to here
 	const [subscribeKeys, getKeys] = useKeyboardControls();
@@ -21,7 +24,7 @@ const Player = () => {
 	const [smoothedCameraTarget] = useState(() => new THREE.Vector3());
 
 	const jump = () => {
-		const origin = body.current.translation();
+		const origin = oldManRef.current.translation();
 		origin.y -= 0.31;
 		const direction = { x: 0, y: -1, z: 0 };
 
@@ -33,17 +36,16 @@ const Player = () => {
 		// 10 is max distance of the ray; The true treats everything as solid.
 		const hit = rapierWorld.castRay(ray, 10, true);
 
-		if (hit.toi < 0.15) body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
+		if (hit.toi < 0.15) oldManRef.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
 	};
 
 	const reset = () => {
 		console.log("reset");
-		body.current.setTranslation({ x: 0, y: 1, z: 0 });
-		body.current.setLinvel({ x: 0, y: 0, z: 0 });
-		body.current.setAngvel({ x: 0, y: 0, z: 0 });
+		oldManRef.current.setTranslation({ x: 0, y: 1, z: 0 });
+		oldManRef.current.setLinvel({ x: 0, y: 0, z: 0 });
+		oldManRef.current.setAngvel({ x: 0, y: 0, z: 0 });
 	};
 
-	// Listen for jump and only apply on one frame.
 	useEffect(() => {
 		const unsubscribeReset = useGame.subscribe(
 			(state) => state.phase,
@@ -83,16 +85,16 @@ const Player = () => {
 	useFrame((state, delta) => {
 		// Camera
 
-		// Get position of the body
-		const bodyPosition = body.current.translation();
+		// Get position of the oldManRef
+		const oldManRefPosition = oldManRef.current.translation();
 
 		const cameraPosition = new THREE.Vector3();
-		cameraPosition.copy(bodyPosition);
-		cameraPosition.z += 2.25;
+		cameraPosition.copy(oldManRefPosition);
+		cameraPosition.z += 8.25;
 		cameraPosition.y += 0.65;
 
 		const cameraTarget = new THREE.Vector3();
-		cameraTarget.copy(bodyPosition);
+		cameraTarget.copy(oldManRefPosition);
 		cameraTarget.y += 0.25;
 
 		smoothedCameraPosition.lerp(cameraPosition, 5 * delta);
@@ -133,35 +135,44 @@ const Player = () => {
 			torque.z += torqueStrength;
 		}
 
-		body.current.applyImpulse(impulse);
-		body.current.applyTorqueImpulse(torque);
+		oldManRef.current.applyImpulse(impulse);
+		oldManRef.current.applyTorqueImpulse(torque);
 
 		// PHASES
 
 		// Start
-		if (bodyPosition.z < -(blockCount * 4 + 2)) end();
+		if (oldManRefPosition.z < -(blockCount * 4 + 2)) end();
 
 		// Restart
-		if (bodyPosition.y < -4) restart();
+		if (oldManRefPosition.y < -4) restart();
 	});
+
+	const oldManFBX = useLoader(FBXLoader, "./old-guy.fbx");
+	// const { actions } = useAnimations();
 
 	return (
 		<RigidBody
-			ref={body}
+			ref={oldManRef}
 			restitution={0.2}
 			friction={1}
 			position={[0, 1, 0]}
-			colliders="ball"
+			colliders="hull"
 			// Slowing inertia of the impulse and torque above
 			linearDamping={0.5}
 			angularDamping={0.5}
 		>
-			<mesh castShadow>
+			{/* <mesh castShadow>
 				<icosahedronGeometry args={[0.3, 1]} />
 				<meshStandardMaterial flatShading color="mediumpurple" />
-			</mesh>
+			</mesh> */}
+			<Racer />
+			{/* <Test /> */}
 		</RigidBody>
 	);
 };
 
 export default Player;
+
+{
+	/* <primitive object={oldManFBX} scale={0.01} ref={oldManRef} /> */
+}
