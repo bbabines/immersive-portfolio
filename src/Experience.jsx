@@ -1,9 +1,9 @@
 import { Debug, Physics } from "@react-three/rapier";
 
-import Lights from "./Lights.jsx";
-import MyPlayer from "./MyPlayer.jsx";
-import { Land } from "./Land.jsx";
-import { Tree } from "./Tree.jsx";
+import Lights from "./components/Lights.jsx";
+import MyPlayer from "./components/MyPlayer.jsx";
+import { Land } from "./components/Land.jsx";
+import { Sign } from "./components/Sign.jsx";
 
 const Experience = () => {
 	{
@@ -16,7 +16,7 @@ const Experience = () => {
 				{/* MESH */}
 
 				<MyPlayer />
-				<Tree />
+				<Sign />
 				<Land />
 				{/* </Physics> */}
 			</>
