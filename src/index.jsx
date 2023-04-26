@@ -11,8 +11,8 @@ root.render(
 		camera={{
 			fov: 45,
 			near: 0.1,
-			far: 200,
-			position: [0, 5, 10],
+			far: 800,
+			position: [-70, 20, 10],
 		}}
 	>
 		<Experience />

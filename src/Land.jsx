@@ -11,9 +11,9 @@ export function Land(props) {
 	return (
 		<group {...props} dispose={null}>
 			<mesh
-				geometry={nodes.terrain.geometry}
-				material={materials.terrain}
-				scale={[600, 1, 600]}
+				scale={0.1}
+				geometry={nodes.Rocky_grassland_OBJ.geometry}
+				material={materials["Material.001"]}
 			/>
 		</group>
 	);

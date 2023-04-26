@@ -150,7 +150,7 @@ const MyPlayer = () => {
 	return (
 		<>
 			<OrbitControls ref={controlsRef} />
-			<primitive object={model.scene} />;
+			<primitive object={model.scene} position={[-50, 1, 0]} />;
 		</>
 	);
 };

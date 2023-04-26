@@ -15,6 +15,7 @@ export function Tree(props) {
 		<group ref={group} {...props} dispose={null}>
 			<group name="Scene">
 				<mesh
+					position={[-70, 1, 1]}
 					name="Tree_lp_11"
 					geometry={nodes.Tree_lp_11.geometry}
 					material={materials["Wooden surface"]}
