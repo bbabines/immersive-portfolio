@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 
 import SignModal from "./SignModal";
@@ -6,19 +6,19 @@ import SignModal from "./SignModal";
 export function Sign(props) {
 	const { nodes, materials } = useGLTF("/billboard.glb");
 
+	// Video functions
 	const videoRef = useRef();
-
 	const handleProjectEnter = () => {
 		videoRef.current.play();
 	};
-
 	const handleProjectLeave = () => {
 		videoRef.current.pause();
 	};
 
-	const handleProjectClick = () => {
-		console.log("hi");
-	};
+	// Modal functions
+	const [open, setOpen] = React.useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
 
 	return (
 		<group {...props} dispose={null}>
@@ -37,9 +37,8 @@ export function Sign(props) {
 							material={materials["Material.002"]}
 						/>
 
-						{/* Add onClick add a Modal*/}
 						<Html
-							className="html-container"
+							className="html-container "
 							occlude
 							transform
 							distanceFactor={15}
@@ -54,12 +53,16 @@ export function Sign(props) {
 								ref={videoRef}
 								onMouseEnter={handleProjectEnter}
 								onMouseLeave={handleProjectLeave}
-								onClick={handleProjectClick}
 								className="project"
+								onClick={handleOpen}
 							>
 								<source src="/project.mp4" type="video/mp4" />
 							</video>
-							<SignModal />
+							<SignModal
+								open={open}
+								handleOpen={handleOpen}
+								handleClose={handleClose}
+							/>
 						</Html>
 					</group>
 					<group position={[-0.83, 2.06, 4.21]} scale={[0.22, 2.21, 0.22]}>

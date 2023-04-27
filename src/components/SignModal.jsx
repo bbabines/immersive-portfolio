@@ -5,15 +5,9 @@ import Modal from "@mui/base/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/base/Button";
 
-export default function SignModal({ openModal }) {
-	const [open, setOpen] = React.useState(false);
-	const handleOpen = () => setOpen(true);
-	const handleClose = () => setOpen(false);
-
+export default function TransitionsModal({ open, handleClose }) {
 	return (
 		<div>
-			{/* <Button onClick={handleOpen}>Open modal</Button> */}
-
 			<StyledModal
 				aria-labelledby="transition-modal-title"
 				aria-describedby="transition-modal-description"
