@@ -22,7 +22,7 @@ export function Sign(props) {
 
 	return (
 		<group {...props} dispose={null}>
-			<group rotation={[-Math.PI / 2, 0, 0]} position={[-50, 0, 0]}>
+			<group rotation={[-Math.PI / 2, 0, 0]} position={[-50, 2, 0]}>
 				<group rotation={[Math.PI / 2, 0, 0]}>
 					<group
 						occluded
