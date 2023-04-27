@@ -1,14 +1,31 @@
 import React, { useRef } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 
+import SignModal from "./SignModal";
+
 export function Sign(props) {
 	const { nodes, materials } = useGLTF("/billboard.glb");
+
+	const videoRef = useRef();
+
+	const handleProjectEnter = () => {
+		videoRef.current.play();
+	};
+
+	const handleProjectLeave = () => {
+		videoRef.current.pause();
+	};
+
+	const handleProjectClick = () => {
+		console.log("hi");
+	};
+
 	return (
 		<group {...props} dispose={null}>
 			<group rotation={[-Math.PI / 2, 0, 0]} position={[-50, 0, 0]}>
 				<group rotation={[Math.PI / 2, 0, 0]}>
 					<group
-						// occlude
+						occluded
 						position={[-0.84, 6.33, 4.41]}
 						rotation={[1.57, 0, 0]}
 						scale={[3.69, 8.09, 2.08]}
@@ -20,19 +37,29 @@ export function Sign(props) {
 							material={materials["Material.002"]}
 						/>
 
+						{/* Add onClick add a Modal*/}
 						<Html
 							className="html-container"
 							occlude
+							transform
 							distanceFactor={15}
-							position={[-1, 0.1, -1]}
+							position={[0, 0.001, 0]}
+							rotation={[Math.PI / 2, Math.PI / 1, Math.PI / 1]}
 						>
-							<img
-								width={625}
-								height={350}
+							<video
+								width={55}
+								height={56}
+								muted
+								loop
+								ref={videoRef}
+								onMouseEnter={handleProjectEnter}
+								onMouseLeave={handleProjectLeave}
+								onClick={handleProjectClick}
 								className="project"
-								src="/project.png"
-								alt="my work"
-							/>
+							>
+								<source src="/project.mp4" type="video/mp4" />
+							</video>
+							<SignModal />
 						</Html>
 					</group>
 					<group position={[-0.83, 2.06, 4.21]} scale={[0.22, 2.21, 0.22]}>
