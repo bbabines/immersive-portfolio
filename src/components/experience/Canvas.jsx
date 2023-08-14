@@ -1,13 +1,11 @@
 "use client";
 
-import { Color } from "three";
-import { Canvas, extend } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import {
 	OrbitControls,
-	shaderMaterial,
 	KeyboardControls,
 	Sky,
-	SpotLight,
+	Loader,
 } from "@react-three/drei";
 import { Physics, Debug, RigidBody } from "@react-three/rapier";
 import { LevaPanel, useControls } from "leva";
@@ -38,43 +36,55 @@ export default function MyCanvas() {
 	});
 
 	return (
-		<Canvas
-			camera={{
-				fov: 45,
-				near: 0.1,
-				far: 1000,
-				position: [0, 2, 6],
-			}}
-		>
-			<OrbitControls />
-			<Lights />
+		<>
+			<Canvas
+				camera={{
+					fov: 45,
+					near: 0.1,
+					far: 1000,
+					position: [0, 2, 6],
+				}}
+			>
+				<OrbitControls />
+				<Lights />
 
-			<Sky
-				distance={450000}
-				sunPosition={[0, 1, 0]}
-				inclination={0}
-				azimuth={0.25}
+				<Sky
+					distance={450000}
+					sunPosition={[0, 1, 0]}
+					inclination={0}
+					azimuth={0.25}
+				/>
+
+				<Physics timeStep="vary" Debug={physics}>
+					{/* <Debug /> */}
+
+					{/* <KeyboardControls map={keyboardMap}>
+						<ControllerOne />
+					</KeyboardControls> */}
+
+					{/* Floor */}
+					<RigidBody type="fixed">
+						<mesh receiveShadow position={[0, -1.25, 0]}>
+							<boxGeometry args={[300, 0.5, 300]} />
+							<meshStandardMaterial color="lightgreen" />
+						</mesh>
+					</RigidBody>
+
+					{/* sCENE */}
+					<RigidBody type="fixed">
+						<Land />
+					</RigidBody>
+				</Physics>
+			</Canvas>
+
+			<Loader
+				// containerStyles={...container} // Flex layout styles
+				// innerStyles={...inner} // Inner container styles
+				// barStyles={...bar} // Loading-bar styles
+				// dataStyles={...data} // Text styles
+				dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`} // Text
+				initialState={(active) => active} // Initial black out state
 			/>
-
-			<Physics timeStep="vary" Debug={physics}>
-				{/* <Debug /> */}
-
-				{/* <KeyboardControls map={keyboardMap}>
-					<ControllerOne />
-				</KeyboardControls> */}
-
-				{/* Floor */}
-				<RigidBody type="fixed">
-					<mesh receiveShadow position={[0, -1.25, 0]}>
-						<boxGeometry args={[300, 0.5, 300]} />
-						<meshStandardMaterial color="lightgreen" />
-					</mesh>
-				</RigidBody>
-
-				<RigidBody type="fixed">
-					<Land />
-				</RigidBody>
-			</Physics>
-		</Canvas>
+		</>
 	);
 }

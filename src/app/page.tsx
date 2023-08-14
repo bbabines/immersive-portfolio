@@ -7,7 +7,7 @@ export default function App() {
 	return (
 		<main className=" bg-[black] text-[#626565] min-h-[100vh] max-sm:flex max-sm:flex-col max-sm:justify-between">
 			<div className="min-h-[100vh] max-h-[100%] flex flex-col justify-center">
-				<div className="z-[1] border mx-auto">
+				<div className="z-[2] mx-auto">
 					<ShowProfile />
 				</div>
 

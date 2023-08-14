@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const ShowProfile = () => {
-	const [showProfile, setShowProfile] = useState(true);
+	const [showProfile, setShowProfile] = useState(false);
 
 	const handleShowProfile = (event) => {
 		if (event.key === "p") {
@@ -23,7 +23,7 @@ const ShowProfile = () => {
 			<p
 				className={`${
 					showProfile === true
-						? `h-[500px] w-[500px] bg-white flex justify-center  items-center`
+						? `min-h-[300px] min-w-[300px] h-[50%] w-[50%] bg-white flex justify-center  items-center`
 						: `hidden`
 				}`}
 			>
