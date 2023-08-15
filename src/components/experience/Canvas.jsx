@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
 	OrbitControls,
@@ -14,6 +15,7 @@ import ControllerOne from "./ControllerOne";
 import Lights from "./Lights";
 import Land from "../../models/Land";
 
+//  Keyboard control preset
 export const keyboardMap = [
 	{ name: "forward", keys: ["ArrowUp", "KeyW"] },
 	{ name: "backward", keys: ["ArrowDown", "KeyS"] },
@@ -24,13 +26,7 @@ export const keyboardMap = [
 ];
 
 export default function MyCanvas() {
-	/**
-	 * Keyboard control preset
-	 */
-
-	/**
-	 * Debug settings
-	 */
+	//  Debug settings
 	const { physics } = useControls("World Settings", {
 		physics: true,
 	});
@@ -42,14 +38,11 @@ export default function MyCanvas() {
 					fov: 45,
 					near: 0.1,
 					far: 1000,
-					// position: [0, 2, 6],
 					position: [30, 5, 25],
 				}}
 			>
 				<OrbitControls />
-
 				<Lights />
-
 				<Sky
 					distance={450000}
 					sunPosition={[0, 1, 0]}
@@ -58,8 +51,6 @@ export default function MyCanvas() {
 				/>
 
 				<Physics timeStep="vary" Debug={physics}>
-					{/* <Debug /> */}
-
 					{/* <KeyboardControls map={keyboardMap}>
 						<ControllerOne />
 					</KeyboardControls> */}
@@ -80,10 +71,6 @@ export default function MyCanvas() {
 			</Canvas>
 
 			<Loader
-				// containerStyles={...container} // Flex layout styles
-				// innerStyles={...inner} // Inner container styles
-				// barStyles={...bar} // Loading-bar styles
-				// dataStyles={...data} // Text styles
 				dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`} // Text
 				initialState={(active) => active} // Initial black out state
 			/>

@@ -5,7 +5,7 @@ import Modal from "@mui/base/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/base/Button";
 
-export default function TransitionsModal({ open, handleClose }) {
+export default function ProjectModal({ open, handleClose }) {
 	return (
 		<div>
 			<StyledModal

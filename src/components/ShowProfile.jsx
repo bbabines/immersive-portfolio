@@ -9,8 +9,6 @@ const ShowProfile = () => {
 		}
 	};
 
-	console.log(showProfile);
-
 	useEffect(() => {
 		window.addEventListener("keydown", handleShowProfile);
 		return () => {
