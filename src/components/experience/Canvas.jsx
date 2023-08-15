@@ -42,10 +42,12 @@ export default function MyCanvas() {
 					fov: 45,
 					near: 0.1,
 					far: 1000,
-					position: [0, 2, 6],
+					// position: [0, 2, 6],
+					position: [30, 5, 25],
 				}}
 			>
 				<OrbitControls />
+
 				<Lights />
 
 				<Sky
@@ -70,7 +72,7 @@ export default function MyCanvas() {
 						</mesh>
 					</RigidBody>
 
-					{/* sCENE */}
+					{/* Scene */}
 					<RigidBody type="fixed">
 						<Land />
 					</RigidBody>
