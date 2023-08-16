@@ -5,6 +5,7 @@ import HoverContextProvider from "../components/HoverContext";
 import Canvas from "@/components/experience/Canvas";
 import ShowProfile from "../components/ShowProfile";
 import ProjectModal from "../components/ProjectModal";
+import AboutModal from "../components/AboutModal";
 
 export default function App() {
 	return (
@@ -78,12 +79,7 @@ export default function App() {
 
 						{/* About Modal */}
 						<div className="z-[2] mx-auto">
-							<ProjectModal
-								signType={"about"}
-								title={"Personal Information"}
-								description={"This is all about myself"}
-								img={"/keyControls.png"}
-							/>
+							<AboutModal signType={"about"} />
 						</div>
 
 						<div className="absolute z-[0] h-[100%] w-[100%]">
