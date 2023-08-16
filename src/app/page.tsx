@@ -16,9 +16,74 @@ export default function App() {
 							<ShowProfile />
 						</div>
 
-						{/* Project Modal 1 */}
+						{/* Contact Modal */}
 						<div className="z-[2] mx-auto">
-							<ProjectModal />
+							<ProjectModal
+								signType={"contact"}
+								title={"Contact"}
+								description={"blah"}
+								img={"/keyControls.png"}
+							/>
+						</div>
+
+						{/* React Modal 1 */}
+						<div className="z-[2] mx-auto">
+							<ProjectModal
+								signType={"react-one"}
+								title={"React Project One"}
+								description={"This is my best React project"}
+								img={"/keyControls.png"}
+							/>
+						</div>
+
+						{/* React Modal 2 */}
+						<div className="z-[2] mx-auto">
+							<ProjectModal
+								signType={"react-two"}
+								title={"React Project Two"}
+								description={"This is my second best React project"}
+								img={"/keyControls.png"}
+							/>
+						</div>
+
+						{/* Three.js Modal 1 */}
+						<div className="z-[2] mx-auto">
+							<ProjectModal
+								signType={"three-one"}
+								title={"Three.js Project One"}
+								description={"This is my best Three.js project"}
+								img={"/keyControls.png"}
+							/>
+						</div>
+
+						{/* Three.js Modal 2 */}
+						<div className="z-[2] mx-auto">
+							<ProjectModal
+								signType={"three-two"}
+								title={"Three.js Project Two"}
+								description={"This is second my best Three.js project"}
+								img={"/keyControls.png"}
+							/>
+						</div>
+
+						{/* Misc Project Modal */}
+						<div className="z-[2] mx-auto">
+							<ProjectModal
+								signType={"all-projects"}
+								title={"Full List of Large Projects"}
+								description={"Here are all my finished projects"}
+								img={"/keyControls.png"}
+							/>
+						</div>
+
+						{/* About Modal */}
+						<div className="z-[2] mx-auto">
+							<ProjectModal
+								signType={"about"}
+								title={"Personal Information"}
+								description={"This is all about myself"}
+								img={"/keyControls.png"}
+							/>
 						</div>
 
 						<div className="absolute z-[0] h-[100%] w-[100%]">
