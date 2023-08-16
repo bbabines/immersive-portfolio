@@ -142,31 +142,6 @@ const allProjects = [
 
 const reactProjectOne = [
 	{
-		name: "Ikon Clothing",
-		description:
-			"An e-commerce clothing store made with React that has user authentication and database support via firebase.",
-		tags: [
-			{
-				name: "react",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "styled-components",
-				color: "green-text-gradient",
-			},
-			{
-				name: "firebase",
-				color: "pink-text-gradient",
-			},
-		],
-		// image: brads,
-		source_code_link: "https://github.com/bbabines/brads-clothing",
-		live_demo_link: "https://ikon-clothing.netlify.app/",
-	},
-];
-
-const reactProjectTwo = [
-	{
 		name: "Kubera Link",
 		description:
 			"A large freelance project for a startup to build an MVP for their crypto call channel SPA. The project is currently on-going.",
@@ -192,6 +167,31 @@ const reactProjectTwo = [
 		// image: kubera,
 		source_code_link: "https://github.com/KuberaLink/KuberaLink",
 		live_demo_link: "http://www.kuberalink.com/",
+	},
+];
+
+const reactProjectTwo = [
+	{
+		name: "Ikon Clothing",
+		description:
+			"An e-commerce clothing store made with React that has user authentication and database support via firebase.",
+		tags: [
+			{
+				name: "react",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "styled-components",
+				color: "green-text-gradient",
+			},
+			{
+				name: "firebase",
+				color: "pink-text-gradient",
+			},
+		],
+		// image: brads,
+		source_code_link: "https://github.com/bbabines/brads-clothing",
+		live_demo_link: "https://ikon-clothing.netlify.app/",
 	},
 ];
 

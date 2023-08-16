@@ -28,10 +28,15 @@ export default function App() {
 						{/* React Modal 1 */}
 						<div className="z-[2] mx-auto">
 							<ProjectModal
-								signType={"react-one"}
-								title={"React Project One"}
-								description={"This is my best React project"}
-								img={"/keyControls.png"}
+								signType="react-one"
+								title="Kubera Link"
+								description="Kubera Link is a large freelance project for a startup to build an MVP for their crypto call channel SPA. The project team included a PM, BA, UI/UX designer, a senior backend developer, and myself as a frontend developer. Github, Jira, and Slack were utilized for DevOps."
+								features="OAuth, Stripe Integration, Asset Uploads, Pagination, and a User Dashboard."
+								img1="/kubera.png"
+								img2="/kubera2.png"
+								stack="Next.js, Typescript, React, and TailwindCSS."
+								liveLink="http://www.kuberalink.com"
+								githubLink="https://github.com/KuberaLink/KuberaLink"
 							/>
 						</div>
 
@@ -83,7 +88,6 @@ export default function App() {
 						<div className="absolute z-[0] h-[100%] w-[100%]">
 							<Canvas />
 						</div>
-
 						<div className="absolute z-[1] bottom-[10%] left-[5%]">
 							<img
 								src="keyControls.png"
