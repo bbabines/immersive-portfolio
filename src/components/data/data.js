@@ -258,7 +258,7 @@ const threeProjectTwo = [
 const about = {
 	intro:
 		"I live in Columbus, Ohio with my wife and two kids. Software development is a second career for me as I worked 10 years in the healthcare industry as a critical care dietitian. I now spend my time between traditional web dev applications with React and immersive experiences with three.js & React Three Fiber.",
-	personalityProfile: "Myers-Briggs Personality Type: INTJ - Architect",
+	personalityProfile: "Myers-Briggs: INTJ - Architect",
 	personalInterest:
 		"Brazillian Jiu Jitsu, Wrestling, MMA, Working Out, MMORPG's & FPS Games, and Sci-fi.",
 	family: "Two Siblings, Married with Two Kids.",

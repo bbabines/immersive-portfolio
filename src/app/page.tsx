@@ -6,6 +6,7 @@ import Canvas from "@/components/experience/Canvas";
 import ShowProfile from "../components/ShowProfile";
 import ProjectModal from "../components/ProjectModal";
 import AboutModal from "../components/AboutModal";
+import ContactModal from "../components/ContactModal";
 
 export default function App() {
 	return (
@@ -19,12 +20,9 @@ export default function App() {
 
 						{/* Contact Modal */}
 						<div className="z-[2] mx-auto">
-							<ProjectModal
-								signType={"contact"}
-								title={"Contact"}
-								description={"blah"}
-								img={"/keyControls.png"}
-							/>
+							<div className="z-[2] mx-auto">
+								<ContactModal signType={"contact"} />
+							</div>
 						</div>
 
 						{/* React Modal 1 */}

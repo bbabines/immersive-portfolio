@@ -6,7 +6,6 @@ const AboutModal = ({ signType }) => {
 
 	const handleModalClose = () => {
 		setSignSelected("");
-		console.log(about);
 	};
 
 	return (
@@ -27,11 +26,11 @@ const AboutModal = ({ signType }) => {
 
 				{/* Information */}
 				<div className="py-4 flex flex-col justify-center items-center">
-					<h1 className="py-4 text-[2.5rem]">About</h1>
+					<h1 className="py-4 text-[2.5rem] text-[#eab832]">About</h1>
 					<h3 className=" mx-8">
-						Hi, I'm Brad!
+						Hi, I'm <span className="text-[#eab832]"> Brad</span>!
 						<br /> <br />
-						{about.intro}
+						<span className="font-thin">{about.intro}</span>
 					</h3>
 					<div className="m-4">
 						<p className="m-4">
