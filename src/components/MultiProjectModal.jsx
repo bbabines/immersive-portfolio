@@ -1,16 +1,7 @@
 import { useModalContext } from "../components/ModalContext";
 import { allProjects } from "./data/data";
 
-const MultiProjectModal = ({
-	title,
-	description,
-	// img1,
-	signType,
-	// stack,
-	// githubLink,
-	// liveLink,
-	// features,
-}) => {
+const MultiProjectModal = ({ title, signType }) => {
 	const { signSelected, setSignSelected } = useModalContext();
 
 	const handleModalClose = () => {
