@@ -1,14 +1,14 @@
 import { useModalContext } from "../components/ModalContext";
 
-const ProjectModal = ({
+const MultiProjectModal = ({
 	title,
 	description,
-	img1,
+	// img1,
 	signType,
-	stack,
-	githubLink,
-	liveLink,
-	features,
+	// stack,
+	// githubLink,
+	// liveLink,
+	// features,
 }) => {
 	const { signSelected, setSignSelected } = useModalContext();
 
@@ -33,7 +33,7 @@ const ProjectModal = ({
 				</div>
 				<div className="py-4 flex flex-col justify-center items-center">
 					<h1 className="py-4 text-[2.5rem] text-[#eab832]">{title}</h1>
-					<div className="mx-8 flex ">
+					{/* <div className="mx-8 flex ">
 						<div className="w-[50%] flex flex-col justify-between">
 							<div className="mb-8">
 								{description}
@@ -54,9 +54,9 @@ const ProjectModal = ({
 							alt="a thumbnail of the project"
 							className="w-[50%] max-h-[400px] ml-2"
 						/>
-					</div>
+					</div> */}
 
-					<div className="w-[100%] mt-2 flex font-thin">
+					{/* <div className="w-[100%] mt-2 flex font-thin">
 						<p className="my-4 mr-auto ml-8 cursor-pointer">
 							Source Code:{" "}
 							<span className="text-[#eab832] font-medium hover:text-white">
@@ -73,11 +73,11 @@ const ProjectModal = ({
 								</a>
 							</span>
 						</p>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>
 	);
 };
 
-export default ProjectModal;
+export default MultiProjectModal;

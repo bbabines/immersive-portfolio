@@ -130,8 +130,8 @@ export default function LandPortals(props) {
 
 				{/* Back Right Sign */}
 				<ModalText
-					text={"three.js project two"}
-					position={[40.057, 8, 15.736]}
+					text={"Marble Madness"}
+					position={[40.057, 7, 16]}
 					sign={"back-right"}
 				/>
 
@@ -180,7 +180,7 @@ export default function LandPortals(props) {
 
 				{/* Front Right Sign */}
 				<ModalText
-					text={"three.js project one"}
+					text={"Legends of Aetheria"}
 					position={[25.386, 6, 25.463]}
 					sign={"front-right"}
 				/>
@@ -230,8 +230,8 @@ export default function LandPortals(props) {
 
 				{/* Back Left Sign */}
 				<ModalText
-					text={"react project two"}
-					position={[40.003, 8, -14.641]}
+					text={"Ikon Clothing"}
+					position={[40.003, 7, -13]}
 					sign={"back-left"}
 				/>
 
@@ -280,8 +280,8 @@ export default function LandPortals(props) {
 
 				{/* Front Left Sign */}
 				<ModalText
-					text={"react project one"}
-					position={[25.496, 6, -24.454]}
+					text={"Kubera Link"}
+					position={[25.496, 6, -23]}
 					sign={"font-left"}
 				/>
 

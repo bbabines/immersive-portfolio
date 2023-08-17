@@ -27,31 +27,48 @@ const ContactModal = ({ signType }) => {
 				{/* Information */}
 				<div className="py-4 flex flex-col justify-center items-center">
 					<h1 className="py-2 text-[2.5rem] text-[#eab832]">Contact</h1>
-					<h3 className="mb-8 text-[1.25rem]">Drop a Line, Start a Journey.</h3>
+					<h3 className="mb-4 text-[1.25rem]">Drop a Line, Start a Journey.</h3>
 					<div className="m-4">
-						<div>
-							<img src="" alt="" />
-							<span className="font-bold">Email: </span>
-							<span className="font-thin">bbabines@gmail.com</span>
+						<div className="my-2">
+							{/* <img src="" alt="" /> */}
+							<span className="font-thin">Email: </span>
+							<span className="font-medium hover:text-[#eab832]">
+								<a href="mailto:bbabines@gmail.com" target="_blank">
+									bbabines@gmail.com
+								</a>
+							</span>
 						</div>
 
-						<div>
-							<img src="" alt="" className="h-[25px]" />
-							<span className="font-bold">GitHub: </span>
-							<span className="font-thin">https://github.com/bbabines</span>
+						<div className="my-2">
+							{/* <img src="" alt="" className="h-[25px]" /> */}
+							<span className="font-thin">GitHub: </span>
+							<span className="font-medium hover:text-[#eab832]">
+								<a href="https://github.com/bbabines" target="_blank">
+									https://github.com/bbabines
+								</a>
+							</span>
 						</div>
 
-						<div>
-							<img src="" alt="" className="h-[25px]" />
-							<span className="font-bold">Twitter: </span>
-							<span className="font-thin">@RejuvenatingRo1 (Brad B.)</span>
+						<div className="my-2">
+							{/* <img src="" alt="" className="h-[25px]" /> */}
+							<span className="font-thin">Twitter: </span>
+							<span className="font-medium hover:text-[#eab832]">
+								<a href="https://twitter.com/RejuvenatingRo1" target="_blank">
+									@RejuvenatingRo1 (Brad B.)
+								</a>
+							</span>
 						</div>
 
-						<div>
-							<img src="" alt="" className="h-[25px]" />
-							<span className="font-bold">LinkedIn: </span>
-							<span className="font-thin">
-								https://www.linkedin.com/in/bradbabines/
+						<div className="my-2">
+							{/* <img src="" alt="" className="h-[25px]" /> */}
+							<span className="font-thin">LinkedIn: </span>
+							<span className="font-medium hover:text-[#eab832]">
+								<a
+									href="https://www.linkedin.com/in/bradbabines"
+									target="_blank"
+								>
+									https://www.linkedin.com/in/bradbabines
+								</a>
 							</span>
 						</div>
 					</div>

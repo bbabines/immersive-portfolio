@@ -7,6 +7,7 @@ import ShowProfile from "../components/ShowProfile";
 import ProjectModal from "../components/ProjectModal";
 import AboutModal from "../components/AboutModal";
 import ContactModal from "../components/ContactModal";
+import MultiProjectModal from "../components/MultiProjectModal";
 
 export default function App() {
 	return (
@@ -33,7 +34,6 @@ export default function App() {
 								description="Kubera Link is a large freelance project for a startup to build an MVP for their crypto call channel SPA. The project team included a PM, BA, UI/UX designer, a senior backend developer, and myself as a frontend developer. Github, Jira, and Slack were utilized for DevOps."
 								features="OAuth, Stripe Integration, Asset Uploads, Pagination, and a User Dashboard."
 								img1="/kubera.png"
-								img2="/kubera2.png"
 								stack="Next.js, Typescript, React, and TailwindCSS."
 								liveLink="http://www.kuberalink.com"
 								githubLink="https://github.com/KuberaLink/KuberaLink"
@@ -43,40 +43,50 @@ export default function App() {
 						{/* React Modal 2 */}
 						<div className="z-[2] mx-auto">
 							<ProjectModal
-								signType={"react-two"}
-								title={"React Project Two"}
-								description={"This is my second best React project"}
-								img={"/keyControls.png"}
+								signType="react-two"
+								title="Ikon Clothing"
+								description="This is an e-commerce clothing store made with React that has user authentication/database support via firebase."
+								features="User Authentication and Firebase."
+								img1="/ikon.png"
+								stack="React, React Router, and Styled Components."
+								liveLink="https://ikon-clothing.netlify.app/"
+								githubLink="https://github.com/bbabines/brads-clothing"
 							/>
 						</div>
 
 						{/* Three.js Modal 1 */}
 						<div className="z-[2] mx-auto">
 							<ProjectModal
-								signType={"three-one"}
-								title={"Three.js Project One"}
-								description={"This is my best Three.js project"}
-								img={"/keyControls.png"}
+								signType="three-one"
+								title="Legends of Aetheria"
+								description="This is the start of an action combat MMORPG. Currently, it is a character selection screen which will load into a multiplayer area."
+								features="3D Animations, Shaders (GLSL), and Multiplayer Functionality"
+								img1="/rpg.png"
+								stack="Next.js, React, React Three Fiber, and Socket.io."
+								liveLink="https://mmorpg-character-selection.netlify.app/"
+								githubLink="https://github.com/bbabines/character-selection"
 							/>
 						</div>
 
 						{/* Three.js Modal 2 */}
 						<div className="z-[2] mx-auto">
 							<ProjectModal
-								signType={"three-two"}
-								title={"Three.js Project Two"}
-								description={"This is second my best Three.js project"}
-								img={"/keyControls.png"}
+								signType="three-two"
+								title="Marble Madness"
+								description="An immersive mini-game navigating a marble to the finish line in the shortest time possible."
+								features="Character Controller, Respawning, and Post-Processing."
+								img1="/marble.png"
+								stack="React Three Fiber, React, and Zustand"
+								liveLink="https://marble-madness.netlify.app/"
+								githubLink="https://github.com/bbabines/marble-madness"
 							/>
 						</div>
 
 						{/* Misc Project Modal */}
 						<div className="z-[2] mx-auto">
-							<ProjectModal
-								signType={"all-projects"}
-								title={"Full List of Large Projects"}
-								description={"Here are all my finished projects"}
-								img={"/keyControls.png"}
+							<MultiProjectModal
+								signType="all-projects"
+								title="More Projects"
 							/>
 						</div>
 
