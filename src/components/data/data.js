@@ -1,45 +1,39 @@
 const allProjects = [
-	{
-		name: "Ikon Clothing",
-		description:
-			"An e-commerce clothing store made with React that has user authentication and database support via firebase.",
-		tags: [
-			{
-				name: "react",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "styled-components",
-				color: "green-text-gradient",
-			},
-			{
-				name: "firebase",
-				color: "pink-text-gradient",
-			},
-		],
-		// image: brads,
-		source_code_link: "https://github.com/bbabines/brads-clothing",
-		live_demo_link: "https://ikon-clothing.netlify.app/",
-	},
+	// {
+	// 	name: "Ikon Clothing",
+	// 	description:
+	// 		"An e-commerce clothing store made with React that has user authentication and database support via firebase.",
+	// 	tags: [
+	// 		{
+	// 			name: "react",
+	// 		},
+	// 		{
+	// 			name: "styled-components",
+	// 		},
+	// 		{
+	// 			name: "firebase",
+	// 		},
+	// 	],
+	// 	// image: brads,
+	// 	source_code_link: "https://github.com/bbabines/brads-clothing",
+	// 	live_demo_link: "https://ikon-clothing.netlify.app/",
+	// },
 	{
 		name: "Pro Dashboard",
 		description:
 			"The ultimate dashboard! It consists of Light and Dark Mode, 4 different Charts, 3 different Data Table Pages, FAQ Page, Form Page, and Calendar Integration",
 		tags: [
 			{
-				name: "react",
-				color: "blue-text-gradient",
+				name: "React",
 			},
 			{
-				name: "material-ui",
-				color: "green-text-gradient",
+				name: "Material-ui",
 			},
 			{
-				name: "nivo-charts",
-				color: "pink-text-gradient",
+				name: "Nivo-charts",
 			},
 		],
-		// image: dashboard,
+		image: "dashboard.png",
 		source_code_link: "https://github.com/bbabines/pro-dashboard",
 		live_demo_link: "https://pro-admin-dashboard.netlify.app/",
 	},
@@ -50,75 +44,61 @@ const allProjects = [
 			"A modern UI build for a startup trying to acquire pre-seed funding. The site was built using Next.js, Framer Motion, and Tailwind CSS",
 		tags: [
 			{
-				name: "FREELANCE",
-				color: "orange-text-gradient",
+				name: "Next.js",
 			},
 			{
-				name: "react",
-				color: "blue-text-gradient",
+				name: "React",
 			},
 			{
-				name: "tailwind",
-				color: "green-text-gradient",
-			},
-			{
-				name: "next.js",
-				color: "pink-text-gradient",
+				name: "Tailwind",
 			},
 		],
-		// image: cohering,
+		image: "cohering.png",
 		source_code_link: "https://github.com/bbabines/cm-alt-design",
 		live_demo_link: "https://cohering-minds.netlify.app/",
 	},
-	{
-		name: "Kubera Link",
-		description:
-			"A large freelance project for a startup to build an MVP for their crypto call channel SPA. The project is currently on-going.",
+	// {
+	// 	name: "Kubera Link",
+	// 	description:
+	// 		"A large freelance project for a startup to build an MVP for their crypto call channel SPA. The project is currently on-going.",
 
-		tags: [
-			{
-				name: "FREELANCE",
-				color: "orange-text-gradient",
-			},
-			{
-				name: "react",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "tailwind",
-				color: "green-text-gradient",
-			},
-			{
-				name: "next.js",
-				color: "pink-text-gradient",
-			},
-		],
-		// image: kubera,
-		source_code_link: "https://github.com/KuberaLink/KuberaLink",
-		live_demo_link: "http://www.kuberalink.com/",
-	},
-	{
-		name: "Marble Madness",
-		description:
-			"This is a mini game that put my three.js skills to the test! It is a timed race in which you avoid obstacles to make it to the end.",
-		tags: [
-			{
-				name: "three.js",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "react-three-fiber",
-				color: "green-text-gradient",
-			},
-			{
-				name: "vite",
-				color: "pink-text-gradient",
-			},
-		],
-		// image: marble,
-		source_code_link: "https://github.com/bbabines/marble-madness",
-		live_demo_link: "https://marble-madness.netlify.app/",
-	},
+	// 	tags: [
+	// 		{
+	// 			name: "FREELANCE",
+	// 		},
+	// 		{
+	// 			name: "react",
+	// 		},
+	// 		{
+	// 			name: "tailwind",
+	// 		},
+	// 		{
+	// 			name: "next.js",
+	// 		},
+	// 	],
+	// 	// image: kubera,
+	// 	source_code_link: "https://github.com/KuberaLink/KuberaLink",
+	// 	live_demo_link: "http://www.kuberalink.com/",
+	// },
+	// {
+	// 	name: "Marble Madness",
+	// 	description:
+	// 		"This is a mini game that put my three.js skills to the test! It is a timed race in which you avoid obstacles to make it to the end.",
+	// 	tags: [
+	// 		{
+	// 			name: "three.js",
+	// 		},
+	// 		{
+	// 			name: "react-three-fiber",
+	// 		},
+	// 		{
+	// 			name: "vite",
+	// 		},
+	// 	],
+	// 	// image: marble,
+	// 	source_code_link: "https://github.com/bbabines/marble-madness",
+	// 	live_demo_link: "https://marble-madness.netlify.app/",
+	// },
 
 	{
 		name: "Jake & Elwood",
@@ -126,15 +106,16 @@ const allProjects = [
 			"A fully responsive, multi-page website created with vanilla HTML and CSS with a little Javascript to showcase the fundamentals",
 		tags: [
 			{
-				name: "html",
-				color: "blue-text-gradient",
+				name: "JavaScript",
 			},
 			{
-				name: "css",
-				color: "green-text-gradient",
+				name: "CSS",
+			},
+			{
+				name: "HTML",
 			},
 		],
-		// image: jake,
+		image: "jake.png",
 		source_code_link: "https://github.com/bbabines/basic-responsive-site",
 		live_demo_link: "https://bbabines.github.io/basic-responsive-site/",
 	},

@@ -13,7 +13,6 @@ import { LevaPanel, useControls } from "leva";
 
 import ControllerOne from "./ControllerOne";
 import Lights from "./Lights";
-import Land from "../../models/Land";
 import LandPortals from "../../models/LandPortals";
 
 //  Keyboard control preset
@@ -58,7 +57,6 @@ export default function MyCanvas() {
 
 					{/* Scene */}
 					<RigidBody type="fixed">
-						{/* <Land /> */}
 						<LandPortals />
 					</RigidBody>
 				</Physics>
