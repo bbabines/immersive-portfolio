@@ -99,12 +99,20 @@ export default function App() {
 						<div className="absolute z-[0] h-[100%] w-[100%]">
 							<Canvas />
 						</div>
+
 						<div className="absolute z-[1] bottom-[10%] left-[5%]">
 							<img
 								src="keyControls.png"
 								alt="keyboard controls"
 								className="h-[100px]"
 							/>
+						</div>
+
+						<div className="h-[40px] w-[40px]   bg-white bg-opacity-30 absolute z-[1] bottom-[10%] right-[5%] text-white font-bold">
+							<div className="h-[40px] w-[40px] flex justify-center items-center opacity-100 z-[2] text-[white] border-2  rounded-lg">
+								P
+							</div>
+							<div className="font-thin opacity-80">Profile</div>
 						</div>
 					</div>
 				</main>
