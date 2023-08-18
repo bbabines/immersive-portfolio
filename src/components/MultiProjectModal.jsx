@@ -13,13 +13,13 @@ const MultiProjectModal = ({ title, signType }) => {
 		<div
 			className={
 				signSelected === signType
-					? "w-[1000px] text-white bg-[#161d26] bg-opacity-90 rounded-2xl"
+					? "max-w-[1500px] max-h-[95vh] w-[50vw] min-w-[320px] overflow-auto text-white bg-[#161d26] bg-opacity-90 rounded-2xl"
 					: "hidden"
 			}
 		>
 			<div className="relative">
 				<div
-					className="w-[2em] h-[2em] flex justify-center items-center bg-white text-black rounded-full mt-2 absolute left-[95%] top-[2%] cursor-pointer"
+					className="w-[2em] h-[2em] flex justify-center items-center bg-white text-black rounded-full mt-2 absolute left-[95%] top-[2%] cursor-pointer max-xl:left-[85%] max-xl:top-[0%]"
 					onClick={handleModalClose}
 				>
 					X
