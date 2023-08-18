@@ -93,14 +93,23 @@ export default function LandPortals(props) {
 					distanceFactor={15}
 					position={[42.5, 3.5, 0.3, 0]}
 					rotation={[0, Math.PI * -0.5, 0]}
-					scale={[0.13, 0.07, 0.1]}
+					// scale={[0.13, 0.07, 0.1]}
 				>
 					<img
 						src="/all-projects.png"
 						alt="project thumbnail"
-						className="cursor-pointer"
+						className="w-[300px] cursor-pointer rounded-lg"
 						onClick={() => {
 							setSignSelected("all-projects");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("all-projects");
+							event.stopPropagation(); // Prevent event propagation
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
 						}}
 					/>
 				</Html>
@@ -117,15 +126,15 @@ export default function LandPortals(props) {
 					onClick={() => {
 						setSignSelected("all-projects");
 					}}
-					onPointerOver={() => {
-						setHovered(true);
-						setHoverText("all-projects");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setHoverText("");
-					}}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setHoverText("all-projects");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setHoverText("");
+					// }}
 				/>
 
 				{/* Back Right Sign */}
@@ -140,17 +149,26 @@ export default function LandPortals(props) {
 				<Html
 					// occlude
 					transform
-					distanceFactor={15}
+					// distanceFactor={15}
 					position={[39.7, 2.6, 15.5]}
 					rotation={[0, Math.PI * -0.5, 0]}
-					scale={[0.04, 0.11, 0.1]}
+					// scale={[2.04, 1.11, 0.1]}
 				>
 					<img
 						src="/marble.png"
 						alt="project thumbnail"
-						className="cursor-pointer"
+						className="w-[300px] cursor-pointer rounded-lg"
 						onClick={() => {
 							setSignSelected("three-two");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("back-right");
+							event.stopPropagation(); // Prevent event propagation
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
 						}}
 					/>
 				</Html>
@@ -167,15 +185,15 @@ export default function LandPortals(props) {
 					onClick={() => {
 						setSignSelected("three-two");
 					}}
-					onPointerOver={() => {
-						setHovered(true);
-						setHoverText("back-right");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setHoverText("");
-					}}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setHoverText("back-right");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setHoverText("");
+					// }}
 				/>
 
 				{/* Front Right Sign */}
@@ -190,17 +208,26 @@ export default function LandPortals(props) {
 				<Html
 					// occlude
 					transform
-					distanceFactor={15}
+					// distanceFactor={15}
 					position={[25, 3, 25]}
 					rotation={[0, Math.PI * -0.5, 0]}
-					scale={[0.04, 0.12, 0.1]}
+					// scale={[0.04, 0.12, 0.1]}
 				>
 					<img
 						src="/rpg.png"
 						alt="project thumbnail"
-						className="cursor-pointer"
+						className="w-[300px] cursor-pointer rounded-lg"
 						onClick={() => {
 							setSignSelected("three-one");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("front-right");
+							event.stopPropagation(); // Prevent event propagation
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
 						}}
 					/>
 				</Html>
@@ -217,15 +244,15 @@ export default function LandPortals(props) {
 					onClick={() => {
 						setSignSelected("three-one");
 					}}
-					onPointerOver={() => {
-						setHovered(true);
-						setHoverText("front-right");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setHoverText("");
-					}}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setHoverText("front-right");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setHoverText("");
+					// }}
 				/>
 
 				{/* Back Left Sign */}
@@ -240,17 +267,26 @@ export default function LandPortals(props) {
 				<Html
 					// occlude
 					transform
-					distanceFactor={15}
+					// distanceFactor={15}
 					position={[39.7, 2.6, -14.641]}
 					rotation={[0, Math.PI * -0.5, 0]}
-					scale={[0.04, 0.14, 0.1]}
+					// scale={[0.04, 0.14, 0.1]}
 				>
 					<img
 						src="/ikon.png"
 						alt="project thumbnail"
-						className="cursor-pointer"
+						className="w-[300px] cursor-pointer rounded-lg"
 						onClick={() => {
 							setSignSelected("react-two");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("back-left");
+							event.stopPropagation(); // Prevent event propagation
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
 						}}
 					/>
 				</Html>
@@ -267,15 +303,15 @@ export default function LandPortals(props) {
 					onClick={() => {
 						setSignSelected("react-two");
 					}}
-					onPointerOver={() => {
-						setHovered(true);
-						setHoverText("back-left");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setHoverText("");
-					}}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setHoverText("back-left");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setHoverText("");
+					// }}
 				/>
 
 				{/* Front Left Sign */}
@@ -290,17 +326,26 @@ export default function LandPortals(props) {
 				<Html
 					// occlude
 					transform
-					distanceFactor={15}
+					// distanceFactor={15}
 					position={[25.2, 2.6, -24.454]}
 					rotation={[0, Math.PI * -0.5, 0]}
-					scale={[0.04, 0.06, 0.1]}
+					// scale={[0.04, 0.06, 0.1]}
 				>
 					<img
 						src="/kubera.png"
 						alt="project thumbnail"
-						className="cursor-pointer"
+						className="w-[300px] cursor-pointer rounded-lg"
 						onClick={() => {
 							setSignSelected("react-one");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("font-left");
+							event.stopPropagation(); // Prevent event propagation
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
 						}}
 					/>
 				</Html>
@@ -317,15 +362,15 @@ export default function LandPortals(props) {
 					onClick={() => {
 						setSignSelected("react-one");
 					}}
-					onPointerOver={() => {
-						setHovered(true);
-						setHoverText("font-left");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setHoverText("");
-					}}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setHoverText("font-left");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setHoverText("");
+					// }}
 				/>
 				<mesh
 					name="Prefab_TreeFallen"

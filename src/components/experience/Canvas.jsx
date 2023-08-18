@@ -14,6 +14,7 @@ import { LevaPanel, useControls } from "leva";
 import ControllerOne from "./ControllerOne";
 import Lights from "./Lights";
 import LandPortals from "../../models/LandPortals";
+import NewScene from "../../models/NewScene";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -58,6 +59,7 @@ export default function MyCanvas() {
 					{/* Scene */}
 					<RigidBody type="fixed">
 						<LandPortals />
+						{/* <NewScene /> */}
 					</RigidBody>
 				</Physics>
 			</Canvas>
