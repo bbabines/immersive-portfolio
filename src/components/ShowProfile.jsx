@@ -24,7 +24,7 @@ const ShowProfile = () => {
 		<div
 			className={
 				showProfile === true
-					? "max-w-[1500px] max-h-[95vh] w-[50vw]  overflow-auto  text-white bg-[#161d26] bg-opacity-90 rounded-2xl max-lg:w-[100%]"
+					? "max-w-[1500px] max-h-[95vh] w-[50vw] overflow-auto  text-white bg-[#161d26] bg-opacity-90 rounded-2xl max-lg:w-[100%]"
 					: "hidden"
 			}
 		>

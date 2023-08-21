@@ -52,7 +52,7 @@ export default function PortfolioAvatar(props) {
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name="Scene">
-				<group name="Armature" position={[0, -0.5, 0]}>
+				<group name="Armature" position={[0, 0.3, 0]}>
 					<skinnedMesh
 						name="Body"
 						geometry={nodes.Body.geometry}

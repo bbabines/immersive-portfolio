@@ -15,6 +15,7 @@ import ControllerOne from "./ControllerOne";
 import Lights from "./Lights";
 import LandPortals from "../../models/LandPortals";
 import NewScene from "../../models/NewScene";
+import PortfolioAvatar from "@/models/PortfolioAvatar";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -60,6 +61,7 @@ export default function MyCanvas() {
 					<RigidBody type="fixed">
 						<LandPortals />
 						{/* <NewScene /> */}
+						<PortfolioAvatar />
 					</RigidBody>
 				</Physics>
 			</Canvas>
