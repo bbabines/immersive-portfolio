@@ -14,40 +14,40 @@ export default function PortfolioAvatar(props) {
 		actions[names[14]].play();
 	}, []);
 
-	const handleKeyPress = (event) => {
-		if (
-			event.key === "w" ||
-			event.key === "s" ||
-			event.key === "a" ||
-			event.key === "d"
-		) {
-			actions[names[17]].play(); // Walking animation
-		} else if (event.key === "Shift") {
-			actions[names[17]].stop();
-			actions[names[16]].play(); // Running animation
-		}
-	};
+	// const handleKeyPress = (event) => {
+	// 	if (
+	// 		event.key === "w" ||
+	// 		event.key === "s" ||
+	// 		event.key === "a" ||
+	// 		event.key === "d"
+	// 	) {
+	// 		actions[names[17]].play(); // Walking animation
+	// 	} else if (event.key === "Shift") {
+	// 		actions[names[17]].stop();
+	// 		actions[names[16]].play(); // Running animation
+	// 	}
+	// };
 
-	const handleShowProfile = (event) => {
-		if (event.key === "p") {
-			setShowProfile(true);
-		}
-	};
+	// const handleShowProfile = (event) => {
+	// 	if (event.key === "p") {
+	// 		setShowProfile(true);
+	// 	}
+	// };
 
-	const handleKeyUp = () => {
-		actions[names[17]].stop(); // Stop the walking animation
-		actions[names[16]].stop(); // Stop the running animation
-		actions[names[14]].reset().play(); // Reset and play idle animation on key up
-	};
+	// const handleKeyUp = () => {
+	// 	actions[names[17]].stop(); // Stop the walking animation
+	// 	actions[names[16]].stop(); // Stop the running animation
+	// 	actions[names[14]].reset().play(); // Reset and play idle animation on key up
+	// };
 
-	useEffect(() => {
-		window.addEventListener("keydown", handleKeyPress);
-		window.addEventListener("keyup", handleKeyUp);
-		return () => {
-			window.removeEventListener("keydown", handleKeyPress);
-			window.removeEventListener("keyup", handleKeyUp);
-		};
-	}, []);
+	// useEffect(() => {
+	// 	window.addEventListener("keydown", handleKeyPress);
+	// 	window.addEventListener("keyup", handleKeyUp);
+	// 	return () => {
+	// 		window.removeEventListener("keydown", handleKeyPress);
+	// 		window.removeEventListener("keyup", handleKeyUp);
+	// 	};
+	// }, []);
 
 	return (
 		<group ref={group} {...props} dispose={null}>
