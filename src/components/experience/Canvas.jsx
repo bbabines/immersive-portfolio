@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
 	OrbitControls,
@@ -11,10 +10,9 @@ import {
 import { Physics, Debug, RigidBody } from "@react-three/rapier";
 import { LevaPanel, useControls } from "leva";
 
-import ControllerOne from "./ControllerOne";
 import Lights from "./Lights";
 import LandPortals from "../../models/LandPortals";
-import NewScene from "../../models/NewScene";
+import CharacterController from "../experience/CharacterController";
 import PortfolioAvatar from "@/models/PortfolioAvatar";
 
 //  Keyboard control preset
@@ -28,11 +26,6 @@ export const keyboardMap = [
 ];
 
 export default function MyCanvas() {
-	//  Debug settings
-	const { physics } = useControls("World Settings", {
-		physics: true,
-	});
-
 	return (
 		<>
 			<Canvas
@@ -52,16 +45,15 @@ export default function MyCanvas() {
 					azimuth={0.25}
 				/>
 
-				<Physics timeStep="vary" Debug={physics}>
-					{/* <KeyboardControls map={keyboardMap}>
-						<ControllerOne />
-					</KeyboardControls> */}
+				<Physics debug>
+					{/* Avatar */}
+					<KeyboardControls map={keyboardMap}>
+						<CharacterController />
+					</KeyboardControls>
 
 					{/* Scene */}
 					<RigidBody type="fixed">
 						<LandPortals />
-						{/* <NewScene /> */}
-						<PortfolioAvatar />
 					</RigidBody>
 				</Physics>
 			</Canvas>
