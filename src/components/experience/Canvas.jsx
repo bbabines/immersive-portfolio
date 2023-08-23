@@ -45,7 +45,7 @@ export default function MyCanvas() {
 					azimuth={0.25}
 				/>
 
-				<Physics debug>
+				<Physics>
 					{/* Avatar */}
 					<KeyboardControls map={keyboardMap}>
 						<CharacterController />
