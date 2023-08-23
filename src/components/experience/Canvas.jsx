@@ -36,7 +36,7 @@ export default function MyCanvas() {
 					position: [30, 5, 25],
 				}}
 			>
-				<OrbitControls />
+				{/* <OrbitControls /> */}
 				<Lights />
 				<Sky
 					distance={450000}
