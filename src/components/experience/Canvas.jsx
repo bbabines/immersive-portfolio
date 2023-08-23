@@ -52,7 +52,7 @@ export default function MyCanvas() {
 					</KeyboardControls>
 
 					{/* Scene */}
-					<RigidBody type="fixed">
+					<RigidBody type="fixed" friction={5}>
 						<LandPortals />
 					</RigidBody>
 				</Physics>

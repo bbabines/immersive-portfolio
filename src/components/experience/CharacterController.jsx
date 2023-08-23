@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { CapsuleCollider, RigidBody, useRapier } from "@react-three/rapier";
+import { CapsuleCollider, RigidBody } from "@react-three/rapier";
 
 import PortfolioAvatar from "@/models/PortfolioAvatar";
 import { useKeyboardControls } from "@react-three/drei";
@@ -11,32 +11,72 @@ const CharacterController = () => {
 	// subscriberKeys() is a function to subscribe to key changes
 	// getKeys() is a function to get the current states of the keys
 	const [subscriberKeys, getKeys] = useKeyboardControls();
-	const characterRef = useRef();
+	const rigidBodyRef = useRef();
 
-	// Setup for jump
-	const { rapier, world } = useRapier();
-	// const rapierWorld = world.raw();
-	const [canJump, setCanJump] = useState(false);
+	let isOnFloor = useRef(true);
 
 	useFrame((state, delta) => {
 		// Know if the WASD keys are being pressed
-		const { forward, backward, leftward, rightward } = getKeys();
+		const { forward, backward, leftward, rightward, jump } = getKeys();
 
 		const impulse = { x: 0, y: 0, z: 0 };
-		characterRef.current.applyImpulse(impulse);
-		const impulseStrength = 0.6 * delta;
-		// console.log(forward);
 
-		if (forward) {
-			impulse.z -= impulseStrength;
+		const MOVEMENT_SPEED = 25 * delta;
+		const JUMP_FORCE = 500 * delta;
+		const MAX_VEL = 5;
+
+		const linearVelocity = rigidBodyRef.current.linvel();
+		let changeRotation = false;
+
+		if (forward && linearVelocity.z < MAX_VEL) {
+			impulse.z += MOVEMENT_SPEED;
+			changeRotation = true;
 		}
+
+		if (backward && linearVelocity.z > -MAX_VEL) {
+			impulse.z -= MOVEMENT_SPEED;
+			changeRotation = true;
+		}
+
+		if (leftward && linearVelocity.x < MAX_VEL) {
+			impulse.x += MOVEMENT_SPEED;
+			changeRotation = true;
+		}
+
+		if (rightward && linearVelocity.x > -MAX_VEL) {
+			impulse.x -= MOVEMENT_SPEED;
+			changeRotation = true;
+		}
+
+		if (jump && isOnFloor.current) {
+			impulse.y += JUMP_FORCE;
+			isOnFloor.current = false;
+		}
+
+		// Rotation when turning.
+		if (changeRotation) {
+			const angle = Math.atan2(linearVelocity.x, linearVelocity.z);
+			characterRef.current.rotation.y = angle;
+		}
+
+		rigidBodyRef.current.applyImpulse(impulse, true);
 	});
+
+	// Used for rotating the model
+	const characterRef = useRef();
 
 	return (
 		<>
-			<RigidBody ref={characterRef} colliders={false}>
+			<RigidBody
+				ref={rigidBodyRef}
+				colliders={false}
+				enabledRotations={[false, false, false]}
+				onCollisionEnter={() => {
+					isOnFloor.current = true;
+				}}
+			>
 				<CapsuleCollider args={[0.7, 0.3]} position={[2, 3.0, 2]} />
-				<group position={[2, 2, 2]}>
+				<group position={[2, 2, 2]} ref={characterRef}>
 					<PortfolioAvatar />
 				</group>
 			</RigidBody>
@@ -45,87 +85,3 @@ const CharacterController = () => {
 };
 
 export default CharacterController;
-
-// {
-// 		/**
-// 		 * Getting all keys from useKeyboardControls
-// 		 */
-// 		const { forward, backward, leftward, rightward, jump, run } = getKeys();
-// 		// Getting moving directions
-// 		if (forward) {
-// 			// Apply camera rotation to character model
-// 			modelEuler.y = pivot.rotation.y;
-// 		} else if (backward) {
-// 			// Apply camera rotation to character model
-// 			modelEuler.y = pivot.rotation.y + Math.PI;
-// 		} else if (leftward) {
-// 			// Apply camera rotation to character model
-// 			modelEuler.y = pivot.rotation.y + Math.PI / 2;
-// 		} else if (rightward) {
-// 			// Apply camera rotation to character model
-// 			modelEuler.y = pivot.rotation.y - Math.PI / 2;
-// 		}
-// 		if (forward && leftward) {
-// 			// Apply camera rotation to character model
-// 			modelEuler.y = pivot.rotation.y + Math.PI / 4;
-// 		} else if (forward && rightward) {
-// 			// Apply camera rotation to character model
-// 			modelEuler.y = pivot.rotation.y - Math.PI / 4;
-// 		} else if (backward && leftward) {
-// 			// Apply camera rotation to character model
-// 			modelEuler.y = pivot.rotation.y - Math.PI / 4 + Math.PI;
-// 		} else if (backward && rightward) {
-// 			// Apply camera rotation to character model
-// 			modelEuler.y = pivot.rotation.y + Math.PI / 4 + Math.PI;
-// 		}
-// 		// Move character to the moving direction
-// 		if (forward || backward || leftward || rightward) moveCharacter(delta, run);
-// 		// Character current velocity
-// 		currentVel.copy(characterRef.current.linvel());
-// 		// Jump impulse
-// 		if (jump && canJump) {
-// 			// characterRef.current.applyImpulse(jumpDirection.set(0, 0.5, 0), true);
-// 			characterRef.current.setLinvel(
-// 				{
-// 					x: currentVel.x,
-// 					y: run ? sprintJumpMult * jumpVel : jumpVel,
-// 					z: currentVel.z,
-// 				},
-// 				true
-// 			);
-// 		}
-// 		// Rotate character model
-// 		modelQuat.setFromEuler(modelEuler);
-// 		characterModelRef.current.quaternion.rotateTowards(
-// 			modelQuat,
-// 			delta * turnSpeed
-// 		);
-// 		/**
-// 		 *  Camera movement
-// 		 */
-// 		pivotPosition.set(
-// 			characterRef.current.translation().x,
-// 			characterRef.current.translation().y + 0.5,
-// 			characterRef.current.translation().z
-// 		);
-// 		pivot.position.lerp(pivotPosition, 0.2);
-// 		state.camera.lookAt(pivot.position);
-// 		/**
-// 		 * Ray casting detect if on ground
-// 		 */
-// 		// const origin = characterRef.current.translation();
-// 		// const rayCast = new rapier.Ray(origin, rayDir);
-// 		// const rayHit = rapierWorld.castRay(
-// 		// 	rayCast,
-// 		// 	rayLength,
-// 		// 	true,
-// 		// 	null,
-// 		// 	null,
-// 		// 	characterRef.current
-// 		// );
-// 		// if (rayHit && rayHit.toi < floatingDis + 0.1) {
-// 		// 	setCanJump(true);
-// 		// } else {
-// 		// 	setCanJump(false);
-// 		// }
-// }
