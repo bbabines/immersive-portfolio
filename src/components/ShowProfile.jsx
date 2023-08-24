@@ -47,9 +47,27 @@ const ShowProfile = () => {
 							<p className="text-[lightgrey]">@RejuvenatingRo1</p>
 							<hr className="mt-2 opacity-50" />
 						</div>
-						<div className="flex">
-							<p className="mr-2">Years of Experience:</p>
-							<p className="text-[lightgreen]">2</p>
+						<div className="w-[200px] flex flex-col justify-between">
+							<p className="mr-2">
+								Years of Experience:{" "}
+								<span className="text-[lightgreen]">2.5</span>
+							</p>
+
+							<div className="flex">
+								Resume:
+								<a
+									href="resume.pdf"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="ml-2"
+								>
+									<img
+										src="resume-icon.png"
+										alt="icon thumbnail"
+										className="h-[25px]"
+									/>
+								</a>
+							</div>
 						</div>
 					</div>
 

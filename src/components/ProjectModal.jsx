@@ -20,7 +20,7 @@ const ProjectModal = ({
 		<div
 			className={
 				signSelected === signType
-					? "max-w-[1500px] max-h-[95vh] w-[50vw] min-w-[350px] overflow-auto text-white bg-[#161d26] bg-opacity-90 rounded-2xl"
+					? "max-w-[1500px] max-h-[95vh] w-[50vw] min-w-[350px] overflow-auto text-white bg-[#161d26] bg-opacity-90 rounded-2xl transition-opacity duration-300 ease-in-out opacity-100"
 					: "hidden"
 			}
 		>
@@ -84,5 +84,3 @@ const ProjectModal = ({
 };
 
 export default ProjectModal;
-// max-sm:mr-0 max-sm:mx-auto
-// max-lg:justify-center max-md:items-center
