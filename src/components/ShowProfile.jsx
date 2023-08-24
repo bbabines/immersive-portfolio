@@ -49,7 +49,7 @@ const ShowProfile = () => {
 						</div>
 						<div className="flex">
 							<p className="mr-2">Years of Experience:</p>
-							<p className="text-[lightgreen]">3</p>
+							<p className="text-[lightgreen]">2</p>
 						</div>
 					</div>
 

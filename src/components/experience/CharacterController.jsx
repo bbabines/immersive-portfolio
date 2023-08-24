@@ -22,13 +22,13 @@ const CharacterController = () => {
 	useFrame((state, delta) => {
 		// Know if the WASD keys are being pressed
 		const { forward, backward, leftward, rightward, jump, run } = getKeys();
-
 		const impulse = { x: 0, y: 0, z: 0 };
 
-		const MOVEMENT_SPEED = 100 * delta;
+		const MOVEMENT_SPEED = 200 * delta;
 		const JUMP_FORCE = 500 * delta;
 		const MAX_VEL = 5;
 		const RUN_FACTOR = run ? 3 : 1; // If 'run' key is pressed, RUN_FACTOR is 3, else 1
+		const LERP_FACTOR = 0.1; // Adjust this for faster/slower interpolation. 0.1 means 10% of the distance will be covered in each frame.
 		let movementMultiplier = 1; // Default multiplier for walking
 		movementMultiplier *= RUN_FACTOR;
 		let maxVelocityCap = MAX_VEL; // Default velocity cap
@@ -40,7 +40,7 @@ const CharacterController = () => {
 		const cameraForward = new THREE.Vector3(0, 0, -1);
 		camera.getWorldDirection(cameraForward);
 
-		// Project this Direction to the XYZ pllane
+		// Project this Direction to the XYZ plane
 		cameraForward.y = 0; // Ignore vertical component
 		cameraForward.normalize(); // Normalize to make it a unit vector
 
@@ -55,7 +55,6 @@ const CharacterController = () => {
 		);
 
 		// Main Controls
-
 		if (forward && magnitude < MAX_VEL * movementMultiplier) {
 			impulse.x += cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z += cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
@@ -127,7 +126,7 @@ const CharacterController = () => {
 
 		// Jump
 		if (jump && isOnFloor.current) {
-			impulse.y += JUMP_FORCE;
+			impulse.y += JUMP_FORCE * 0.9;
 			isOnFloor.current = false;
 			setCharacterAnimationState("jump");
 		}
@@ -143,7 +142,7 @@ const CharacterController = () => {
 		if (orbitControlsRef.current) {
 			orbitControlsRef.current.target.set(
 				bodyPosition.x,
-				bodyPosition.y + 10,
+				bodyPosition.y + 8,
 				bodyPosition.z
 			);
 		}
@@ -173,7 +172,7 @@ const CharacterController = () => {
 				</group>
 			</RigidBody>
 
-			<OrbitControls ref={orbitControlsRef} minDistance={10} maxDistance={25} />
+			<OrbitControls ref={orbitControlsRef} maxDistance={25} />
 		</>
 	);
 };
