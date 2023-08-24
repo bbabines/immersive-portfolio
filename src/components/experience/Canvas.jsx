@@ -6,6 +6,7 @@ import {
 	KeyboardControls,
 	Sky,
 	Loader,
+	// Cloud,
 } from "@react-three/drei";
 import { Physics, Debug, RigidBody } from "@react-three/rapier";
 import { LevaPanel, useControls } from "leva";
@@ -14,6 +15,7 @@ import Lights from "./Lights";
 import LandPortals from "../../models/LandPortals";
 import CharacterController from "../experience/CharacterController";
 import PortfolioAvatar from "@/models/PortfolioAvatar";
+import Clouds from "./Clouds";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -37,6 +39,9 @@ export default function MyCanvas() {
 				}}
 			>
 				{/* <OrbitControls /> */}
+
+				<Clouds />
+
 				<Lights />
 				<Sky
 					distance={450000}
@@ -44,6 +49,8 @@ export default function MyCanvas() {
 					inclination={0}
 					azimuth={0.25}
 				/>
+
+				<fog attach="fog" args={["white", 100, 300]} />
 
 				<Physics>
 					{/* Avatar */}
