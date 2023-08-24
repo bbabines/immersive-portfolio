@@ -10,44 +10,88 @@ export default function PortfolioAvatar(props) {
 	const { nodes, materials, animations } = useGLTF("/PortfolioAvatar.glb");
 	const { actions, names } = useAnimations(animations, group);
 
+	const [currentAnimation, setCurrentAnimation] = useState("idle");
+
 	useEffect(() => {
 		actions[names[14]].play();
 	}, []);
 
-	// const handleKeyPress = (event) => {
-	// 	if (
-	// 		event.key === "w" ||
-	// 		event.key === "s" ||
-	// 		event.key === "a" ||
-	// 		event.key === "d"
-	// 	) {
-	// 		actions[names[17]].play(); // Walking animation
-	// 	} else if (event.key === "Shift") {
-	// 		actions[names[17]].stop();
-	// 		actions[names[16]].play(); // Running animation
-	// 	}
-	// };
+	const [keysPressed, setKeysPressed] = useState({});
 
-	// const handleShowProfile = (event) => {
-	// 	if (event.key === "p") {
-	// 		setShowProfile(true);
-	// 	}
-	// };
+	const handleKeyPress = (event) => {
+		const keysOfInterest = [
+			"w",
+			"s",
+			"a",
+			"d",
+			"Shift",
+			"ArrowUp",
+			"ArrowDown",
+			"ArrowLeft",
+			"ArrowRight",
+		];
+		if (keysOfInterest.includes(event.key)) {
+			setKeysPressed((keys) => ({ ...keys, [event.key]: true }));
+		}
+	};
 
-	// const handleKeyUp = () => {
-	// 	actions[names[17]].stop(); // Stop the walking animation
-	// 	actions[names[16]].stop(); // Stop the running animation
-	// 	actions[names[14]].reset().play(); // Reset and play idle animation on key up
-	// };
+	const handleKeyRelease = (event) => {
+		const keysOfInterest = [
+			"w",
+			"s",
+			"a",
+			"d",
+			"Shift",
+			"ArrowUp",
+			"ArrowDown",
+			"ArrowLeft",
+			"ArrowRight",
+		];
+		if (keysOfInterest.includes(event.key)) {
+			setKeysPressed((keys) => ({ ...keys, [event.key]: false }));
+		}
+	};
 
-	// useEffect(() => {
-	// 	window.addEventListener("keydown", handleKeyPress);
-	// 	window.addEventListener("keyup", handleKeyUp);
-	// 	return () => {
-	// 		window.removeEventListener("keydown", handleKeyPress);
-	// 		window.removeEventListener("keyup", handleKeyUp);
-	// 	};
-	// }, []);
+	useEffect(() => {
+		const isWalkingOrRunningKey =
+			keysPressed.w ||
+			keysPressed.s ||
+			keysPressed.a ||
+			keysPressed.d ||
+			keysPressed.ArrowUp ||
+			keysPressed.ArrowDown ||
+			keysPressed.ArrowLeft ||
+			keysPressed.ArrowRight;
+
+		if ((keysPressed.Shift && isWalkingOrRunningKey) || keysPressed.Shift) {
+			actions[names[14]].stop(); // Stop idle animation
+			actions[names[17]].stop(); // Stop walking animation
+			actions[names[16]].play(); // Running animation
+			setCurrentAnimation("running");
+		} else if (isWalkingOrRunningKey) {
+			actions[names[14]].stop(); // Stop idle animation
+			actions[names[16]].stop(); // Stop running animation
+			actions[names[17]].play(); // Walking animation
+			setCurrentAnimation("walking");
+		} else if (!isWalkingOrRunningKey && currentAnimation !== "idle") {
+			actions[names[16]].stop(); // Stop running animation
+			actions[names[17]].stop(); // Stop walking animation
+			actions[names[14]].play(); // Idle animation
+			setCurrentAnimation("idle");
+		}
+	}, [keysPressed, currentAnimation]);
+
+	console.log(currentAnimation);
+
+	useEffect(() => {
+		window.addEventListener("keydown", handleKeyPress);
+		window.addEventListener("keyup", handleKeyRelease);
+
+		return () => {
+			window.removeEventListener("keydown", handleKeyPress);
+			window.removeEventListener("keyup", handleKeyRelease);
+		};
+	}, []);
 
 	return (
 		<group ref={group} {...props} dispose={null}>

@@ -6,15 +6,11 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { CapsuleCollider, RigidBody, useRapier } from "@react-three/rapier";
 
 import PortfolioAvatar from "@/models/PortfolioAvatar";
-import {
-	useKeyboardControls,
-	PerspectiveCamera,
-	PresentationControls,
-	OrbitControls,
-} from "@react-three/drei";
+import { useKeyboardControls, OrbitControls } from "@react-three/drei";
 
 const CharacterController = () => {
 	const [subscriberKeys, getKeys] = useKeyboardControls(); // getKeys() is a function to get the current states of the keys
+	const [characterAnimationState, setCharacterAnimationState] = useState("");
 
 	const rigidBodyRef = useRef(); // Used for character controls
 	const characterRef = useRef(); // Used for rotating the model
@@ -64,24 +60,28 @@ const CharacterController = () => {
 			impulse.x += cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z += cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
+			setCharacterAnimationState("walk");
 		}
 
 		if (backward && magnitude < MAX_VEL * movementMultiplier) {
 			impulse.x -= cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z -= cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
+			setCharacterAnimationState("walk");
 		}
 
 		if (leftward && magnitude < MAX_VEL * movementMultiplier) {
 			impulse.x -= cameraRight.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z -= cameraRight.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
+			setCharacterAnimationState("walk");
 		}
 
 		if (rightward && magnitude < MAX_VEL * movementMultiplier) {
 			impulse.x += cameraRight.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z += cameraRight.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
+			setCharacterAnimationState("walk");
 		}
 
 		const desiredChange = new THREE.Vector3();
@@ -89,6 +89,7 @@ const CharacterController = () => {
 		// Run
 		if (run) {
 			const RUN_FACTOR = 20;
+			setCharacterAnimationState("run");
 
 			if (forward) {
 				desiredChange.x += cameraForward.x * MOVEMENT_SPEED * RUN_FACTOR;
@@ -128,6 +129,7 @@ const CharacterController = () => {
 		if (jump && isOnFloor.current) {
 			impulse.y += JUMP_FORCE;
 			isOnFloor.current = false;
+			setCharacterAnimationState("jump");
 		}
 
 		if (changeRotation) {
@@ -164,7 +166,10 @@ const CharacterController = () => {
 			>
 				<CapsuleCollider args={[0.7, 0.3]} position={[2, 3.0, 2]} />
 				<group position={[2, 2, 2]} ref={characterRef}>
-					<PortfolioAvatar />
+					<PortfolioAvatar
+						setCharacterAnimationState={setCharacterAnimationState}
+						characterAnimationState={characterAnimationState}
+					/>
 				</group>
 			</RigidBody>
 
