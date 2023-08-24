@@ -18,9 +18,9 @@ const CharacterController = () => {
 
 	const rigidBodyRef = useRef(); // Used for character controls
 	const characterRef = useRef(); // Used for rotating the model
+	const orbitControlsRef = useRef();
 	let isOnFloor = useRef(true); // Needed useRef for jump instead of useState
 
-	const orbitControlsRef = useRef();
 	const camera = useThree((state) => state.camera);
 
 	useFrame((state, delta) => {
@@ -32,6 +32,10 @@ const CharacterController = () => {
 		const MOVEMENT_SPEED = 100 * delta;
 		const JUMP_FORCE = 500 * delta;
 		const MAX_VEL = 5;
+		const RUN_FACTOR = run ? 3 : 1; // If 'run' key is pressed, RUN_FACTOR is 3, else 1
+		let movementMultiplier = 1; // Default multiplier for walking
+		movementMultiplier *= RUN_FACTOR;
+		let maxVelocityCap = MAX_VEL; // Default velocity cap
 
 		const linearVelocity = rigidBodyRef.current.linvel();
 		let changeRotation = false;
@@ -55,33 +59,32 @@ const CharacterController = () => {
 		);
 
 		// Main Controls
-		if (forward && magnitude < MAX_VEL) {
-			impulse.x += cameraForward.x * MOVEMENT_SPEED;
-			impulse.z += cameraForward.z * MOVEMENT_SPEED;
+
+		if (forward && magnitude < MAX_VEL * movementMultiplier) {
+			impulse.x += cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
+			impulse.z += cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
 		}
 
-		if (backward && magnitude < MAX_VEL) {
-			impulse.x -= cameraForward.x * MOVEMENT_SPEED;
-			impulse.z -= cameraForward.z * MOVEMENT_SPEED;
+		if (backward && magnitude < MAX_VEL * movementMultiplier) {
+			impulse.x -= cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
+			impulse.z -= cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
 		}
 
-		if (leftward && magnitude < MAX_VEL) {
-			impulse.x -= cameraRight.x * MOVEMENT_SPEED;
-			impulse.z -= cameraRight.z * MOVEMENT_SPEED;
+		if (leftward && magnitude < MAX_VEL * movementMultiplier) {
+			impulse.x -= cameraRight.x * MOVEMENT_SPEED * movementMultiplier;
+			impulse.z -= cameraRight.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
 		}
 
-		if (rightward && magnitude < MAX_VEL) {
-			impulse.x += cameraRight.x * MOVEMENT_SPEED;
-			impulse.z += cameraRight.z * MOVEMENT_SPEED;
+		if (rightward && magnitude < MAX_VEL * movementMultiplier) {
+			impulse.x += cameraRight.x * MOVEMENT_SPEED * movementMultiplier;
+			impulse.z += cameraRight.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
 		}
 
 		const desiredChange = new THREE.Vector3();
-
-		let maxVelocityCap = MAX_VEL; // Default velocity cap
 
 		// Run
 		if (run) {
@@ -110,12 +113,12 @@ const CharacterController = () => {
 			maxVelocityCap *= RUN_FACTOR; // Increase the velocity cap during the run
 		}
 
-		// After calculating your total impulse
+		// Compute the total impulse magnitude and cap it to the adjusted maximum velocity
 		const totalImpulseMagnitude = Math.sqrt(
 			impulse.x * impulse.x + impulse.y * impulse.y + impulse.z * impulse.z
 		);
-		if (totalImpulseMagnitude > maxVelocityCap) {
-			const scale = maxVelocityCap / totalImpulseMagnitude;
+		if (totalImpulseMagnitude > MAX_VEL * movementMultiplier) {
+			const scale = (MAX_VEL * movementMultiplier) / totalImpulseMagnitude;
 			impulse.x *= scale;
 			impulse.y *= scale;
 			impulse.z *= scale;
@@ -165,11 +168,7 @@ const CharacterController = () => {
 				</group>
 			</RigidBody>
 
-			<OrbitControls
-				ref={orbitControlsRef}
-				minDistance={10} // the closest the camera can be to the target
-				maxDistance={25} // the farthest the camera can be from the target
-			/>
+			<OrbitControls ref={orbitControlsRef} minDistance={10} maxDistance={25} />
 		</>
 	);
 };
