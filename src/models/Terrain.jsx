@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export default function Terrain(props) {
-	const { nodes, materials } = useGLTF("/forest_terrain.glb");
+	const { nodes, materials } = useGLTF("/texturedTerrain.glb");
 	return (
 		<group {...props} dispose={null}>
 			<mesh
@@ -19,4 +19,4 @@ export default function Terrain(props) {
 	);
 }
 
-useGLTF.preload("/forest_terrain.glb");
+useGLTF.preload("/texturedTerrain.glb");

@@ -2,7 +2,12 @@
 
 import React, { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, KeyboardControls, Loader } from "@react-three/drei";
+import {
+	OrbitControls,
+	KeyboardControls,
+	Loader,
+	Sky,
+} from "@react-three/drei";
 import {
 	Physics,
 	Debug,
@@ -12,11 +17,13 @@ import {
 } from "@react-three/rapier";
 
 import Lights from "./Lights";
-import LandPortals from "../../models/LandPortals";
+import TimeOfDay from "./TimeOfDay";
 import CharacterController from "../experience/CharacterController";
 import PortfolioAvatar from "@/models/PortfolioAvatar";
-import LargeTerrain from "../../models/LargeTerrain";
-import TimeOfDay from "./TimeOfDay";
+import LandPortals from "../../models/LandPortals";
+import Terrain from "../../models/Terrain";
+import MainPOI from "../../models/MainPOI";
+import GenericPOI from "../../models/GenericPOI";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -41,14 +48,17 @@ export default function MyCanvas() {
 			>
 				{/* <OrbitControls /> */}
 
-				<TimeOfDay />
+				{/* <TimeOfDay /> */}
 
-				{/* Pass time of day and change intensity to 0.5 at night */}
+				{/* Delete Lighjs and Sky when TimeOfDay is finished */}
 				<Lights />
+				<Sky />
 
-				{/* <fog attach="fog" args={["white", 100, 300]} /> */}
+				{/* <fog attach="fog" args={["white", 20, 300]} /> */}
 
 				<Physics
+				// debug
+				// debug
 				// debug
 				>
 					{/* Avatar */}
@@ -62,14 +72,24 @@ export default function MyCanvas() {
 					</RigidBody>
 
 					<RigidBody type="fixed" friction={15}>
-						<MeshCollider
+						{/* <MeshCollider
 							type="trimesh"
-							args={[20, 1, 20]}
-							position={[0, -15, 0]}
-						>
-							<LargeTerrain position={[0, -1, 0]} scale={0.01} />
-						</MeshCollider>
+							args={[2, 1, 2]}
+						> */}
+						<Terrain position={[0, -1, 0]} scale={0.01} />
+						{/* </MeshCollider> */}
 					</RigidBody>
+
+					{/* Delete once Terrain physics figured out */}
+					<RigidBody type="fixed" friction={15}>
+						<mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
+							<planeGeometry args={[500, 500]} />
+							<meshStandardMaterial />
+						</mesh>
+					</RigidBody>
+
+					<MainPOI scale={0.2} />
+					<GenericPOI scale={0.2} />
 				</Physics>
 			</Canvas>
 
@@ -80,3 +100,5 @@ export default function MyCanvas() {
 		</>
 	);
 }
+
+// scale={0.01}

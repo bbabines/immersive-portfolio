@@ -1,6 +1,4 @@
 export default function Lights({ timeOfDay }) {
-	console.log(timeOfDay);
-
 	return (
 		<>
 			<directionalLight
