@@ -172,7 +172,7 @@ const CharacterController = () => {
 				</group>
 			</RigidBody>
 
-			<OrbitControls ref={orbitControlsRef} maxDistance={25} />
+			<OrbitControls ref={orbitControlsRef} maxDistance={55} />
 		</>
 	);
 };

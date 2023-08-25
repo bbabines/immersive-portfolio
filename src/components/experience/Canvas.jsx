@@ -1,12 +1,8 @@
 "use client";
 
+import React, { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import {
-	OrbitControls,
-	KeyboardControls,
-	Sky,
-	Loader,
-} from "@react-three/drei";
+import { OrbitControls, KeyboardControls, Loader } from "@react-three/drei";
 import {
 	Physics,
 	Debug,
@@ -14,15 +10,13 @@ import {
 	CuboidCollider,
 	MeshCollider,
 } from "@react-three/rapier";
-import { LevaPanel, useControls } from "leva";
 
 import Lights from "./Lights";
 import LandPortals from "../../models/LandPortals";
 import CharacterController from "../experience/CharacterController";
 import PortfolioAvatar from "@/models/PortfolioAvatar";
-import Clouds from "./Clouds";
-import Terrain from "../../models/Terrain";
 import LargeTerrain from "../../models/LargeTerrain";
+import TimeOfDay from "./TimeOfDay";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -47,15 +41,10 @@ export default function MyCanvas() {
 			>
 				{/* <OrbitControls /> */}
 
-				<Clouds />
+				<TimeOfDay />
 
+				{/* Pass time of day and change intensity to 0.5 at night */}
 				<Lights />
-				<Sky
-					distance={450000}
-					sunPosition={[0, 1, 0]}
-					inclination={0}
-					azimuth={0.25}
-				/>
 
 				{/* <fog attach="fog" args={["white", 100, 300]} /> */}
 
@@ -73,13 +62,12 @@ export default function MyCanvas() {
 					</RigidBody>
 
 					<RigidBody type="fixed" friction={15}>
-						{/* <Terrain position={[0, -5, 0]} scale={0.01} /> */}
 						<MeshCollider
 							type="trimesh"
 							args={[20, 1, 20]}
 							position={[0, -15, 0]}
 						>
-							<LargeTerrain position={[0, -15, 0]} scale={0.01} />
+							<LargeTerrain position={[0, -1, 0]} scale={0.01} />
 						</MeshCollider>
 					</RigidBody>
 				</Physics>

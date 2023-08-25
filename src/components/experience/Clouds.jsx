@@ -12,7 +12,7 @@ export default function Clouds() {
 		return Array.from({ length: NUM_CLOUDS }).map((_, index) => (
 			<Cloud
 				key={index}
-				opacity={generateRandom(0.1, 0.5)}
+				opacity={generateRandom(0.1, 0.2)}
 				speed={generateRandom(0.05, 0.15)}
 				width={generateRandom(80, 150)}
 				depth={generateRandom(3, 6)}
