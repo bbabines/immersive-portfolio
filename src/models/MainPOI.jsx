@@ -12,9 +12,10 @@ export default function MainPOI(props) {
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name="Scene">
+				{/* Left Tree */}
 				<group
 					name="tree"
-					position={[-268.293, 6.383, 89.023]}
+					position={[-268.293, 0, 120]}
 					rotation={[-Math.PI / 2, 0, 0]}
 					scale={35.147}
 				>
@@ -46,94 +47,50 @@ export default function MainPOI(props) {
 						</group>
 					</group>
 				</group>
+
+				{/*Right Tree */}
 				<group
-					name="spawn_point"
-					position={[-266.882, 3.903, 65.393]}
-					rotation={[-Math.PI, 1.558, -Math.PI]}
-					scale={6.562}
+					name="tree001"
+					position={[-257.753, -2.5, 60]}
+					rotation={[-Math.PI / 2, 0, 0]}
+					scale={35.147}
 				>
-					<mesh
-						name="Circle025"
-						castShadow
-						receiveShadow
-						geometry={nodes.Circle025.geometry}
-						material={materials.Base_SideRocks_MAT}
-					/>
-					<mesh
-						name="Circle025_1"
-						castShadow
-						receiveShadow
-						geometry={nodes.Circle025_1.geometry}
-						material={materials.Foliage_MAT}
-					/>
-					<mesh
-						name="Circle025_2"
-						castShadow
-						receiveShadow
-						geometry={nodes.Circle025_2.geometry}
-						material={materials.Water_MAT}
-					/>
-					<mesh
-						name="Circle025_3"
-						castShadow
-						receiveShadow
-						geometry={nodes.Circle025_3.geometry}
-						material={materials.Base_Base_MAT}
-					/>
+					<group
+						name="e4a9b945b60a47099b7ed8ca539f430afbx005"
+						rotation={[Math.PI / 2, 0, 0]}
+						scale={0.01}
+					>
+						<group name="RootNode002">
+							<group name="oak_01001">
+								<group
+									name="oak_01_leafes_Mat001_0001"
+									position={[32.469, 0, 0]}
+								>
+									<mesh
+										name="oak_01_leafes_Mat001_0003_1"
+										castShadow
+										receiveShadow
+										geometry={nodes.oak_01_leafes_Mat001_0003_1.geometry}
+										material={materials["leafes_Mat.001"]}
+									/>
+									<mesh
+										name="oak_01_leafes_Mat001_0003_2"
+										castShadow
+										receiveShadow
+										geometry={nodes.oak_01_leafes_Mat001_0003_2.geometry}
+										material={materials["trunk_Mat.001"]}
+									/>
+								</group>
+							</group>
+							<group name="oak_01010" />
+						</group>
+					</group>
 				</group>
-				<mesh
-					name="middle_sign"
-					castShadow
-					receiveShadow
-					geometry={nodes.middle_sign.geometry}
-					material={materials.Billboard}
-					position={[357.209, 4.77, -127.013]}
-					rotation={[0, -1.364, 0]}
-					scale={3.873}
-				/>
-				<mesh
-					name="front_left_sign"
-					castShadow
-					receiveShadow
-					geometry={nodes.front_left_sign.geometry}
-					material={materials.Billboard}
-					position={[265.032, 5.387, -195.387]}
-					rotation={[0, -1.364, 0]}
-					scale={3.873}
-				/>
-				<mesh
-					name="front-_rigjht_sign"
-					castShadow
-					receiveShadow
-					geometry={nodes["front-_rigjht_sign"].geometry}
-					material={materials.Billboard}
-					position={[296.167, 3.32, -39.373]}
-					rotation={[0, -1.364, 0]}
-					scale={3.873}
-				/>
-				<mesh
-					name="back_right_sign"
-					castShadow
-					receiveShadow
-					geometry={nodes.back_right_sign.geometry}
-					material={materials.Billboard}
-					position={[328.337, 3.674, -76.046]}
-					rotation={[0, -1.364, 0]}
-					scale={3.873}
-				/>
-				<mesh
-					name="back_left_sign"
-					castShadow
-					receiveShadow
-					geometry={nodes.back_left_sign.geometry}
-					material={materials.Billboard}
-					position={[308.834, 6.503, -173.775]}
-					rotation={[0, -1.364, 0]}
-					scale={3.873}
-				/>
+
+				{/* Spawn Sign */}
 				<group
 					name="starting_sign"
-					position={[-242.829, 6.254, 64.588]}
+					position={[-230, 2, 95]}
 					rotation={[-Math.PI / 2, 0, -1.641]}
 					scale={2.582}
 				>
@@ -342,46 +299,108 @@ export default function MainPOI(props) {
 						</group>
 					</group>
 				</group>
+
+				{/* Spawn Point */}
 				<group
-					name="tree001"
-					position={[-257.753, 6.626, 30.239]}
-					rotation={[-Math.PI / 2, 0, 0]}
-					scale={35.147}
+					name="spawn_point"
+					position={[-260, 0.5, 100]}
+					rotation={[-Math.PI, 1.558, -Math.PI]}
+					scale={6.562}
 				>
-					<group
-						name="e4a9b945b60a47099b7ed8ca539f430afbx005"
-						rotation={[Math.PI / 2, 0, 0]}
-						scale={0.01}
-					>
-						<group name="RootNode002">
-							<group name="oak_01001">
-								<group
-									name="oak_01_leafes_Mat001_0001"
-									position={[32.469, 0, 0]}
-								>
-									<mesh
-										name="oak_01_leafes_Mat001_0003_1"
-										castShadow
-										receiveShadow
-										geometry={nodes.oak_01_leafes_Mat001_0003_1.geometry}
-										material={materials["leafes_Mat.001"]}
-									/>
-									<mesh
-										name="oak_01_leafes_Mat001_0003_2"
-										castShadow
-										receiveShadow
-										geometry={nodes.oak_01_leafes_Mat001_0003_2.geometry}
-										material={materials["trunk_Mat.001"]}
-									/>
-								</group>
-							</group>
-							<group name="oak_01010" />
-						</group>
-					</group>
+					<mesh
+						name="Circle025"
+						castShadow
+						receiveShadow
+						geometry={nodes.Circle025.geometry}
+						material={materials.Base_SideRocks_MAT}
+					/>
+					<mesh
+						name="Circle025_1"
+						castShadow
+						receiveShadow
+						geometry={nodes.Circle025_1.geometry}
+						material={materials.Foliage_MAT}
+					/>
+					<mesh
+						name="Circle025_2"
+						castShadow
+						receiveShadow
+						geometry={nodes.Circle025_2.geometry}
+						material={materials.Water_MAT}
+					/>
+					<mesh
+						name="Circle025_3"
+						castShadow
+						receiveShadow
+						geometry={nodes.Circle025_3.geometry}
+						material={materials.Base_Base_MAT}
+					/>
 				</group>
+
+				{/* Middle Sign */}
+				<mesh
+					name="middle_sign"
+					castShadow
+					receiveShadow
+					geometry={nodes.middle_sign.geometry}
+					material={materials.Billboard}
+					position={[357.209, 0, -127.013]}
+					rotation={[0, -1.364, 0]}
+					scale={3.873}
+				/>
+
+				{/* Front Left Sign */}
+				<mesh
+					name="front_left_sign"
+					castShadow
+					receiveShadow
+					geometry={nodes.front_left_sign.geometry}
+					material={materials.Billboard}
+					position={[265.032, 1, -195.387]}
+					rotation={[0, -1.364, 0]}
+					scale={3.873}
+				/>
+
+				{/* Front Right Sign */}
+				<mesh
+					name="front-_rigjht_sign"
+					castShadow
+					receiveShadow
+					geometry={nodes["front-_rigjht_sign"].geometry}
+					material={materials.Billboard}
+					position={[296.167, -2, -39.373]}
+					rotation={[0, -1.364, 0]}
+					scale={3.873}
+				/>
+
+				{/* Back Right Sign */}
+				<mesh
+					name="back_right_sign"
+					castShadow
+					receiveShadow
+					geometry={nodes.back_right_sign.geometry}
+					material={materials.Billboard}
+					position={[328.337, -2, -76.046]}
+					rotation={[0, -1.364, 0]}
+					scale={3.873}
+				/>
+
+				{/* Back Left Sign */}
+				<mesh
+					name="back_left_sign"
+					castShadow
+					receiveShadow
+					geometry={nodes.back_left_sign.geometry}
+					material={materials.Billboard}
+					position={[308.834, 0, -173.775]}
+					rotation={[0, -1.364, 0]}
+					scale={3.873}
+				/>
+
+				{/* House */}
 				<group
 					name="house"
-					position={[-78.993, 1.104, -314.37]}
+					position={[-78.993, -3, -314.37]}
 					rotation={[-Math.PI / 2, 0, 0]}
 					scale={6.53}
 				>
@@ -458,6 +477,8 @@ export default function MainPOI(props) {
 						/>
 					</group>
 				</group>
+
+				{/* Mailbox */}
 				<group
 					name="mailbox"
 					position={[-8.067, 2.221, 326.868]}
@@ -734,6 +755,8 @@ export default function MainPOI(props) {
 						</group>
 					</group>
 				</group>
+
+				{/* LinkedIn */}
 				<group
 					name="linkedIn_icon"
 					position={[13.137, 13.075, 326.99]}
@@ -773,6 +796,8 @@ export default function MainPOI(props) {
 						</group>
 					</group>
 				</group>
+
+				{/* Twitter */}
 				<group
 					name="twitter_icon"
 					position={[0.733, 0, 328.04]}
@@ -805,9 +830,11 @@ export default function MainPOI(props) {
 						</group>
 					</group>
 				</group>
+
+				{/* Github */}
 				<group
 					name="github_icon"
-					position={[7.316, 2.493, 326.46]}
+					position={[7.316, -2, 326.46]}
 					rotation={[-Math.PI / 2, 0, 3.117]}
 				>
 					<group name="root001">

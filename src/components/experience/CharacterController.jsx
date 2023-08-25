@@ -162,7 +162,7 @@ const CharacterController = () => {
 				onCollisionEnter={() => {
 					isOnFloor.current = true;
 				}}
-				position={[50, 0, 50]}
+				position={[-20, 2, 10]}
 			>
 				<CapsuleCollider args={[0.7, 0.3]} position={[2, 3.0, 2]} />
 				<group position={[2, 2, 2]} ref={characterRef}>
