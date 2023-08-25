@@ -6,9 +6,14 @@ import {
 	KeyboardControls,
 	Sky,
 	Loader,
-	// Cloud,
 } from "@react-three/drei";
-import { Physics, Debug, RigidBody } from "@react-three/rapier";
+import {
+	Physics,
+	Debug,
+	RigidBody,
+	CuboidCollider,
+	MeshCollider,
+} from "@react-three/rapier";
 import { LevaPanel, useControls } from "leva";
 
 import Lights from "./Lights";
@@ -16,6 +21,8 @@ import LandPortals from "../../models/LandPortals";
 import CharacterController from "../experience/CharacterController";
 import PortfolioAvatar from "@/models/PortfolioAvatar";
 import Clouds from "./Clouds";
+import Terrain from "../../models/Terrain";
+import LargeTerrain from "../../models/LargeTerrain";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -50,9 +57,11 @@ export default function MyCanvas() {
 					azimuth={0.25}
 				/>
 
-				<fog attach="fog" args={["white", 100, 300]} />
+				{/* <fog attach="fog" args={["white", 100, 300]} /> */}
 
-				<Physics>
+				<Physics
+				// debug
+				>
 					{/* Avatar */}
 					<KeyboardControls map={keyboardMap}>
 						<CharacterController />
@@ -60,7 +69,18 @@ export default function MyCanvas() {
 
 					{/* Scene */}
 					<RigidBody type="fixed" friction={15}>
-						<LandPortals />
+						{/* <LandPortals /> */}
+					</RigidBody>
+
+					<RigidBody type="fixed" friction={15}>
+						{/* <Terrain position={[0, -5, 0]} scale={0.01} /> */}
+						<MeshCollider
+							type="trimesh"
+							args={[20, 1, 20]}
+							position={[0, -15, 0]}
+						>
+							<LargeTerrain position={[0, -15, 0]} scale={0.01} />
+						</MeshCollider>
 					</RigidBody>
 				</Physics>
 			</Canvas>
