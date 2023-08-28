@@ -14,6 +14,7 @@ import {
 	RigidBody,
 	CuboidCollider,
 	MeshCollider,
+	BallCollider,
 } from "@react-three/rapier";
 
 import Lights from "./Lights";
@@ -24,6 +25,7 @@ import LandPortals from "../../models/LandPortals";
 import Terrain from "../../models/Terrain";
 import MainPOI from "../../models/MainPOI";
 import GenericPOI from "../../models/GenericPOI";
+import Mailbox from "../../models/Mailbox";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -50,11 +52,11 @@ export default function MyCanvas() {
 
 				{/* <TimeOfDay /> */}
 
-				{/* Delete Lighjs and Sky when TimeOfDay is finished */}
+				{/* Delete Lights and Sky when TimeOfDay is finished */}
 				<Lights />
 				<Sky />
 
-				{/* <fog attach="fog" args={["white", 20, 300]} /> */}
+				<fog attach="fog" args={["white", 20, 200]} />
 
 				<Physics
 				// debug
@@ -67,28 +69,32 @@ export default function MyCanvas() {
 					</KeyboardControls>
 
 					{/* Scene */}
-					<RigidBody type="fixed" friction={15}>
-						{/* <LandPortals /> */}
-					</RigidBody>
+					{/* <RigidBody type="fixed" friction={15}> */}
+					{/* <LandPortals /> */}
+					{/* </RigidBody> */}
 
-					<RigidBody type="fixed" friction={15}>
-						{/* <MeshCollider
-							type="trimesh"
-							args={[2, 1, 2]}
-						> */}
-						<Terrain position={[0, -1, 0]} scale={0.01} />
-						{/* </MeshCollider> */}
-					</RigidBody>
-
-					{/* Delete once Terrain physics figured out */}
-					<RigidBody type="fixed" friction={15}>
-						<mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
-							<planeGeometry args={[500, 500]} />
+					<RigidBody
+						type="fixed"
+						colliders="cuboid"
+						friction={15}
+						includeInvisible
+					>
+						<mesh
+							rotation={[-Math.PI / 2, 0, 0]}
+							position={[0, 0, 0]}
+							visible={false}
+						>
+							<planeGeometry args={[300, 300]} />
 							<meshStandardMaterial />
 						</mesh>
 					</RigidBody>
 
+					{/* <RigidBody type="false" friction={15}> */}
+					<Terrain position={[0, -1, 0]} scale={0.01} />
+					{/* </RigidBody> */}
+
 					<MainPOI scale={0.2} />
+					<Mailbox position={[0, -0.5, -16.5]} scale={0.25} />
 					<GenericPOI scale={0.2} />
 				</Physics>
 			</Canvas>
@@ -100,5 +106,3 @@ export default function MyCanvas() {
 		</>
 	);
 }
-
-// scale={0.01}

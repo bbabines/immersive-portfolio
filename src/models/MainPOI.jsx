@@ -15,9 +15,9 @@ export default function MainPOI(props) {
 				{/* Left Tree */}
 				<group
 					name="tree"
-					position={[-268.293, 0, 120]}
+					position={[-290, 0, 120]}
 					rotation={[-Math.PI / 2, 0, 0]}
-					scale={35.147}
+					scale={100}
 				>
 					<group
 						name="e4a9b945b60a47099b7ed8ca539f430afbx001"
@@ -51,9 +51,9 @@ export default function MainPOI(props) {
 				{/*Right Tree */}
 				<group
 					name="tree001"
-					position={[-257.753, -2.5, 60]}
+					position={[-257.753, -2.5, 20]}
 					rotation={[-Math.PI / 2, 0, 0]}
-					scale={35.147}
+					scale={100}
 				>
 					<group
 						name="e4a9b945b60a47099b7ed8ca539f430afbx005"
@@ -90,9 +90,9 @@ export default function MainPOI(props) {
 				{/* Spawn Sign */}
 				<group
 					name="starting_sign"
-					position={[-230, 2, 95]}
+					position={[-220, 5, 70]}
 					rotation={[-Math.PI / 2, 0, -1.641]}
-					scale={2.582}
+					scale={5}
 				>
 					<group
 						name="9303ec51146f438988862dc359454c98fbx"
@@ -303,9 +303,9 @@ export default function MainPOI(props) {
 				{/* Spawn Point */}
 				<group
 					name="spawn_point"
-					position={[-260, 0.5, 100]}
+					position={[-260, 0.5, 80]}
 					rotation={[-Math.PI, 1.558, -Math.PI]}
-					scale={6.562}
+					scale={20}
 				>
 					<mesh
 						name="Circle025"
@@ -346,7 +346,7 @@ export default function MainPOI(props) {
 					material={materials.Billboard}
 					position={[357.209, 0, -127.013]}
 					rotation={[0, -1.364, 0]}
-					scale={3.873}
+					scale={8}
 				/>
 
 				{/* Front Left Sign */}
@@ -356,9 +356,9 @@ export default function MainPOI(props) {
 					receiveShadow
 					geometry={nodes.front_left_sign.geometry}
 					material={materials.Billboard}
-					position={[265.032, 1, -195.387]}
+					position={[210, 1, -230]}
 					rotation={[0, -1.364, 0]}
-					scale={3.873}
+					scale={8}
 				/>
 
 				{/* Front Right Sign */}
@@ -368,9 +368,9 @@ export default function MainPOI(props) {
 					receiveShadow
 					geometry={nodes["front-_rigjht_sign"].geometry}
 					material={materials.Billboard}
-					position={[296.167, -2, -39.373]}
+					position={[255.167, -2, 0]}
 					rotation={[0, -1.364, 0]}
-					scale={3.873}
+					scale={8}
 				/>
 
 				{/* Back Right Sign */}
@@ -380,9 +380,9 @@ export default function MainPOI(props) {
 					receiveShadow
 					geometry={nodes.back_right_sign.geometry}
 					material={materials.Billboard}
-					position={[328.337, -2, -76.046]}
+					position={[300, -2, -60]}
 					rotation={[0, -1.364, 0]}
-					scale={3.873}
+					scale={8}
 				/>
 
 				{/* Back Left Sign */}
@@ -392,9 +392,9 @@ export default function MainPOI(props) {
 					receiveShadow
 					geometry={nodes.back_left_sign.geometry}
 					material={materials.Billboard}
-					position={[308.834, 0, -173.775]}
+					position={[275, 0, -180]}
 					rotation={[0, -1.364, 0]}
-					scale={3.873}
+					scale={8}
 				/>
 
 				{/* House */}
@@ -402,7 +402,7 @@ export default function MainPOI(props) {
 					name="house"
 					position={[-78.993, -3, -314.37]}
 					rotation={[-Math.PI / 2, 0, 0]}
-					scale={6.53}
+					scale={11}
 				>
 					<group name="TinyCabinFantasy_Textured_Sceneobjcleanermaterialmergergles">
 						<mesh
@@ -479,7 +479,7 @@ export default function MainPOI(props) {
 				</group>
 
 				{/* Mailbox */}
-				<group
+				{/* <group
 					name="mailbox"
 					position={[-8.067, 2.221, 326.868]}
 					rotation={[-Math.PI / 2, 0, -3.137]}
@@ -754,7 +754,7 @@ export default function MainPOI(props) {
 							</group>
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/* LinkedIn */}
 				<group
@@ -800,7 +800,7 @@ export default function MainPOI(props) {
 				{/* Twitter */}
 				<group
 					name="twitter_icon"
-					position={[0.733, 0, 328.04]}
+					position={[-7, 1, 328.04]}
 					rotation={[-Math.PI / 2, 0, 0]}
 					scale={0.014}
 				>

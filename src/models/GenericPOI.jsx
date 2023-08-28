@@ -15,9 +15,9 @@ export default function GenericPOI(props) {
 				{/* Well */}
 				<group
 					name="well"
-					position={[-1.09, -2, -0.625]}
+					position={[-1.09, 4, -0.625]}
 					rotation={[-Math.PI / 2, 0, 0]}
-					scale={0.93}
+					scale={3}
 				>
 					<group name="pozoobjcleanermaterialmergergles">
 						<mesh
@@ -1124,7 +1124,7 @@ export default function GenericPOI(props) {
 					name="blacksmith_scene"
 					position={[74.435, -1.5, 205]}
 					rotation={[-Math.PI / 2, 0, 3.12]}
-					scale={0.044}
+					scale={0.09}
 				>
 					<group
 						name="c51a6f22ccad4c4ca56e8ace1a6cf58ffbx"
