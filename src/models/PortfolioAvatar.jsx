@@ -137,14 +137,23 @@ export default function PortfolioAvatar(props) {
 		<group ref={group} {...props} dispose={null}>
 			<group name="Scene">
 				{/* Name Overlay */}
-				{/* <Html>
-					<div className="flex flex-col justify-center items-center select-none z-20 border">
-						<p className="w-[100px] text-[#6ee06e] select-none">Brad Babines</p>
-						<p className="w-[200px] text-[#6ee06e] text-center select-none">
+				<Html center position={[0, 2.8, 0]}>
+					{/* Some Tailwind styles don't work on the model therefore inline styling was used*/}
+					<div
+						style={{ userSelect: "none" }}
+						className="flex flex-col justify-center items-center"
+					>
+						<p
+							style={{ color: "#6ee06e", marginBottom: "-5px" }}
+							className="w-[100px]"
+						>
+							Brad Babines
+						</p>
+						<p style={{ color: "#6ee06e" }} className="w-[200px] text-center">
 							{"<React & three.js Dev>"}
 						</p>
 					</div>
-				</Html> */}
+				</Html>
 				<group name="Armature" position={[0, 0.3, 0]}>
 					<skinnedMesh
 						name="Body"
