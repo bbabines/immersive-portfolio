@@ -49,7 +49,7 @@ const ShowProfile = () => {
 						<div className="">
 							<hr className="mb-2 opacity-50" />
 							<p className="font-medium">Brad Babines</p>
-							<p className="text-[lightgrey]">@RejuvenatingRo1</p>
+							<p className="text-[lightgrey]">Front End Developer</p>
 							<hr className="mt-2 opacity-50" />
 						</div>
 						<div className="w-[200px] flex flex-col justify-between">

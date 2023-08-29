@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
 	OrbitControls,
@@ -8,19 +8,7 @@ import {
 	Loader,
 	Sky,
 } from "@react-three/drei";
-import {
-	Physics,
-	Debug,
-	RigidBody,
-	CuboidCollider,
-	MeshCollider,
-	BallCollider,
-	HeightfieldCollider,
-	ConvexHullCollider,
-	TrimeshCollider,
-	ConeCollider,
-	RoundCuboidCollider,
-} from "@react-three/rapier";
+import { Physics, Debug, RigidBody } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
 
 import Lights from "./Lights";
@@ -30,6 +18,7 @@ import Terrain from "../../models/Terrain";
 import MainPOI from "../../models/MainPOI";
 import GenericPOI from "../../models/GenericPOI";
 import Mailbox from "../../models/Mailbox";
+import LoadingScreen from "../experience/LoadingScreen";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -42,8 +31,14 @@ export const keyboardMap = [
 ];
 
 export default function MyCanvas() {
+	const [loadingStarted, setLoadingStarted] = useState(false);
+
 	return (
 		<>
+			<LoadingScreen
+				loadingStarted={loadingStarted}
+				setLoadingStarted={setLoadingStarted}
+			/>
 			<Canvas
 				camera={{
 					fov: 45,
@@ -52,56 +47,55 @@ export default function MyCanvas() {
 					position: [30, 5, 25],
 				}}
 			>
-				{/* <TimeOfDay /> */}
+				{loadingStarted && (
+					<>
+						{/* <TimeOfDay /> */}
 
-				{/* Delete Lights and Sky when TimeOfDay is finished */}
-				<Lights />
-				<Sky />
-				<Perf position="top-left" />
+						{/* Delete Lights and Sky when TimeOfDay is finished */}
+						<Lights />
+						<Sky />
+						<Perf position="top-left" />
 
-				{/* <fog attach="fog" args={["white", 20, 200]} /> */}
+						{/* <fog attach="fog" args={["white", 20, 200]} /> */}
 
-				<Physics
-				// debug
-				// debug
-				// debug
-				>
-					{/* Avatar */}
-					<KeyboardControls map={keyboardMap}>
-						<CharacterController />
-					</KeyboardControls>
-
-					{/* Scene */}
-					{/* <RigidBody type="fixed" friction={15}> */}
-					{/* <LandPortals /> */}
-					{/* </RigidBody> */}
-
-					<RigidBody type="fixed" friction={15} includeInvisible>
-						<mesh
-							rotation={[-Math.PI / 2, 0, 0]}
-							position={[0, 0, 0]}
-							visible={false}
+						<Physics
+						// debug
+						// debug
+						// debug
 						>
-							<planeGeometry args={[300, 300]} />
-							<meshStandardMaterial />
-						</mesh>
-					</RigidBody>
+							{/* Avatar */}
+							<KeyboardControls map={keyboardMap}>
+								<CharacterController />
+							</KeyboardControls>
 
-					{/* <RigidBody type="fixed" friction={15}> */}
-					<Terrain position={[0, -1, 0]} scale={0.01} />
-					{/* </RigidBody> */}
+							{/* Scene */}
+							{/* <RigidBody type="fixed" friction={15}> */}
+							{/* <LandPortals /> */}
+							{/* </RigidBody> */}
 
-					{/* POI */}
-					<MainPOI scale={0.2} />
-					<Mailbox position={[0, -0.5, -16.5]} scale={0.25} />
-					<GenericPOI scale={0.2} />
-				</Physics>
+							<RigidBody type="fixed" friction={15} includeInvisible>
+								<mesh
+									rotation={[-Math.PI / 2, 0, 0]}
+									position={[0, 0, 0]}
+									visible={false}
+								>
+									<planeGeometry args={[300, 300]} />
+									<meshStandardMaterial />
+								</mesh>
+							</RigidBody>
+
+							{/* <RigidBody type="fixed" friction={15}> */}
+							<Terrain position={[0, -1, 0]} scale={0.01} />
+							{/* </RigidBody> */}
+
+							{/* POI */}
+							<MainPOI scale={0.2} />
+							<Mailbox position={[0, -0.5, -16.5]} scale={0.25} />
+							<GenericPOI scale={0.2} />
+						</Physics>
+					</>
+				)}
 			</Canvas>
-
-			<Loader
-				dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`} // Text
-				initialState={(active) => active} // Initial black out state
-			/>
 		</>
 	);
 }

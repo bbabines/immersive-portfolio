@@ -6,7 +6,6 @@ const MultiProjectModal = ({ title, signType }) => {
 
 	const handleModalClose = () => {
 		setSignSelected("");
-		console.log(allProjects);
 	};
 
 	return (
