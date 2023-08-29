@@ -28,7 +28,7 @@ const LoadingScreen = ({ loadingStarted, setLoadingStarted }) => {
 					alt="loading screen"
 				/>
 				<div className="flex flex-col items-center text-white text-[2rem] z-10">
-					<p>Welcome to Brad Babines' Immersive Experience</p>
+					<p className="mb-20">Welcome to Brad Babines' Immersive Experience</p>
 					<p>Loading {progress.toFixed(0) + "%"} </p>
 				</div>
 			</div>
