@@ -11,12 +11,11 @@ export default function PortfolioAvatar(props) {
 	const { actions, names } = useAnimations(animations, group);
 
 	const [currentAnimation, setCurrentAnimation] = useState("idle");
+	const [keysPressed, setKeysPressed] = useState({});
 
 	useEffect(() => {
 		actions[names[14]].play();
 	}, []);
-
-	const [keysPressed, setKeysPressed] = useState({});
 
 	const handleKeyPress = (event) => {
 		const keysOfInterest = [
@@ -30,6 +29,8 @@ export default function PortfolioAvatar(props) {
 			"ArrowLeft",
 			"ArrowRight",
 		];
+
+		// console.log("handleKeyPress");
 		if (keysOfInterest.includes(event.key)) {
 			setKeysPressed((keys) => ({ ...keys, [event.key]: true }));
 		}
@@ -47,13 +48,43 @@ export default function PortfolioAvatar(props) {
 			"ArrowLeft",
 			"ArrowRight",
 		];
+		// console.log("handleKeyRelease");
 		if (keysOfInterest.includes(event.key)) {
 			setKeysPressed((keys) => ({ ...keys, [event.key]: false }));
 		}
 	};
 
+	// useEffect(() => {
+	// 	const isWalkingOrRunningKey =
+	// 		keysPressed.w ||
+	// 		keysPressed.s ||
+	// 		keysPressed.a ||
+	// 		keysPressed.d ||
+	// 		keysPressed.ArrowUp ||
+	// 		keysPressed.ArrowDown ||
+	// 		keysPressed.ArrowLeft ||
+	// 		keysPressed.ArrowRight;
+
+	// 	if ((keysPressed.Shift && isWalkingOrRunningKey) || keysPressed.Shift) {
+	// 		actions[names[14]].stop(); // Stop idle animation
+	// 		actions[names[17]].stop(); // Stop walking animation
+	// 		actions[names[16]].play(); // Running animation
+	// 		setCurrentAnimation("running");
+	// 	} else if (isWalkingOrRunningKey) {
+	// 		actions[names[14]].stop(); // Stop idle animation
+	// 		actions[names[16]].stop(); // Stop running animation
+	// 		actions[names[17]].play(); // Walking animation
+	// 		setCurrentAnimation("walking");
+	// 	} else if (!isWalkingOrRunningKey && currentAnimation !== "idle") {
+	// 		actions[names[16]].stop(); // Stop running animation
+	// 		actions[names[17]].stop(); // Stop walking animation
+	// 		actions[names[14]].play(); // Idle animation
+	// 		setCurrentAnimation("idle");
+	// 	}
+	// }, [keysPressed, currentAnimation]);
+
 	useEffect(() => {
-		const isWalkingOrRunningKey =
+		const isMoving =
 			keysPressed.w ||
 			keysPressed.s ||
 			keysPressed.a ||
@@ -63,17 +94,17 @@ export default function PortfolioAvatar(props) {
 			keysPressed.ArrowLeft ||
 			keysPressed.ArrowRight;
 
-		if ((keysPressed.Shift && isWalkingOrRunningKey) || keysPressed.Shift) {
+		if ((keysPressed.Shift && isMoving) || keysPressed.Shift) {
 			actions[names[14]].stop(); // Stop idle animation
 			actions[names[17]].stop(); // Stop walking animation
 			actions[names[16]].play(); // Running animation
 			setCurrentAnimation("running");
-		} else if (isWalkingOrRunningKey) {
+		} else if (isMoving) {
 			actions[names[14]].stop(); // Stop idle animation
 			actions[names[16]].stop(); // Stop running animation
 			actions[names[17]].play(); // Walking animation
 			setCurrentAnimation("walking");
-		} else if (!isWalkingOrRunningKey && currentAnimation !== "idle") {
+		} else if (!isMoving && currentAnimation !== "idle") {
 			actions[names[16]].stop(); // Stop running animation
 			actions[names[17]].stop(); // Stop walking animation
 			actions[names[14]].play(); // Idle animation
@@ -82,6 +113,7 @@ export default function PortfolioAvatar(props) {
 	}, [keysPressed, currentAnimation]);
 
 	console.log(currentAnimation);
+	console.log(keysPressed);
 
 	useEffect(() => {
 		window.addEventListener("keydown", handleKeyPress);

@@ -51,7 +51,7 @@ export default function LandPortals(props) {
 				/>
 
 				{/* House */}
-				<ModalText
+				{/* <ModalText
 					text={"about"}
 					position={[-29.576, 8, -0.223]}
 					sign={"house"}
@@ -76,7 +76,7 @@ export default function LandPortals(props) {
 						setHovered(false);
 						setHoverText("");
 					}}
-				/>
+				/> */}
 
 				{/* Middle Sign */}
 				<ModalText

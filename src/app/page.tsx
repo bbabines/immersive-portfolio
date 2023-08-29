@@ -3,7 +3,7 @@
 import ModalContextProvider from "../components/ModalContext";
 import HoverContextProvider from "../components/HoverContext";
 import Canvas from "@/components/experience/Canvas";
-import ShowProfile from "../components/ShowProfile";
+import ProfileModal from "../components/ProfileModal";
 import ProjectModal from "../components/ProjectModal";
 import AboutModal from "../components/AboutModal";
 import ContactModal from "../components/ContactModal";
@@ -17,7 +17,7 @@ export default function App() {
 					<div className="min-h-[100vh] max-h-[100%] flex flex-col justify-center">
 						{/* Profile Modal */}
 						<div className="z-[2] mx-auto">
-							<ShowProfile />
+							<ProfileModal />
 						</div>
 
 						{/* Contact Modal */}

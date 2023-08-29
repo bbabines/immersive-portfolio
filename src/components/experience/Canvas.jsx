@@ -15,7 +15,13 @@ import {
 	CuboidCollider,
 	MeshCollider,
 	BallCollider,
+	HeightfieldCollider,
+	ConvexHullCollider,
+	TrimeshCollider,
+	ConeCollider,
+	RoundCuboidCollider,
 } from "@react-three/rapier";
+import { Perf } from "r3f-perf";
 
 import Lights from "./Lights";
 import TimeOfDay from "./TimeOfDay";
@@ -48,15 +54,14 @@ export default function MyCanvas() {
 					position: [30, 5, 25],
 				}}
 			>
-				{/* <OrbitControls /> */}
-
 				{/* <TimeOfDay /> */}
 
 				{/* Delete Lights and Sky when TimeOfDay is finished */}
 				<Lights />
 				<Sky />
+				<Perf position="top-left" />
 
-				<fog attach="fog" args={["white", 20, 200]} />
+				{/* <fog attach="fog" args={["white", 20, 100]} /> */}
 
 				<Physics
 				// debug
@@ -73,12 +78,7 @@ export default function MyCanvas() {
 					{/* <LandPortals /> */}
 					{/* </RigidBody> */}
 
-					<RigidBody
-						type="fixed"
-						colliders="cuboid"
-						friction={15}
-						includeInvisible
-					>
+					<RigidBody type="fixed" friction={15} includeInvisible>
 						<mesh
 							rotation={[-Math.PI / 2, 0, 0]}
 							position={[0, 0, 0]}
@@ -89,10 +89,11 @@ export default function MyCanvas() {
 						</mesh>
 					</RigidBody>
 
-					{/* <RigidBody type="false" friction={15}> */}
+					{/* <RigidBody type="fixed" friction={15}> */}
 					<Terrain position={[0, -1, 0]} scale={0.01} />
 					{/* </RigidBody> */}
 
+					{/* POI */}
 					<MainPOI scale={0.2} />
 					<Mailbox position={[0, -0.5, -16.5]} scale={0.25} />
 					<GenericPOI scale={0.2} />

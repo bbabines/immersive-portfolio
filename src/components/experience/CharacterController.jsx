@@ -11,6 +11,8 @@ import { useKeyboardControls, OrbitControls } from "@react-three/drei";
 const CharacterController = () => {
 	const [subscriberKeys, getKeys] = useKeyboardControls(); // getKeys() is a function to get the current states of the keys
 	const [characterAnimationState, setCharacterAnimationState] = useState("");
+	const [smoothedCameraPosition] = useState(() => new THREE.Vector3());
+	const [smoothedCameraTarget] = useState(() => new THREE.Vector3());
 
 	const rigidBodyRef = useRef(); // Used for character controls
 	const characterRef = useRef(); // Used for rotating the model
@@ -139,13 +141,25 @@ const CharacterController = () => {
 		// Camera
 		const bodyPosition = rigidBodyRef.current.translation(); // Get the body position
 
-		if (orbitControlsRef.current) {
-			orbitControlsRef.current.target.set(
-				bodyPosition.x,
-				bodyPosition.y + 8,
-				bodyPosition.z
-			);
-		}
+		// Camera Position
+		const cameraPosition = new THREE.Vector3();
+
+		cameraPosition.copy(bodyPosition);
+		cameraPosition.z += 20.25;
+		cameraPosition.y += 10.65;
+
+		// Camera Target
+		const cameraTarget = new THREE.Vector3();
+		cameraTarget.copy(bodyPosition);
+		cameraTarget.y += 5.25;
+
+		// Fixed camera view
+		// state.camera.position.copy(cameraPosition);
+		// state.camera.lookAt(cameraTarget);
+
+		// Allows for manual OrbitControls movement
+		orbitControlsRef.current.target.copy(cameraTarget);
+		orbitControlsRef.current.update();
 
 		/**
 		 * Apply the impulses upon key push

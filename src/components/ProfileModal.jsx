@@ -50,7 +50,7 @@ const ShowProfile = () => {
 						<div className="w-[200px] flex flex-col justify-between">
 							<p className="mr-2">
 								Years of Experience:{" "}
-								<span className="text-[lightgreen]">2.5</span>
+								<span className="text-[lightgreen]">2</span>
 							</p>
 
 							<div className="flex">

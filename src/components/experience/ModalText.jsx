@@ -8,7 +8,7 @@ const ModalText = ({ text, sign, position }) => {
 	return (
 		<Billboard position={position}>
 			<Center>
-				<Text3D font="/Inter_Bold.json">
+				<Text3D font="/Inter_Bold.json" scale={10}>
 					{text}
 					{hoverText === sign ? (
 						<meshNormalMaterial />
