@@ -99,7 +99,7 @@ export default function MainPOI(props) {
 				</group> */}
 
 				{/* Spawn Sign */}
-				<group
+				{/* <group
 					name="starting_sign"
 					position={[-220, 5, 70]}
 					rotation={[-Math.PI / 2, 0, -1.641]}
@@ -309,7 +309,7 @@ export default function MainPOI(props) {
 							/>
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/* Spawn Point */}
 				<group

@@ -1,11 +1,53 @@
+"use client";
+import { useState, useRef } from "react";
+
 import { useModalContext } from "./ModalContext";
-import { about } from "./data/data";
 
 const ContactModal = ({ signType }) => {
 	const { signSelected, setSignSelected } = useModalContext();
 
 	const handleModalClose = () => {
 		setSignSelected("");
+	};
+
+	const formRef = useRef();
+	const [form, setForm] = useState({ name: "", email: "", message: "" });
+	const [loading, setLoading] = useState(false);
+
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+
+		setForm({ ...form, [name]: value });
+	};
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		setLoading(true);
+		emailjs
+			.send(
+				"service_fx1xixp",
+				"template_8gbmr6p",
+				{
+					from_name: form.name,
+					to_name: "Brad",
+					from_email: form.email,
+					to_email: "bbabines@gmail.com",
+					message: form.message,
+				},
+				"TrfgEA8anlYYaPp71"
+			)
+			.then(() => {
+				setLoading(false);
+				alert("Thank you. I will get back to you as soon as possible");
+				setForm({ name: "", email: "", message: "" }),
+					(error) => {
+						setLoading(false);
+
+						console.log(error);
+
+						alert("Oops, something went wrong. Try again.");
+					};
+			});
 	};
 
 	return (
@@ -26,52 +68,65 @@ const ContactModal = ({ signType }) => {
 
 				{/* Information */}
 				<div className="py-4 flex flex-col justify-center items-center">
-					<h1 className="py-2 text-[2.5rem] text-[#eab832]">Contact</h1>
-					<h3 className="mb-4 text-[1.25rem]">Drop a Line, Start a Journey.</h3>
-					<div className="m-4">
-						<div className="my-2">
-							{/* <img src="" alt="" /> */}
-							<span className="font-thin">Email: </span>
-							<span className="font-medium hover:text-[#eab832]">
-								<a href="mailto:bbabines@gmail.com" target="_blank">
-									bbabines@gmail.com
-								</a>
-							</span>
-						</div>
+					<h1 className="font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-[#eab832]">
+						Get In Touch
+					</h1>
+					<h3 className="sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">
+						Drop a Line, Start a Journey.
+					</h3>
+					{/* TEST!!!!!!!!!!!!!!!!!! */}
+					<div className="mt-8 xl:flex-row flex-col-reverse flex overflow-hidden">
+						<div className="flex[0.75] bg-black-100 mb-8 rounded-2xl ">
+							<form
+								ref={formRef}
+								onSubmit={handleSubmit}
+								className="min-w-[300px] flex flex-col gap-2"
+							>
+								<label className="flex flex-col" />
+								<span className="text-white font-medium mb-4">Your Name</span>
+								<input
+									type="text"
+									name="name"
+									value={form.name}
+									onChange={handleChange}
+									placeholder="What's your name?"
+									className="py-4 px-6 placeholder:text-secondary text-[black] rounded-lg outline-none border-none font-medium"
+								/>
 
-						<div className="my-2">
-							{/* <img src="" alt="" className="h-[25px]" /> */}
-							<span className="font-thin">GitHub: </span>
-							<span className="font-medium hover:text-[#eab832]">
-								<a href="https://github.com/bbabines" target="_blank">
-									https://github.com/bbabines
-								</a>
-							</span>
-						</div>
+								<label className="flex flex-col" />
+								<span className="text-white font-medium mb-4">Your Email</span>
+								<input
+									type="email"
+									name="email"
+									value={form.email}
+									onChange={handleChange}
+									placeholder="What's your email?"
+									className=" py-4 px-6 placeholder:text-secondary text-[black] rounded-lg outline-none border-none font-medium "
+								/>
 
-						<div className="my-2">
-							{/* <img src="" alt="" className="h-[25px]" /> */}
-							<span className="font-thin">Twitter: </span>
-							<span className="font-medium hover:text-[#eab832]">
-								<a href="https://twitter.com/RejuvenatingRo1" target="_blank">
-									@RejuvenatingRo1 (Brad B.)
-								</a>
-							</span>
-						</div>
-
-						<div className="my-2">
-							{/* <img src="" alt="" className="h-[25px]" /> */}
-							<span className="font-thin">LinkedIn: </span>
-							<span className="font-medium hover:text-[#eab832]">
-								<a
-									href="https://www.linkedin.com/in/bradbabines"
-									target="_blank"
+								<label className="flex flex-col" />
+								<span className="text-white font-medium mb-4">
+									Your Message
+								</span>
+								<textarea
+									rows="7"
+									name="message"
+									value={form.message}
+									onChange={handleChange}
+									placeholder="What do you want to say?"
+									className=" py-4 px-6 placeholder:text-secondary text-[black] rounded-lg outline-none border-none font-medium"
+								/>
+								<button
+									type="submit"
+									className="bg-[#eab832] mt-4 py-3 px-8 outline-none w-fit text-[black] font-bold shadow-md shadow-primary rounded-xl hover:text-[white]"
 								>
-									https://www.linkedin.com/in/bradbabines
-								</a>
-							</span>
+									{loading ? "Sending..." : "Send"}
+								</button>
+							</form>
 						</div>
 					</div>
+
+					{/* TEST!!!!!!!!!!!!!!!!!! */}
 				</div>
 			</div>
 		</div>
@@ -79,3 +134,48 @@ const ContactModal = ({ signType }) => {
 };
 
 export default ContactModal;
+
+// <div className="m-4">
+// 	<div className="my-2">
+// 		{/* <img src="" alt="" /> */}
+// 		<span className="font-thin">Email: </span>
+// 		<span className="font-medium hover:text-[#eab832]">
+// 			<a href="mailto:bbabines@gmail.com" target="_blank">
+// 				bbabines@gmail.com
+// 			</a>
+// 		</span>
+// 	</div>
+
+// 	<div className="my-2">
+// 		{/* <img src="" alt="" className="h-[25px]" /> */}
+// 		<span className="font-thin">GitHub: </span>
+// 		<span className="font-medium hover:text-[#eab832]">
+// 			<a href="https://github.com/bbabines" target="_blank">
+// 				https://github.com/bbabines
+// 			</a>
+// 		</span>
+// 	</div>
+
+// 	<div className="my-2">
+// 		{/* <img src="" alt="" className="h-[25px]" /> */}
+// 		<span className="font-thin">Twitter: </span>
+// 		<span className="font-medium hover:text-[#eab832]">
+// 			<a href="https://twitter.com/RejuvenatingRo1" target="_blank">
+// 				@RejuvenatingRo1 (Brad B.)
+// 			</a>
+// 		</span>
+// 	</div>
+
+// 	<div className="my-2">
+// 		{/* <img src="" alt="" className="h-[25px]" /> */}
+// 		<span className="font-thin">LinkedIn: </span>
+// 		<span className="font-medium hover:text-[#eab832]">
+// 			<a
+// 				href="https://www.linkedin.com/in/bradbabines"
+// 				target="_blank"
+// 			>
+// 				https://www.linkedin.com/in/bradbabines
+// 			</a>
+// 		</span>
+// 	</div>
+// </div>;

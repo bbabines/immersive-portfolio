@@ -38,7 +38,12 @@ const ShowProfile = () => {
 
 				{/* Information */}
 				<div className="py-4 flex flex-col justify-center items-center">
-					<h1 className="py-4 text-[2.5rem] text-[#eab832]">Profile</h1>
+					<h1 className="font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-[#eab832]">
+						Profile
+					</h1>
+					<p className="b-4 sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">
+						Where Passion Meets Profession
+					</p>
 
 					<div className="w-[95%] p-4 m-4 flex justify-between bg-[#0b1015] rounded-lg">
 						<div className="">
@@ -71,7 +76,7 @@ const ShowProfile = () => {
 						</div>
 					</div>
 
-					<p className="ml-8 mb-2 self-start">Developer Information</p>
+					<p className="ml-10 mb-2 self-start">Developer Information</p>
 					<div className="w-[95%] p-4 flex flex-wrap justify-center bg-[#0b1015] rounded-lg">
 						{/* Language Container */}
 						<div className="w-[250px] mx-auto p-4 m-4 bg-[#0b1015] rounded-lg border">

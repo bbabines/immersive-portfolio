@@ -26,7 +26,12 @@ const AboutModal = ({ signType }) => {
 
 				{/* Information */}
 				<div className="py-4 flex flex-col justify-center items-center">
-					<h1 className="py-4 text-[2.5rem] text-[#eab832]">About</h1>
+					<h1 className="font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-[#eab832]">
+						About
+					</h1>
+					<p className="mb-4 sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider">
+						Beyond the Bio
+					</p>
 					<h3 className=" mx-8">
 						Hi, I'm <span className="text-[#eab832]"> Brad</span>!
 						<br /> <br />
