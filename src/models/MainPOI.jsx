@@ -401,8 +401,8 @@ export default function MainPOI(props) {
 					occlude
 					transform
 					distanceFactor={15}
-					position={[247, 18, -228]}
-					scale={[4.3, 3.8, 5]}
+					position={[249, 13, -229]}
+					scale={[3.2, 3, 5]}
 					rotation={[0, Math.PI * -0.431, 0]}
 				>
 					<img
@@ -432,109 +432,21 @@ export default function MainPOI(props) {
 					material={materials.Billboard}
 					position={[255, -1, -230]}
 					rotation={[0, -1.364, 0]}
-					scale={8}
-				/>
-
-				{/* Front Right Sign */}
-				<ModalText
-					text={"Legends of Aetheria"}
-					position={[330, 55, 120]}
-					sign={"front-right"}
-				/>
-				<Html
-					occlude
-					transform
-					distanceFactor={15}
-					position={[322, 19, 122]}
-					scale={[4.3, 3.5, 5]}
-					rotation={[0, Math.PI * -0.43, 0]}
-				>
-					<img
-						src="/rpg.png"
-						alt="project thumbnail"
-						className="w-[300px] cursor-pointer rounded-lg"
-						style={{ userSelect: "none" }}
-						onClick={() => {
-							setSignSelected("three-one");
-						}}
-						onPointerOver={() => {
-							setHovered(true);
-							setHoverText("front-right");
-							event.stopPropagation();
-						}}
-						onPointerOut={() => {
-							setHovered(false);
-							setHoverText("");
-						}}
-					/>
-				</Html>
-				<mesh
-					name="front-_rigjht_sign"
-					castShadow
-					receiveShadow
-					geometry={nodes["front-_rigjht_sign"].geometry}
-					material={materials.Billboard}
-					position={[330, 0, 120]}
-					rotation={[0, -1.364, 0]}
-					scale={8}
-				/>
-
-				{/* Back Right Sign */}
-				<ModalText
-					text={"Marble Madness"}
-					position={[300, 40, -20]}
-					sign={"back-right"}
-				/>
-				<Html
-					occlude
-					transform
-					distanceFactor={15}
-					position={[292, 17, -18]}
-					scale={[4.3, 3, 5]}
-					rotation={[0, Math.PI * -0.43, 0]}
-				>
-					<img
-						src="/marble.png"
-						alt="project thumbnail"
-						className="w-[300px] cursor-pointer rounded-lg"
-						style={{ userSelect: "none" }}
-						onClick={() => {
-							setSignSelected("three-two");
-						}}
-						onPointerOver={() => {
-							setHovered(true);
-							setHoverText("back-right");
-							event.stopPropagation(); // Prevent event propagation
-						}}
-						onPointerOut={() => {
-							setHovered(false);
-							setHoverText("");
-						}}
-					/>
-				</Html>
-				<mesh
-					name="back_right_sign"
-					castShadow
-					receiveShadow
-					geometry={nodes.back_right_sign.geometry}
-					material={materials.Billboard}
-					position={[300, -2, -20]}
-					rotation={[0, -1.364, 0]}
-					scale={8}
+					scale={6}
 				/>
 
 				{/* Back Left Sign */}
 				<ModalText
 					text={"Ikon Clothing"}
-					position={[266, 55, -120]}
+					position={[266, 55, -90]}
 					sign={"back-left"}
 				/>
 				<Html
 					occlude
 					transform
 					distanceFactor={15}
-					position={[272, 19, -118]}
-					scale={[4.3, 3.5, 5]}
+					position={[274, 14, -118]}
+					scale={[3.3, 2.6, 5]}
 					rotation={[0, Math.PI * -0.437, 0]}
 				>
 					<img
@@ -564,7 +476,95 @@ export default function MainPOI(props) {
 					material={materials.Billboard}
 					position={[280, 0, -120]}
 					rotation={[0, -1.364, 0]}
-					scale={8}
+					scale={6}
+				/>
+
+				{/* Back Right Sign */}
+				<ModalText
+					text={"Marble Madness"}
+					position={[300, 40, -20]}
+					sign={"back-right"}
+				/>
+				<Html
+					occlude
+					transform
+					distanceFactor={15}
+					position={[294, 12.5, -19]}
+					scale={[3.2, 2.3, 5]}
+					rotation={[0, Math.PI * -0.43, 0]}
+				>
+					<img
+						src="/marble.png"
+						alt="project thumbnail"
+						className="w-[300px] cursor-pointer rounded-lg"
+						style={{ userSelect: "none" }}
+						onClick={() => {
+							setSignSelected("three-two");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("back-right");
+							event.stopPropagation(); // Prevent event propagation
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
+						}}
+					/>
+				</Html>
+				<mesh
+					name="back_right_sign"
+					castShadow
+					receiveShadow
+					geometry={nodes.back_right_sign.geometry}
+					material={materials.Billboard}
+					position={[300, -2, -20]}
+					rotation={[0, -1.364, 0]}
+					scale={6}
+				/>
+
+				{/* Front Right Sign */}
+				<ModalText
+					text={"Legends of Aetheria"}
+					position={[330, 55, 100]}
+					sign={"front-right"}
+				/>
+				<Html
+					occlude
+					transform
+					distanceFactor={15}
+					position={[324, 14.5, 122]}
+					scale={[3.3, 2.6, 5]}
+					rotation={[0, Math.PI * -0.43, 0]}
+				>
+					<img
+						src="/rpg.png"
+						alt="project thumbnail"
+						className="w-[300px] cursor-pointer rounded-lg"
+						style={{ userSelect: "none" }}
+						onClick={() => {
+							setSignSelected("three-one");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("front-right");
+							event.stopPropagation();
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
+						}}
+					/>
+				</Html>
+				<mesh
+					name="front-_rigjht_sign"
+					castShadow
+					receiveShadow
+					geometry={nodes["front-_rigjht_sign"].geometry}
+					material={materials.Billboard}
+					position={[330, 0, 120]}
+					rotation={[0, -1.364, 0]}
+					scale={6}
 				/>
 
 				{/* House */}
