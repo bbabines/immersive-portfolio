@@ -672,9 +672,21 @@ export default function MainPOI(props) {
 				{/* LinkedIn */}
 				<group
 					name="linkedIn_icon"
-					position={[13.137, 13.075, 326.99]}
+					position={[35, 17, 326.99]}
 					rotation={[-Math.PI / 2, 0, 3.081]}
 					scale={2.24}
+					onClick={() => {
+						window.open("https://www.linkedin.com/in/bradbabines/", "_blank");
+					}}
+					onPointerOver={() => {
+						setHovered(true);
+						setHoverText("contact");
+						event.stopPropagation();
+					}}
+					onPointerOut={() => {
+						setHovered(false);
+						setHoverText("");
+					}}
 				>
 					<group name="root">
 						<group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
@@ -713,9 +725,21 @@ export default function MainPOI(props) {
 				{/* Twitter */}
 				<group
 					name="twitter_icon"
-					position={[-7, 1, 328.04]}
+					position={[-20, 5, 328.04]}
 					rotation={[-Math.PI / 2, 0, 0]}
 					scale={0.014}
+					onClick={() => {
+						window.open("https://twitter.com/RejuvenatingRo1", "_blank");
+					}}
+					onPointerOver={() => {
+						setHovered(true);
+						setHoverText("contact");
+						event.stopPropagation();
+					}}
+					onPointerOut={() => {
+						setHovered(false);
+						setHoverText("");
+					}}
 				>
 					<group
 						name="84012a783ac14b0093a189f1d945e890fbx"
@@ -747,8 +771,20 @@ export default function MainPOI(props) {
 				{/* Github */}
 				<group
 					name="github_icon"
-					position={[7.316, -2, 326.46]}
+					position={[20, -2, 326.46]}
 					rotation={[-Math.PI / 2, 0, 3.117]}
+					onClick={() => {
+						window.open("https://github.com/bbabines", "_blank");
+					}}
+					onPointerOver={() => {
+						setHovered(true);
+						setHoverText("contact");
+						event.stopPropagation();
+					}}
+					onPointerOut={() => {
+						setHovered(false);
+						setHoverText("");
+					}}
 				>
 					<group name="root001">
 						<group name="GLTF_SceneRootNode001" rotation={[Math.PI / 2, 0, 0]}>

@@ -24,7 +24,7 @@ export default function Mailbox(props) {
 			<group name="Scene">
 				<ModalText
 					text={"contact"}
-					position={[-7.476, 30, 326.338]}
+					position={[-2, 40, 326.338]}
 					sign={"contact"}
 				/>
 
