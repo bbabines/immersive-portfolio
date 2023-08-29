@@ -409,13 +409,14 @@ export default function MainPOI(props) {
 						src="/kubera.png"
 						alt="project thumbnail"
 						className="w-[300px] cursor-pointer rounded-lg"
+						style={{ userSelect: "none" }}
 						onClick={() => {
 							setSignSelected("react-one");
 						}}
 						onPointerOver={() => {
 							setHovered(true);
 							setHoverText("font-left");
-							event.stopPropagation(); // Prevent event propagation
+							event.stopPropagation();
 						}}
 						onPointerOut={() => {
 							setHovered(false);
@@ -452,13 +453,14 @@ export default function MainPOI(props) {
 						src="/rpg.png"
 						alt="project thumbnail"
 						className="w-[300px] cursor-pointer rounded-lg"
+						style={{ userSelect: "none" }}
 						onClick={() => {
 							setSignSelected("three-one");
 						}}
 						onPointerOver={() => {
 							setHovered(true);
 							setHoverText("front-right");
-							event.stopPropagation(); // Prevent event propagation
+							event.stopPropagation();
 						}}
 						onPointerOut={() => {
 							setHovered(false);
@@ -495,6 +497,7 @@ export default function MainPOI(props) {
 						src="/marble.png"
 						alt="project thumbnail"
 						className="w-[300px] cursor-pointer rounded-lg"
+						style={{ userSelect: "none" }}
 						onClick={() => {
 							setSignSelected("three-two");
 						}}
@@ -538,6 +541,7 @@ export default function MainPOI(props) {
 						src="/ikon.png"
 						alt="project thumbnail"
 						className="w-[300px] cursor-pointer rounded-lg"
+						style={{ userSelect: "none" }}
 						onClick={() => {
 							setSignSelected("react-two");
 						}}
@@ -670,6 +674,19 @@ export default function MainPOI(props) {
 				</group>
 
 				{/* LinkedIn */}
+				{hoverText === "linkedin" && (
+					<Html center position={[35, 25, 327]}>
+						<div
+							style={{ userSelect: "none" }}
+							className="flex flex-col justify-center items-center"
+						>
+							<p style={{ color: "#6ee06e", marginBottom: "-5px" }}>LinkedIn</p>
+							<p style={{ color: "#6ee06e", marginBottom: "10px" }}>
+								{"<@bradbabines>"}
+							</p>
+						</div>
+					</Html>
+				)}
 				<group
 					name="linkedIn_icon"
 					position={[35, 17, 326.99]}
@@ -680,7 +697,7 @@ export default function MainPOI(props) {
 					}}
 					onPointerOver={() => {
 						setHovered(true);
-						setHoverText("contact");
+						setHoverText("linkedin");
 						event.stopPropagation();
 					}}
 					onPointerOut={() => {
@@ -723,6 +740,24 @@ export default function MainPOI(props) {
 				</group>
 
 				{/* Twitter */}
+				{hoverText === "twitter" && (
+					<Html center position={[-37, 25, 328]}>
+						<div
+							style={{ userSelect: "none" }}
+							className="flex flex-col justify-center items-center"
+						>
+							<p
+								style={{ color: "#6ee06e", marginBottom: "-5px" }}
+								className=""
+							>
+								Twitter
+							</p>
+							<p style={{ color: "#6ee06e", marginBottom: "10px" }}>
+								{"<@RejuvenatingRo1>"}
+							</p>
+						</div>
+					</Html>
+				)}
 				<group
 					name="twitter_icon"
 					position={[-20, 5, 328.04]}
@@ -733,7 +768,7 @@ export default function MainPOI(props) {
 					}}
 					onPointerOver={() => {
 						setHovered(true);
-						setHoverText("contact");
+						setHoverText("twitter");
 						event.stopPropagation();
 					}}
 					onPointerOut={() => {
@@ -769,6 +804,24 @@ export default function MainPOI(props) {
 				</group>
 
 				{/* Github */}
+				{hoverText === "github" && (
+					<Html center position={[14, 12, 325]}>
+						<div
+							style={{ userSelect: "none" }}
+							className="flex flex-col justify-center items-center"
+						>
+							<p
+								style={{ color: "#6ee06e", marginBottom: "-5px" }}
+								className=""
+							>
+								GitHub
+							</p>
+							<p style={{ color: "#6ee06e", marginBottom: "10px" }}>
+								{"<@bbabines>"}
+							</p>
+						</div>
+					</Html>
+				)}
 				<group
 					name="github_icon"
 					position={[20, -2, 326.46]}
@@ -778,7 +831,7 @@ export default function MainPOI(props) {
 					}}
 					onPointerOver={() => {
 						setHovered(true);
-						setHoverText("contact");
+						setHoverText("github");
 						event.stopPropagation();
 					}}
 					onPointerOut={() => {

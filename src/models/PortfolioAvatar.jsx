@@ -138,7 +138,7 @@ export default function PortfolioAvatar(props) {
 			<group name="Scene">
 				{/* Name Overlay */}
 				<Html center position={[0, 2.8, 0]}>
-					{/* Some Tailwind styles don't work on the model therefore inline styling was used*/}
+					{/* Some Tailwind styles don't work on the model therefore inline styling were used*/}
 					<div
 						style={{ userSelect: "none" }}
 						className="flex flex-col justify-center items-center"

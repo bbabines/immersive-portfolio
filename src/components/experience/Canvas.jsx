@@ -1,13 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import {
-	OrbitControls,
-	KeyboardControls,
-	Loader,
-	Sky,
-} from "@react-three/drei";
+import { OrbitControls, KeyboardControls, Sky } from "@react-three/drei";
 import { Physics, Debug, RigidBody } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
 
@@ -67,11 +62,6 @@ export default function MyCanvas() {
 							<KeyboardControls map={keyboardMap}>
 								<CharacterController />
 							</KeyboardControls>
-
-							{/* Scene */}
-							{/* <RigidBody type="fixed" friction={15}> */}
-							{/* <LandPortals /> */}
-							{/* </RigidBody> */}
 
 							<RigidBody type="fixed" friction={15} includeInvisible>
 								<mesh
