@@ -80,7 +80,7 @@ export default function GenericPOI(props) {
 				</group>
 
 				{/* Square Rune Stone */}
-				<group
+				{/* <group
 					name="main_rune_stone"
 					position={[-190.221, -5, 226.823]}
 					rotation={[-Math.PI / 2, 0, 1.064]}
@@ -104,10 +104,10 @@ export default function GenericPOI(props) {
 							</group>
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/* Runic Statue */}
-				<group
+				{/* <group
 					name="runic_statue"
 					position={[-198.393, -5, 240.613]}
 					rotation={[Math.PI, -1.064, 0]}
@@ -129,10 +129,10 @@ export default function GenericPOI(props) {
 							/>
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/* ??? */}
-				<group name="Object_5002" />
+				{/* <group name="Object_5002" />
 				<group
 					name="9303ec51146f438988862dc359454c98fbx001"
 					rotation={[Math.PI / 2, 0, 0]}
@@ -600,10 +600,10 @@ export default function GenericPOI(props) {
 							/>
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/* Chest & Potions */}
-				<group
+				{/* <group
 					name="chest_and_postions"
 					position={[-215, -5, -199]}
 					rotation={[-Math.PI / 2, 0, 0]}
@@ -1003,10 +1003,10 @@ export default function GenericPOI(props) {
 							</group>
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/* Table & Books */}
-				<group
+				{/* <group
 					name="table_and_books"
 					position={[-218.243, -4, -202.222]}
 					rotation={[-Math.PI / 2, 0, 0]}
@@ -1038,10 +1038,10 @@ export default function GenericPOI(props) {
 							</group>
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/* Soldier's Closet */}
-				<group
+				{/* <group
 					name="soldier_closet"
 					position={[133.15, -3, -323.088]}
 					rotation={[-Math.PI / 2, 0, -2.109]}
@@ -1117,10 +1117,10 @@ export default function GenericPOI(props) {
 							</group>
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/* Blacksmith */}
-				<group
+				{/* <group
 					name="blacksmith_scene"
 					position={[74.435, -1.5, 205]}
 					rotation={[-Math.PI / 2, 0, 3.12]}
@@ -3064,10 +3064,10 @@ export default function GenericPOI(props) {
 							</group>
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/* Reading Corner */}
-				<group
+				{/* <group
 					name="rading_corner"
 					position={[126.327, -4, -331.377]}
 					rotation={[-Math.PI / 2, 0, -1.185]}
@@ -3453,7 +3453,7 @@ export default function GenericPOI(props) {
 							</group>
 						</group>
 					</group>
-				</group>
+				</group> */}
 			</group>
 		</group>
 	);

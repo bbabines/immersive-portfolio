@@ -96,6 +96,7 @@ export default function App() {
 							<AboutModal signType={"about"} />
 						</div>
 
+						{/* MyCanvas */}
 						<div className="absolute z-[0] h-[100%] w-[100%]">
 							<Canvas />
 						</div>

@@ -26,8 +26,6 @@ import { Perf } from "r3f-perf";
 import Lights from "./Lights";
 import TimeOfDay from "./TimeOfDay";
 import CharacterController from "../experience/CharacterController";
-import PortfolioAvatar from "@/models/PortfolioAvatar";
-import LandPortals from "../../models/LandPortals";
 import Terrain from "../../models/Terrain";
 import MainPOI from "../../models/MainPOI";
 import GenericPOI from "../../models/GenericPOI";
@@ -61,7 +59,7 @@ export default function MyCanvas() {
 				<Sky />
 				<Perf position="top-left" />
 
-				{/* <fog attach="fog" args={["white", 20, 100]} /> */}
+				{/* <fog attach="fog" args={["white", 20, 200]} /> */}
 
 				<Physics
 				// debug

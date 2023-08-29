@@ -24,7 +24,7 @@ export default function MainPOI(props) {
 		<group ref={group} {...props} dispose={null}>
 			<group name="Scene">
 				{/* Left Tree */}
-				<group
+				{/* <group
 					name="tree"
 					position={[-290, 0, 120]}
 					rotation={[-Math.PI / 2, 0, 0]}
@@ -57,10 +57,10 @@ export default function MainPOI(props) {
 							<group name="oak_01003" />
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/*Right Tree */}
-				<group
+				{/* <group
 					name="tree001"
 					position={[-257.753, -2.5, 20]}
 					rotation={[-Math.PI / 2, 0, 0]}
@@ -96,7 +96,7 @@ export default function MainPOI(props) {
 							<group name="oak_01010" />
 						</group>
 					</group>
-				</group>
+				</group> */}
 
 				{/* Spawn Sign */}
 				<group
@@ -349,20 +349,18 @@ export default function MainPOI(props) {
 				</group>
 
 				{/* Middle Sign */}
-				<ModalText
-					text={"All Projects"}
-					position={[400, 45, -135]}
+				{/* <ModalText
+					text={"More Projects"}
+					position={[450, 120, -100]}
 					sign={"all-projects"}
 				/>
-
-				{/* All Projects - Image overlay */}
 				<Html
-					// occludes
+					occlude
 					transform
 					distanceFactor={15}
-					position={[357.209, 19, -135]}
-					scale={[5, 2.5, 5]}
-					rotation={[0, Math.PI * -0.5, 0]}
+					position={[430, 58, -100]}
+					scale={[12, 5.6, 5]}
+					rotation={[0, Math.PI * -0.43, 0]}
 				>
 					<img
 						src="/all-projects.png"
@@ -388,55 +386,179 @@ export default function MainPOI(props) {
 					receiveShadow
 					geometry={nodes.middle_sign.geometry}
 					material={materials.Billboard}
-					position={[357.209, 0, -135]}
+					position={[450, 10, -100]}
 					rotation={[0, -1.364, 0]}
-					scale={8}
-				/>
+					scale={20}
+				/> */}
 
 				{/* Front Left Sign */}
+				<ModalText
+					text={"Kubera Link"}
+					position={[255, 40, -230]}
+					sign={"font-left"}
+				/>
+				<Html
+					occlude
+					transform
+					distanceFactor={15}
+					position={[247, 18, -228]}
+					scale={[4.3, 3.8, 5]}
+					rotation={[0, Math.PI * -0.431, 0]}
+				>
+					<img
+						src="/kubera.png"
+						alt="project thumbnail"
+						className="w-[300px] cursor-pointer rounded-lg"
+						onClick={() => {
+							setSignSelected("react-one");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("font-left");
+							event.stopPropagation(); // Prevent event propagation
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
+						}}
+					/>
+				</Html>
 				<mesh
 					name="front_left_sign"
 					castShadow
 					receiveShadow
 					geometry={nodes.front_left_sign.geometry}
 					material={materials.Billboard}
-					position={[210, 1, -230]}
+					position={[255, -1, -230]}
 					rotation={[0, -1.364, 0]}
 					scale={8}
 				/>
 
 				{/* Front Right Sign */}
+				<ModalText
+					text={"Legends of Aetheria"}
+					position={[330, 55, 120]}
+					sign={"front-right"}
+				/>
+				<Html
+					occlude
+					transform
+					distanceFactor={15}
+					position={[322, 19, 122]}
+					scale={[4.3, 3.5, 5]}
+					rotation={[0, Math.PI * -0.43, 0]}
+				>
+					<img
+						src="/rpg.png"
+						alt="project thumbnail"
+						className="w-[300px] cursor-pointer rounded-lg"
+						onClick={() => {
+							setSignSelected("three-one");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("front-right");
+							event.stopPropagation(); // Prevent event propagation
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
+						}}
+					/>
+				</Html>
 				<mesh
 					name="front-_rigjht_sign"
 					castShadow
 					receiveShadow
 					geometry={nodes["front-_rigjht_sign"].geometry}
 					material={materials.Billboard}
-					position={[255.167, -2, 0]}
+					position={[330, 0, 120]}
 					rotation={[0, -1.364, 0]}
 					scale={8}
 				/>
 
 				{/* Back Right Sign */}
+				<ModalText
+					text={"Marble Madness"}
+					position={[300, 40, -20]}
+					sign={"back-right"}
+				/>
+				<Html
+					occlude
+					transform
+					distanceFactor={15}
+					position={[292, 17, -18]}
+					scale={[4.3, 3, 5]}
+					rotation={[0, Math.PI * -0.43, 0]}
+				>
+					<img
+						src="/marble.png"
+						alt="project thumbnail"
+						className="w-[300px] cursor-pointer rounded-lg"
+						onClick={() => {
+							setSignSelected("three-two");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("back-right");
+							event.stopPropagation(); // Prevent event propagation
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
+						}}
+					/>
+				</Html>
 				<mesh
 					name="back_right_sign"
 					castShadow
 					receiveShadow
 					geometry={nodes.back_right_sign.geometry}
 					material={materials.Billboard}
-					position={[300, -2, -60]}
+					position={[300, -2, -20]}
 					rotation={[0, -1.364, 0]}
 					scale={8}
 				/>
 
 				{/* Back Left Sign */}
+				<ModalText
+					text={"Ikon Clothing"}
+					position={[266, 55, -120]}
+					sign={"back-left"}
+				/>
+				<Html
+					occlude
+					transform
+					distanceFactor={15}
+					position={[272, 19, -118]}
+					scale={[4.3, 3.5, 5]}
+					rotation={[0, Math.PI * -0.437, 0]}
+				>
+					<img
+						src="/ikon.png"
+						alt="project thumbnail"
+						className="w-[300px] cursor-pointer rounded-lg"
+						onClick={() => {
+							setSignSelected("react-two");
+						}}
+						onPointerOver={() => {
+							setHovered(true);
+							setHoverText("back-left");
+							event.stopPropagation(); // Prevent event propagation
+						}}
+						onPointerOut={() => {
+							setHovered(false);
+							setHoverText("");
+						}}
+					/>
+				</Html>
 				<mesh
 					name="back_left_sign"
 					castShadow
 					receiveShadow
 					geometry={nodes.back_left_sign.geometry}
 					material={materials.Billboard}
-					position={[275, 0, -180]}
+					position={[280, 0, -120]}
 					rotation={[0, -1.364, 0]}
 					scale={8}
 				/>
@@ -546,8 +668,6 @@ export default function MainPOI(props) {
 						/>
 					</group>
 				</group>
-
-				{/* Mailbox */}
 
 				{/* LinkedIn */}
 				<group
