@@ -320,7 +320,7 @@ export default function MainPOI(props) {
 				{/* Spawn Point */}
 				<group
 					name="spawn_point"
-					position={[-260, 0.5, 80]}
+					position={[-260, 0.5, 120]}
 					rotation={[-Math.PI, 1.558, -Math.PI]}
 					scale={20}
 				>

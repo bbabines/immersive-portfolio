@@ -102,21 +102,21 @@ export default function App() {
 						</div>
 
 						{/* Keyboard Controls Img */}
-						<div className="absolute z-[1] bottom-[10%] left-[5%]">
+						{/* <div className="absolute z-[1] bottom-[10%] left-[5%]">
 							<img
 								src="keyControls.png"
 								alt="keyboard controls"
 								className="h-[100px]"
 							/>
-						</div>
+						</div> */}
 
 						{/* Profile Image */}
-						<div className="h-[50px] w-[50px]   bg-white bg-opacity-30 absolute z-[1] bottom-[10%] right-[5%] text-white font-bold">
+						{/* <div className="h-[50px] w-[50px]   bg-white bg-opacity-30 absolute z-[1] bottom-[10%] right-[5%] text-white font-bold">
 							<div className="h-[50px] w-[50px] flex justify-center items-center opacity-100 z-[2] text-[white] border-2  rounded-lg">
 								P
 							</div>
 							<div className="font-thin opacity-80">Profile</div>
-						</div>
+						</div> */}
 					</div>
 				</main>
 			</HoverContextProvider>
