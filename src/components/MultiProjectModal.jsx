@@ -23,7 +23,7 @@ const MultiProjectModal = ({ title, signType }) => {
 				>
 					X
 				</div>
-				<div className="py-4 flex flex-col justify-center items-center">
+				<div className="py-4 px-2 flex flex-col justify-center items-center">
 					<h1 className="py-4 text-[2.5rem] text-[#eab832]">{title}</h1>
 					<div className="flex flex-wrap justify-center items-center gap-4">
 						{allProjects.map((project, index) => (

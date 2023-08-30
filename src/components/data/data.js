@@ -19,7 +19,7 @@ const allProjects = [
 	// 	live_demo_link: "https://ikon-clothing.netlify.app/",
 	// },
 	{
-		name: "Pro Dashboard",
+		name: "Admin Dashboard",
 		description:
 			"The ultimate dashboard! It consists of Light and Dark Mode, 4 different Charts, 3 different Data Table Pages, FAQ Page, Form Page, and Calendar Integration",
 		tags: [
@@ -57,29 +57,45 @@ const allProjects = [
 		source_code_link: "https://github.com/bbabines/cm-alt-design",
 		live_demo_link: "https://cohering-minds.netlify.app/",
 	},
-	// {
-	// 	name: "Kubera Link",
-	// 	description:
-	// 		"A large freelance project for a startup to build an MVP for their crypto call channel SPA. The project is currently on-going.",
 
-	// 	tags: [
-	// 		{
-	// 			name: "FREELANCE",
-	// 		},
-	// 		{
-	// 			name: "react",
-	// 		},
-	// 		{
-	// 			name: "tailwind",
-	// 		},
-	// 		{
-	// 			name: "next.js",
-	// 		},
-	// 	],
-	// 	// image: kubera,
-	// 	source_code_link: "https://github.com/KuberaLink/KuberaLink",
-	// 	live_demo_link: "http://www.kuberalink.com/",
-	// },
+	{
+		name: "Family Brand Clothing",
+		description:
+			"I was contracted to build a three.js component that would be implemented into an already existing site for a premium clothing company",
+		tags: [
+			{
+				name: "React",
+			},
+			{
+				name: "React Three Fiber",
+			},
+			{
+				name: "Vite",
+			},
+		],
+		image: "family-clothing.png",
+		source_code_link: "https://github.com/bbabines/family-test/tree/main",
+		live_demo_link: "https://family-clothing-component.netlify.app/",
+	},
+	{
+		name: "Topology AI",
+		description:
+			"I small startup seeking initial funding hired me to build a splash page for their company. ",
+		tags: [
+			{
+				name: "Typescript",
+			},
+			{
+				name: "React Three Fiber",
+			},
+			{
+				name: "GLSL",
+			},
+		],
+		image: "topology-ai.png",
+		source_code_link: "https://github.com/bbabines/topology-ai",
+		live_demo_link: "https://topology-ai.netlify.app/",
+	},
 	// {
 	// 	name: "Marble Madness",
 	// 	description:

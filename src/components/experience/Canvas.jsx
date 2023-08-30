@@ -51,7 +51,7 @@ export default function MyCanvas() {
 						<Sky />
 						<Perf position="top-left" />
 
-						{/* <fog attach="fog" args={["white", 20, 200]} /> */}
+						<fog attach="fog" args={["white", 20, 200]} />
 
 						<Physics
 						// debug
