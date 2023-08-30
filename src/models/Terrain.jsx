@@ -7,6 +7,9 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Terrain(props) {
 	const { nodes, materials } = useGLTF("/texturedTerrain.glb");
+
+	const terrainRef = useRef();
+
 	return (
 		<group {...props} dispose={null}>
 			<mesh
