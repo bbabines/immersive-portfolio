@@ -24,7 +24,7 @@ export default function GenericPOI(props) {
 		<group ref={group} {...props} dispose={null}>
 			<group name="Scene">
 				{/* Well */}
-				<Html position={[-10, 35, -20]}>
+				{/* <Html position={[-10, 35, -20]}>
 					{discoveryText === "well" ? (
 						<p
 							className="w-[300px] p-4 text-[black] rounded-lg"
@@ -37,23 +37,23 @@ export default function GenericPOI(props) {
 							Mandela
 						</p>
 					) : null}
-				</Html>
+				</Html> */}
 				<group
 					name="well"
 					position={[-1.09, 4, -0.625]}
 					rotation={[-Math.PI / 2, 0, 0]}
 					scale={3}
-					className="w-[300px] cursor-pointer rounded-lg"
-					style={{ userSelect: "none" }}
-					onPointerOver={() => {
-						setHovered(true);
-						setDiscoveryText("well");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setDiscoveryText(null);
-					}}
+					// className="w-[300px] cursor-pointer rounded-lg"
+					// style={{ userSelect: "none" }}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setDiscoveryText("well");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setDiscoveryText(null);
+					// }}
 				>
 					<group name="pozoobjcleanermaterialmergergles">
 						<mesh
@@ -121,17 +121,17 @@ export default function GenericPOI(props) {
 					position={[-190.221, -5, 226.823]}
 					rotation={[-Math.PI / 2, 0, 1.064]}
 					scale={100}
-					className="w-[300px] cursor-pointer rounded-lg"
-					style={{ userSelect: "none" }}
-					onPointerOver={() => {
-						setHovered(true);
-						setDiscoveryText("runic-statue");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setDiscoveryText(null);
-					}}
+					// className="w-[300px] cursor-pointer rounded-lg"
+					// style={{ userSelect: "none" }}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setDiscoveryText("runic-statue");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setDiscoveryText(null);
+					// }}
 				>
 					<group
 						name="93e44398c06f473ba0df0778aaea58c3fbx"
@@ -154,7 +154,7 @@ export default function GenericPOI(props) {
 				</group>
 
 				{/* Runic Statue */}
-				<Html position={[-170, 40, 240]}>
+				{/* <Html position={[-170, 40, 240]}>
 					{discoveryText === "runic-statue" ? (
 						<p
 							className="w-[300px] p-4 text-[black] rounded-lg"
@@ -167,23 +167,23 @@ export default function GenericPOI(props) {
 							made for games - is the most beautiful.
 						</p>
 					) : null}
-				</Html>
+				</Html> */}
 				<group
 					name="runic_statue"
 					position={[-198.393, -5, 240.613]}
 					rotation={[Math.PI, -1.064, 0]}
 					scale={12}
-					className="w-[300px] cursor-pointer rounded-lg"
-					style={{ userSelect: "none" }}
-					onPointerOver={() => {
-						setHovered(true);
-						setDiscoveryText("runic-statue");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setDiscoveryText(null);
-					}}
+					// className="w-[300px] cursor-pointer rounded-lg"
+					// style={{ userSelect: "none" }}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setDiscoveryText("runic-statue");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setDiscoveryText(null);
+					// }}
 				>
 					<group
 						name="Collada_visual_scene_group"
@@ -204,7 +204,7 @@ export default function GenericPOI(props) {
 				</group>
 
 				{/* Chest & Potions */}
-				<Html position={[-170, 10, -210]}>
+				{/* <Html position={[-170, 10, -210]}>
 					{discoveryText === "chest-and-potions" ? (
 						<p
 							className="w-[300px] p-4 text-[black] rounded-lg"
@@ -217,21 +217,21 @@ export default function GenericPOI(props) {
 							of this time was working within the intensive care unit (ICU).
 						</p>
 					) : null}
-				</Html>
+				</Html> */}
 				<group
 					name="chest_and_postions"
 					position={[-215, -5, -199]}
 					rotation={[-Math.PI / 2, 0, 0]}
 					scale={0.3}
-					onPointerOver={() => {
-						setHovered(true);
-						setDiscoveryText("table-and-books");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setDiscoveryText(null);
-					}}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setDiscoveryText("table-and-books");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setDiscoveryText(null);
+					// }}
 				>
 					<group
 						name="e40080bfb5634bc89c8b84bb094b36f6fbx"
@@ -630,7 +630,7 @@ export default function GenericPOI(props) {
 				</group>
 
 				{/* Table & Books */}
-				<Html position={[-210, 35, -200]}>
+				{/* <Html position={[-210, 35, -200]}>
 					{discoveryText === "table-and-books" ? (
 						<p
 							className="w-[300px] p-4 text-[black] rounded-lg"
@@ -643,23 +643,23 @@ export default function GenericPOI(props) {
 							of this time was working within the intensive care unit (ICU).
 						</p>
 					) : null}
-				</Html>
+				</Html> */}
 				<group
 					name="table_and_books"
 					position={[-218.243, -4, -202.222]}
 					rotation={[-Math.PI / 2, 0, 0]}
 					scale={12}
-					className="w-[300px] cursor-pointer rounded-lg"
-					style={{ userSelect: "none" }}
-					onPointerOver={() => {
-						setHovered(true);
-						setDiscoveryText("table-and-books");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setDiscoveryText(null);
-					}}
+					// className="w-[300px] cursor-pointer rounded-lg"
+					// style={{ userSelect: "none" }}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setDiscoveryText("table-and-books");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setDiscoveryText(null);
+					// }}
 				>
 					<group
 						name="aff57fa65e0a4fcea9173300380bb6f3fbx"
@@ -690,7 +690,7 @@ export default function GenericPOI(props) {
 				</group>
 
 				{/* Soldier's Closet */}
-				<Html position={[90, 55, -320]}>
+				{/* <Html position={[90, 55, -320]}>
 					{discoveryText === "soldiers-chest" ? (
 						<p
 							className="w-[300px] p-4 text-[black] rounded-lg"
@@ -704,23 +704,23 @@ export default function GenericPOI(props) {
 							(BJJ) for over 10 years and have my black belt in it.
 						</p>
 					) : null}
-				</Html>
+				</Html> */}
 				<group
 					name="soldier_closet"
 					position={[133.15, -3, -323.088]}
 					rotation={[-Math.PI / 2, 0, -2.109]}
 					scale={4}
-					className="w-[300px] cursor-pointer rounded-lg"
-					style={{ userSelect: "none" }}
-					onPointerOver={() => {
-						setHovered(true);
-						setDiscoveryText("soldiers-chest");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setDiscoveryText(null);
-					}}
+					// className="w-[300px] cursor-pointer rounded-lg"
+					// style={{ userSelect: "none" }}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setDiscoveryText("soldiers-chest");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setDiscoveryText(null);
+					// }}
 				>
 					<group
 						name="1fb39e29f5ee44d689f53b73ae2c3451fbx"
@@ -804,8 +804,8 @@ export default function GenericPOI(props) {
 								backgroundColor: "rgba(255, 255, 255, 0.6)",
 							}}
 						>
-							I am a lover of MMROPG's such as Ultima Online, Everquest, World
-							of Warcraft, and New World.
+							I love MMROPG's such as Ultima Online, Everquest, World of
+							Warcraft, and New World.
 						</p>
 					) : null}
 				</Html>
@@ -2767,7 +2767,7 @@ export default function GenericPOI(props) {
 				</group>
 
 				{/* Reading Corner */}
-				<Html position={[90, 45, -350]}>
+				{/* <Html position={[90, 45, -350]}>
 					{discoveryText === "reading-corner" ? (
 						<p
 							className="w-[300px] p-4 text-[black] rounded-lg"
@@ -2780,23 +2780,23 @@ export default function GenericPOI(props) {
 							Our Problem" by Tim Urban.
 						</p>
 					) : null}
-				</Html>
+				</Html> */}
 				<group
 					name="rading_corner"
 					position={[126.327, -4, -331.377]}
 					rotation={[-Math.PI / 2, 0, -1.185]}
 					scale={12}
-					className="w-[300px] cursor-pointer rounded-lg"
-					style={{ userSelect: "none" }}
-					onPointerOver={() => {
-						setHovered(true);
-						setDiscoveryText("reading-corner");
-						event.stopPropagation(); // Prevent event propagation
-					}}
-					onPointerOut={() => {
-						setHovered(false);
-						setDiscoveryText(null);
-					}}
+					// className="w-[300px] cursor-pointer rounded-lg"
+					// style={{ userSelect: "none" }}
+					// onPointerOver={() => {
+					// 	setHovered(true);
+					// 	setDiscoveryText("reading-corner");
+					// 	event.stopPropagation(); // Prevent event propagation
+					// }}
+					// onPointerOut={() => {
+					// 	setHovered(false);
+					// 	setDiscoveryText(null);
+					// }}
 				>
 					<group name="root002">
 						<group name="GLTF_SceneRootNode002" rotation={[Math.PI / 2, 0, 0]}>

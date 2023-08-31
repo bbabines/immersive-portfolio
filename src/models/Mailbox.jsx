@@ -52,7 +52,7 @@ export default function Mailbox(props) {
 					}}
 					onPointerOver={() => {
 						setHovered(true);
-						// setHoverText("contact");
+						setHoverText("contact");
 						setMailboxText("mailbox");
 						event.stopPropagation();
 					}}

@@ -81,11 +81,7 @@ export default function MyCanvas() {
 
 						<fog attach="fog" args={["white", 20, 200]} />
 
-						<Physics
-						// debug
-						// debug
-						// debug
-						>
+						<Physics>
 							{/* Avatar */}
 							<KeyboardControls map={keyboardMap}>
 								<CharacterController />
