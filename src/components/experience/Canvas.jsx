@@ -3,7 +3,12 @@
 import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, KeyboardControls, Sky } from "@react-three/drei";
-import { Physics, Debug, RigidBody } from "@react-three/rapier";
+import {
+	Physics,
+	Debug,
+	RigidBody,
+	HeightfieldCollider,
+} from "@react-three/rapier";
 import { Perf } from "r3f-perf";
 
 import Lights from "./Lights";
@@ -72,6 +77,7 @@ export default function MyCanvas() {
 						<Lights />
 						<Sky />
 						<Perf position="top-left" />
+						{/* <OrbitControls /> */}
 
 						<fog attach="fog" args={["white", 20, 200]} />
 
@@ -96,10 +102,8 @@ export default function MyCanvas() {
 								</mesh>
 							</RigidBody>
 
-							{/* <RigidBody type="fixed" friction={15}> */}
+							{/* Land */}
 							<Terrain position={[0, -1, 0]} scale={0.01} />
-							{/* </RigidBody> */}
-
 							{/* POI */}
 							<MainPOI scale={0.2} />
 							<Mailbox position={[0, -0.5, -16.5]} scale={0.25} />
