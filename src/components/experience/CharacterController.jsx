@@ -30,7 +30,7 @@ const CharacterController = () => {
 		const JUMP_FORCE = 500 * delta;
 		const MAX_VEL = 5;
 		const RUN_FACTOR = run ? 3 : 1; // If 'run' key is pressed, RUN_FACTOR is 3, else 1
-		const LERP_FACTOR = 0.1; // Adjust this for faster/slower interpolation. 0.1 means 10% of the distance will be covered in each frame.
+		const LERP_FACTOR = 0.5; // Adjust this for faster/slower interpolation. 0.1 means 10% of the distance will be covered in each frame.
 		let movementMultiplier = 1; // Default multiplier for walking
 		movementMultiplier *= RUN_FACTOR;
 		let maxVelocityCap = MAX_VEL; // Default velocity cap
@@ -148,17 +148,24 @@ const CharacterController = () => {
 		cameraPosition.z += 20.25;
 		cameraPosition.y += 10.65;
 
+		// Lerp Camera Position
+		smoothedCameraPosition.lerp(cameraPosition, LERP_FACTOR);
+
 		// Camera Target
 		const cameraTarget = new THREE.Vector3();
 		cameraTarget.copy(bodyPosition);
 		cameraTarget.y += 8.25;
+
+		// Lerp Camera Target
+		smoothedCameraTarget.lerp(cameraTarget, LERP_FACTOR);
 
 		// Fixed camera view
 		// state.camera.position.copy(cameraPosition);
 		// state.camera.lookAt(cameraTarget);
 
 		// Allows for manual OrbitControls movement
-		orbitControlsRef.current.target.copy(cameraTarget);
+		// orbitControlsRef.current.target.copy(cameraTarget); // Without Lerp
+		orbitControlsRef.current.target.copy(smoothedCameraTarget); // With Lerp
 		orbitControlsRef.current.update();
 
 		/**dda
