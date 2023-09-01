@@ -108,7 +108,7 @@ export default function MyCanvas() {
 
 							<MainPOI scale={0.2} />
 							<Mailbox position={[0, -0.5, -16.5]} scale={0.25} />
-							<GenericPOI scale={0.2} />
+							{/* <GenericPOI scale={0.2} /> */}
 						</Physics>
 					</>
 				)}

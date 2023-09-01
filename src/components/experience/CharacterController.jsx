@@ -151,7 +151,7 @@ const CharacterController = () => {
 		// Camera Target
 		const cameraTarget = new THREE.Vector3();
 		cameraTarget.copy(bodyPosition);
-		cameraTarget.y += 5.25;
+		cameraTarget.y += 8.25;
 
 		// Fixed camera view
 		// state.camera.position.copy(cameraPosition);

@@ -29,46 +29,56 @@ export default function MainPOI(props) {
 
 	return (
 		<RigidBody type="fixed" colliders={false}>
+			{/* Invisible Spawn Point Physics */}
+			<RigidBody type="fixed" includeInvisible>
+				<mesh position={[-52, 1.3, 24]} visible={false}>
+					<boxGeometry args={[3, 0.1, 3]} />
+					<meshStandardMaterial color="mediumpurple" />
+				</mesh>
+
+				<mesh position={[-52, 0.8, 24]} visible={false}>
+					<boxGeometry args={[5.2, 0.1, 4.5]} />
+					<meshStandardMaterial color="mediumpurple" />
+				</mesh>
+			</RigidBody>
 			<group ref={group} {...props} dispose={null}>
 				<group name="Scene">
 					{/* Spawn Point */}
-					<RigidBody type="fixed" restitution={0.01}>
-						<group
-							name="spawn_point"
-							position={[-260, 1, 120]}
-							rotation={[-Math.PI, 1.558, -Math.PI]}
-							scale={20}
-						>
-							<mesh
-								name="Circle025"
-								castShadow
-								receiveShadow
-								geometry={nodes.Circle025.geometry}
-								material={materials.Base_SideRocks_MAT}
-							/>
-							<mesh
-								name="Circle025_1"
-								castShadow
-								receiveShadow
-								geometry={nodes.Circle025_1.geometry}
-								material={materials.Foliage_MAT}
-							/>
-							<mesh
-								name="Circle025_2"
-								castShadow
-								receiveShadow
-								geometry={nodes.Circle025_2.geometry}
-								material={materials.Water_MAT}
-							/>
-							<mesh
-								name="Circle025_3"
-								castShadow
-								receiveShadow
-								geometry={nodes.Circle025_3.geometry}
-								material={materials.Base_Base_MAT}
-							/>
-						</group>
-					</RigidBody>
+					<group
+						name="spawn_point"
+						position={[-260, 1, 120]}
+						rotation={[-Math.PI, 1.558, -Math.PI]}
+						scale={20}
+					>
+						<mesh
+							name="Circle025"
+							castShadow
+							receiveShadow
+							geometry={nodes.Circle025.geometry}
+							material={materials.Base_SideRocks_MAT}
+						/>
+						<mesh
+							name="Circle025_1"
+							castShadow
+							receiveShadow
+							geometry={nodes.Circle025_1.geometry}
+							material={materials.Foliage_MAT}
+						/>
+						<mesh
+							name="Circle025_2"
+							castShadow
+							receiveShadow
+							geometry={nodes.Circle025_2.geometry}
+							material={materials.Water_MAT}
+						/>
+						<mesh
+							name="Circle025_3"
+							castShadow
+							receiveShadow
+							geometry={nodes.Circle025_3.geometry}
+							material={materials.Base_Base_MAT}
+						/>
+					</group>
 
 					{/* Middle Sign */}
 					<ModalText
