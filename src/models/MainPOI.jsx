@@ -577,7 +577,7 @@ export default function MainPOI(props) {
 
 					<group
 						name="github_icon"
-						position={[20, -2, 326.46]}
+						position={[20, -4, 326.46]}
 						rotation={[-Math.PI / 2, 0, 3.117]}
 						onClick={() => {
 							window.open("https://github.com/bbabines", "_blank");
@@ -592,75 +592,80 @@ export default function MainPOI(props) {
 							setHoverText("");
 						}}
 					>
-						<RigidBody type="fixed" restitution={0.01} position={[0, 0, 0]}>
-							<group name="root001">
+						<group name="root001">
+							{/* Invisible GitHub Physics */}
+							<RigidBody type="fixed" includeInvisible>
+								<mesh position={[6.5, -1, 4]} visible={false}>
+									<boxGeometry args={[6, 2, 8]} />
+									<meshStandardMaterial color="mediumpurple" />
+								</mesh>
+							</RigidBody>
+							<group
+								name="GLTF_SceneRootNode001"
+								rotation={[Math.PI / 2, 0, 0]}
+							>
 								<group
-									name="GLTF_SceneRootNode001"
-									rotation={[Math.PI / 2, 0, 0]}
+									name="NODE_167_6"
+									position={[0, 9.995, 1.325]}
+									scale={0.05}
 								>
-									<group
-										name="NODE_167_6"
-										position={[0, 9.995, 1.325]}
-										scale={0.05}
-									>
-										<mesh
-											name="Object_16"
-											castShadow
-											receiveShadow
-											geometry={nodes.Object_16.geometry}
-											material={materials.material_6}
-										/>
-									</group>
-									<group
-										name="NODE_284_4"
-										position={[-0.001, 9.996, 1.81]}
-										scale={0.05}
+									<mesh
+										name="Object_16"
+										castShadow
+										receiveShadow
+										geometry={nodes.Object_16.geometry}
+										material={materials.material_6}
 									/>
-									<group
-										name="NODE_285_5"
-										position={[0.012, 10.002, 1.755]}
-										scale={0.05}
+								</group>
+								<group
+									name="NODE_284_4"
+									position={[-0.001, 9.996, 1.81]}
+									scale={0.05}
+								/>
+								<group
+									name="NODE_285_5"
+									position={[0.012, 10.002, 1.755]}
+									scale={0.05}
+								/>
+								<group
+									name="NODE_320_3"
+									position={[-0.002, 9.988, 1.799]}
+									scale={0.05}
+								/>
+								<group
+									name="NODE_321_2"
+									position={[-0.002, 9.994, 1.813]}
+									scale={0.05}
+								/>
+								<group
+									name="NODE_326_1"
+									position={[0.002, 9.997, 1.486]}
+									scale={0.05}
+								>
+									<mesh
+										name="Object_6002"
+										castShadow
+										receiveShadow
+										geometry={nodes.Object_6002.geometry}
+										material={materials["material_1.001"]}
+										position={[0, 0, -0.001]}
 									/>
-									<group
-										name="NODE_320_3"
-										position={[-0.002, 9.988, 1.799]}
-										scale={0.05}
+								</group>
+								<group
+									name="NODE_333_0"
+									position={[0.004, 9.995, 0.635]}
+									scale={0.05}
+								>
+									<mesh
+										name="Object_4004"
+										castShadow
+										receiveShadow
+										geometry={nodes.Object_4004.geometry}
+										material={materials.material_0}
 									/>
-									<group
-										name="NODE_321_2"
-										position={[-0.002, 9.994, 1.813]}
-										scale={0.05}
-									/>
-									<group
-										name="NODE_326_1"
-										position={[0.002, 9.997, 1.486]}
-										scale={0.05}
-									>
-										<mesh
-											name="Object_6002"
-											castShadow
-											receiveShadow
-											geometry={nodes.Object_6002.geometry}
-											material={materials["material_1.001"]}
-											position={[0, 0, -0.001]}
-										/>
-									</group>
-									<group
-										name="NODE_333_0"
-										position={[0.004, 9.995, 0.635]}
-										scale={0.05}
-									>
-										<mesh
-											name="Object_4004"
-											castShadow
-											receiveShadow
-											geometry={nodes.Object_4004.geometry}
-											material={materials.material_0}
-										/>
-									</group>
 								</group>
 							</group>
-						</RigidBody>
+						</group>
 					</group>
 				</group>
 			</group>

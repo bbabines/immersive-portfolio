@@ -46,7 +46,7 @@ export default function Mailbox(props) {
 
 				<group
 					name="Sketchfab_model"
-					position={[-7.476, 0, 326.338]}
+					position={[-7.476, -1, 326.338]}
 					rotation={[-1.573, 0, 1.549]}
 					scale={1.623}
 					onClick={() => {
@@ -64,101 +64,106 @@ export default function Mailbox(props) {
 						setMailboxText("");
 					}}
 				>
-					<RigidBody type="fixed" restitution={0.01}>
-						<group name="8dcf7793a439444f949b6c43d8fb76b1objcleanermaterialmergergle">
-							<mesh
-								name="Object_10003"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_10003.geometry}
-								material={materials.Top_box}
-							/>
-							<mesh
-								name="Object_11001"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_11001.geometry}
-								material={materials.Wood_top_thing}
-							/>
-							<mesh
-								name="Object_12002"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_12002.geometry}
-								material={materials.box_design}
-							/>
-							<mesh
-								name="Object_13"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_13.geometry}
-								material={materials.hook_holder}
-							/>
-							<mesh
-								name="Object_14002"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_14002.geometry}
-								material={materials.wood_top_base}
-							/>
-							<mesh
-								name="Object_2001"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_2001.geometry}
-								material={materials.Bot_Box}
-							/>
-							<mesh
-								name="Object_3"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_3.geometry}
-								material={materials.Bot_stand}
-							/>
-							<mesh
-								name="Object_4006"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_4006.geometry}
-								material={materials.Cloth}
-							/>
-							<mesh
-								name="Object_5003"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_5003.geometry}
-								material={materials.Cloth_Edge}
-							/>
-							<mesh
-								name="Object_6003"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_6003.geometry}
-								material={materials.Hook_Base}
-							/>
-							<mesh
-								name="Object_7002"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_7002.geometry}
-								material={materials.Hook_Main}
-							/>
-							<mesh
-								name="Object_8003"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_8003.geometry}
-								material={materials.Ring}
-							/>
-							<mesh
-								name="Object_9002"
-								castShadow
-								receiveShadow
-								geometry={nodes.Object_9002.geometry}
-								material={materials.Sign}
-							/>
-						</group>
+					{/* Invisible Mailbox Physics */}
+					<RigidBody type="fixed" includeInvisible>
+						<mesh position={[0, 0, 3]} visible={false}>
+							<boxGeometry args={[3, 3, 5]} />
+							<meshStandardMaterial color="mediumpurple" />
+						</mesh>
 					</RigidBody>
+					<group name="8dcf7793a439444f949b6c43d8fb76b1objcleanermaterialmergergle">
+						<mesh
+							name="Object_10003"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_10003.geometry}
+							material={materials.Top_box}
+						/>
+						<mesh
+							name="Object_11001"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_11001.geometry}
+							material={materials.Wood_top_thing}
+						/>
+						<mesh
+							name="Object_12002"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_12002.geometry}
+							material={materials.box_design}
+						/>
+						<mesh
+							name="Object_13"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_13.geometry}
+							material={materials.hook_holder}
+						/>
+						<mesh
+							name="Object_14002"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_14002.geometry}
+							material={materials.wood_top_base}
+						/>
+						<mesh
+							name="Object_2001"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_2001.geometry}
+							material={materials.Bot_Box}
+						/>
+						<mesh
+							name="Object_3"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_3.geometry}
+							material={materials.Bot_stand}
+						/>
+						<mesh
+							name="Object_4006"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_4006.geometry}
+							material={materials.Cloth}
+						/>
+						<mesh
+							name="Object_5003"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_5003.geometry}
+							material={materials.Cloth_Edge}
+						/>
+						<mesh
+							name="Object_6003"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_6003.geometry}
+							material={materials.Hook_Base}
+						/>
+						<mesh
+							name="Object_7002"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_7002.geometry}
+							material={materials.Hook_Main}
+						/>
+						<mesh
+							name="Object_8003"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_8003.geometry}
+							material={materials.Ring}
+						/>
+						<mesh
+							name="Object_9002"
+							castShadow
+							receiveShadow
+							geometry={nodes.Object_9002.geometry}
+							material={materials.Sign}
+						/>
+					</group>
 				</group>
 			</group>
 		</group>

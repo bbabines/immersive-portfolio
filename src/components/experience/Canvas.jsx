@@ -77,7 +77,10 @@ export default function MyCanvas() {
 
 						<fog attach="fog" args={["white", 20, 200]} />
 
-						<Physics gravity={[0, -50, 0]} debug>
+						<Physics
+							gravity={[0, -50, 0]}
+							// debug
+						>
 							<KeyboardControls map={keyboardMap}>
 								{/* Avatar */}
 								<CharacterController />
@@ -91,19 +94,6 @@ export default function MyCanvas() {
 									friction={1000}
 									restitution={0}
 								/>
-							</RigidBody>
-
-							{/* Invisible Boundary */}
-							<RigidBody
-								type="fixed"
-								colliders="trimesh"
-								includeInvisible
-								scale={7}
-							>
-								<mesh visible={false}>
-									<sphereGeometry args={[15, 6, 6]} />
-									<meshStandardMaterial />
-								</mesh>
 							</RigidBody>
 
 							<MainPOI scale={0.2} />
