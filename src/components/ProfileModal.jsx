@@ -26,13 +26,13 @@ const ShowProfile = () => {
 		<div
 			className={
 				showProfile === true
-					? "max-w-[1500px] max-h-[95vh] w-[50vw] overflow-auto  text-white bg-[#161d26] bg-opacity-90 rounded-2xl max-lg:w-[100%]"
+					? "max-w-[1500px] max-h-[95vh] w-[50vw] overflow-auto  text-white bg-[#161d26] bg-opacity-90 rounded-2xl max-lg:w-[100%] max-sm:max-h-[80vh]"
 					: "hidden"
 			}
 		>
 			<div className="relative">
 				<div
-					className="w-[2em] h-[2em] flex justify-center items-center bg-white text-black rounded-full mt-2 absolute left-[93%] top-[2%] cursor-pointer max-sm:left-[90%]"
+					className="w-[2em] h-[2em] flex justify-center items-center bg-white text-black rounded-full mt-2 absolute left-[93%] top-[2%] cursor-pointer max-sm:left-[87%] max-sm:top-[1%]"
 					onClick={handleProfileClose}
 				>
 					X
@@ -47,20 +47,20 @@ const ShowProfile = () => {
 						Where Passion Meets Profession
 					</p>
 
-					<div className="w-[95%] p-4 m-4 flex justify-between bg-[#0b1015] rounded-lg">
-						<div className="">
+					<div className="w-[95%] p-4 m-4 flex justify-between bg-[#0b1015] rounded-lg max-sm:flex-col max-sm:items-center">
+						<div className="max-sm:mb-4">
 							<hr className="mb-2 opacity-50" />
 							<p className="font-medium">Brad Babines</p>
 							<p className="text-[lightgrey]">Front End Developer</p>
 							<hr className="mt-2 opacity-50" />
 						</div>
-						<div className="w-[200px] flex flex-col justify-between">
+						<div className="w-[200px] flex flex-col justify-between max-sm:flex-row">
 							<p className="mr-2">
 								Years of Experience:{" "}
 								<span className="text-[lightgreen]">2</span>
 							</p>
 
-							<div className="flex">
+							<div className="max-sm:flex max-sm:flex-col max-sm:items-center">
 								Resume:
 								<a
 									href="resume.pdf"
