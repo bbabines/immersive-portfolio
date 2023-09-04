@@ -41,7 +41,7 @@ const LoadingScreen = ({ loadingStarted, setLoadingStarted }) => {
 					<div className="w-[50%] h-[50px] flex items-center justify-center absolute bottom-[5%] z-20 bg-transparent">
 						{/* Progress bar */}
 						<div
-							className="max-w-[90%] h-[43%] absolute top-[29%] left-[5%] inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 z-20 rounded-full max-lg:h-[15%] max-lg:top-[45%] max-xl:h-[20%] max-xl:top-[42%]"
+							className="max-w-[90%] h-[43%] absolute top-[29%] left-[5%] inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 z-20 rounded-full max-xl:h-[20%]  max-lg:h-[15%] max-sm:h-[10%] max-lg:top-[45%] max-xl:top-[42%]"
 							style={{ width: `${progress}%` }}
 						></div>
 						{/* Bar overlay */}
