@@ -15,7 +15,7 @@ import Mailbox from "../../models/Mailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
 import ProfileModal from "../ProfileModal";
-import Joystick from "../experience/Joystick";
+// import Joystick from "../experience/Joystick";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -83,7 +83,7 @@ export default function MyCanvas() {
 						{/* Delete Lights and Sky when TimeOfDay is finished */}
 						<Lights />
 						<Sky />
-						<Perf position="top-left" />
+						{/* <Perf position="top-left" /> */}
 						{/* <OrbitControls /> */}
 
 						<fog attach="fog" args={["white", 20, 200]} />

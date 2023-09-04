@@ -9,6 +9,12 @@
 	scroll-behavior: smooth;
 }
 
+body,
+html {
+	height: 100%;
+	overflow: hidden;
+}
+
 .black-gradient {
 	background: #000000; /* fallback for old browsers */
 	background: -webkit-linear-gradient(

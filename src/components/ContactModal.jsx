@@ -55,13 +55,13 @@ const ContactModal = ({ signType }) => {
 		<div
 			className={
 				signSelected === signType
-					? "max-w-[1500px] max-h-[95vh] w-[500px] min-w-[300px] overflow-auto text-white bg-[#161d26] bg-opacity-90 rounded-2xl"
+					? "max-w-[1500px] max-h-[95vh] w-[500px] min-w-[300px] overflow-auto text-white bg-[#161d26] bg-opacity-90 rounded-2xl  max-sm:max-w-[350px] max-sm:max-h-[80vh]"
 					: "hidden"
 			}
 		>
 			<div className="relative">
 				<div
-					className="w-[2em] h-[2em] flex justify-center items-center bg-white text-black rounded-full mt-2 absolute left-[90%] cursor-pointer"
+					className="w-[2em] h-[2em] flex justify-center items-center bg-white text-black rounded-full mt-2 absolute left-[90%] cursor-pointer max-sm:left-[87%]"
 					onClick={handleModalClose}
 				>
 					X

@@ -13,7 +13,7 @@ export default function App() {
 	return (
 		<ModalContextProvider>
 			<HoverContextProvider>
-				<main className=" bg-[black] text-[#626565] min-h-[100vh] max-sm:flex max-sm:flex-col max-sm:justify-between">
+				<main className=" bg-[black] text-[#626565]  max-sm:flex max-sm:flex-col max-sm:justify-between">
 					<div className="min-h-[100vh] max-h-[100%] flex flex-col justify-center">
 						{/* Profile Modal */}
 						<div className="z-[2] mx-auto">
@@ -97,7 +97,7 @@ export default function App() {
 						</div>
 
 						{/* MyCanvas */}
-						<div className="absolute z-[0] h-[100%] w-[100%]">
+						<div className="absolute z-[0] h-[100vh] w-[100vw] top-0 left-0">
 							<Canvas />
 						</div>
 					</div>

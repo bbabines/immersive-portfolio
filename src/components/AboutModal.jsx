@@ -12,7 +12,7 @@ const AboutModal = ({ signType }) => {
 		<div
 			className={
 				signSelected === signType
-					? "max-w-[1500px] max-h-[95vh] w-[50vw] min-w-[300px] overflow-auto text-white bg-[#161d26] bg-opacity-90 rounded-2xl"
+					? "max-w-[1500px] max-h-[95vh] w-[50vw] min-w-[300px] overflow-auto text-white bg-[#161d26] bg-opacity-90 rounded-2xl max-sm:max-h-[80vh]"
 					: "hidden"
 			}
 		>
