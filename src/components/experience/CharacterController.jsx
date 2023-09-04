@@ -4,9 +4,9 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import { CapsuleCollider, RigidBody, useRapier } from "@react-three/rapier";
+import { useKeyboardControls, OrbitControls } from "@react-three/drei";
 
 import PortfolioAvatar from "@/models/PortfolioAvatar";
-import { useKeyboardControls, OrbitControls } from "@react-three/drei";
 
 const CharacterController = () => {
 	const [subscriberKeys, getKeys] = useKeyboardControls(); // getKeys() is a function to get the current states of the keys
@@ -29,8 +29,8 @@ const CharacterController = () => {
 		const MOVEMENT_SPEED = 200 * delta;
 		const JUMP_FORCE = 500 * delta;
 		const MAX_VEL = 5;
-		const RUN_FACTOR = run ? 3 : 1; // If 'run' key is pressed, RUN_FACTOR is 3, else 1
-		const LERP_FACTOR = 0.5; // Adjust this for faster/slower interpolation. 0.1 means 10% of the distance will be covered in each frame.
+		const RUN_FACTOR = run ? 2 : 1; // If 'run' key is pressed, RUN_FACTOR is 3, else 1
+		const LERP_FACTOR = 0.1; // Adjust this for faster/slower interpolation. 0.1 means 10% of the distance will be covered in each frame.
 		let movementMultiplier = 1; // Default multiplier for walking
 		movementMultiplier *= RUN_FACTOR;
 		let maxVelocityCap = MAX_VEL; // Default velocity cap
@@ -168,7 +168,7 @@ const CharacterController = () => {
 		orbitControlsRef.current.target.copy(smoothedCameraTarget); // With Lerp
 		orbitControlsRef.current.update();
 
-		/**dda
+		/**
 		 * Apply the impulses upon key push
 		 */
 		rigidBodyRef.current.applyImpulse(impulse, true);

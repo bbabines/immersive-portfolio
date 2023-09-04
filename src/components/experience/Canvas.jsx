@@ -35,11 +35,14 @@ export default function MyCanvas() {
 				setLoadingStarted={setLoadingStarted}
 			/>
 
-			{/* Sceen Overlays */}
+			{/* Screen Overlays */}
 			{loadingStarted && (
 				<>
 					{/* Keyboard Control Image */}
-					<div className="absolute z-[1] bottom-[10%] left-[5%]">
+					<div
+						className="absolute z-[1] bottom-[10%] left-[5%]"
+						style={{ userSelect: "none" }}
+					>
 						<img
 							src="keyControls.png"
 							alt="keyboard controls"
@@ -48,7 +51,10 @@ export default function MyCanvas() {
 					</div>
 
 					{/* Profile Image */}
-					<div className="h-[50px] w-[50px]   bg-white bg-opacity-30 absolute z-[1] bottom-[10%] right-[5%] text-white font-bold">
+					<div
+						className="h-[50px] w-[50px]   bg-white bg-opacity-30 absolute z-[1] bottom-[10%] right-[5%] text-white font-bold"
+						style={{ userSelect: "none" }}
+					>
 						<div className="h-[50px] w-[50px] flex justify-center items-center opacity-100 z-[2] text-[white] border-2  rounded-lg">
 							P
 						</div>
@@ -67,7 +73,7 @@ export default function MyCanvas() {
 			>
 				{loadingStarted && (
 					<>
-						{/* <TimeOfDay /> */}
+						{/* <TimeOfDay />  */}
 
 						{/* Delete Lights and Sky when TimeOfDay is finished */}
 						<Lights />

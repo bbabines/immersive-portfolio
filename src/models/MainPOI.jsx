@@ -31,13 +31,13 @@ export default function MainPOI(props) {
 		<RigidBody type="fixed" colliders={false}>
 			{/* Invisible Spawn Point Physics */}
 			<RigidBody type="fixed" includeInvisible>
-				<mesh position={[-52, 1.3, 24]} visible={false}>
+				<mesh position={[-52, 1.4, 24]} visible={false}>
 					<boxGeometry args={[3, 0.1, 3]} />
 					<meshStandardMaterial color="mediumpurple" />
 				</mesh>
 
-				<mesh position={[-52, 0.8, 24]} visible={false}>
-					<boxGeometry args={[5.2, 0.1, 4.5]} />
+				<mesh position={[-49.8, 1, 24]} rotation={[0, 0, -10]} visible={false}>
+					<boxGeometry args={[1.7, 0.1, 3.5]} />
 					<meshStandardMaterial color="mediumpurple" />
 				</mesh>
 			</RigidBody>
