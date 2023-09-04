@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, KeyboardControls, Sky } from "@react-three/drei";
 import { Physics, Debug, RigidBody } from "@react-three/rapier";
@@ -14,7 +14,7 @@ import GenericPOI from "../../models/GenericPOI";
 import Mailbox from "../../models/Mailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
-import ProfileModal from "../ProfileModal";
+import { useProfileContext } from "../ProfileContext";
 // import Joystick from "../experience/Joystick";
 
 //  Keyboard control preset
@@ -28,6 +28,8 @@ export const keyboardMap = [
 ];
 
 export default function MyCanvas() {
+	const { showProfile, setShowProfile } = useProfileContext();
+
 	const [loadingStarted, setLoadingStarted] = useState(false);
 
 	return (
@@ -54,9 +56,9 @@ export default function MyCanvas() {
 
 					{/* Profile Image */}
 					<div
-						className="h-[50px] w-[50px] bg-white bg-opacity-30 absolute z-[1] bottom-[10%] right-[5%] text-white font-bold max-sm:cursor-pointer max-sm:bottom-[50%] max-sm:w-[75px] max-sm:rounded-lg max-sm:hover:bg-opacity-50"
+						className="h-[50px] w-[50px] bg-white bg-opacity-30 absolute z-[1] bottom-[10%] right-[5%] text-white font-bold max-sm:cursor-pointer max-sm:bottom-[50%] max-sm:w-[75px] max-sm:rounded-lg  max-sm:bg-[#eab832] max-sm:bg-opacity-50 max-sm:hover:bg-opacity-80"
 						style={{ userSelect: "none" }}
-						onClick={() => setShowProfileModal(true)}
+						onClick={() => setShowProfile(true)}
 					>
 						<div className="h-[50px] w-[50px] flex justify-center items-center opacity-100 z-[2] text-[white] border-2  rounded-lg max-sm:hidden">
 							P

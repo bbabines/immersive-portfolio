@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 
+import { useProfileContext } from "./ProfileContext";
+
 const ShowProfile = () => {
-	const [showProfile, setShowProfile] = useState(false);
+	const { showProfile, setShowProfile } = useProfileContext();
 
 	const handleShowProfile = (event) => {
 		if (event.key === "p") {
