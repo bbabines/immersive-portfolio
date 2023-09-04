@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build",
+		"build": "next build --no-lint",
 		"start": "next start",
 		"lint": "next lint"
 	},
@@ -20,6 +20,7 @@
 		"emailjs": "^4.0.2",
 		"eslint": "8.46.0",
 		"eslint-config-next": "13.4.12",
+		"get-image-pixels": "^1.0.1",
 		"glslify-loader": "^2.0.0",
 		"leva": "^0.9.35",
 		"maath": "^0.7.0",
