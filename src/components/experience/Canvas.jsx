@@ -14,6 +14,8 @@ import GenericPOI from "../../models/GenericPOI";
 import Mailbox from "../../models/Mailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
+import ProfileModal from "../ProfileModal";
+import Joystick from "../experience/Joystick";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -40,7 +42,7 @@ export default function MyCanvas() {
 				<>
 					{/* Keyboard Control Image */}
 					<div
-						className="absolute z-[1] bottom-[10%] left-[5%]"
+						className="absolute z-[1] bottom-[10%] left-[5%] max-sm:hidden"
 						style={{ userSelect: "none" }}
 					>
 						<img
@@ -52,13 +54,16 @@ export default function MyCanvas() {
 
 					{/* Profile Image */}
 					<div
-						className="h-[50px] w-[50px]   bg-white bg-opacity-30 absolute z-[1] bottom-[10%] right-[5%] text-white font-bold"
+						className="h-[50px] w-[50px] bg-white bg-opacity-30 absolute z-[1] bottom-[10%] right-[5%] text-white font-bold max-sm:cursor-pointer max-sm:bottom-[50%] max-sm:w-[75px] max-sm:rounded-lg max-sm:hover:bg-opacity-50"
 						style={{ userSelect: "none" }}
+						onClick={() => setShowProfileModal(true)}
 					>
-						<div className="h-[50px] w-[50px] flex justify-center items-center opacity-100 z-[2] text-[white] border-2  rounded-lg">
+						<div className="h-[50px] w-[50px] flex justify-center items-center opacity-100 z-[2] text-[white] border-2  rounded-lg max-sm:hidden">
 							P
 						</div>
-						<div className="font-thin opacity-80">Profile</div>
+						<div className="font-thin opacity-80 max-sm:font-bold max-sm:my-3 max-sm:mx-3 max-sm:hover:opacity-100">
+							Profile
+						</div>
 					</div>
 				</>
 			)}
@@ -109,6 +114,7 @@ export default function MyCanvas() {
 					</>
 				)}
 			</Canvas>
+			{/* <Joystick onMove={handleJoystickMove} /> */}
 		</>
 	);
 }
