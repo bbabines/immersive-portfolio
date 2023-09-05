@@ -8,7 +8,6 @@ import { RigidBody } from "@react-three/rapier";
 
 import { useModalContext } from "../components/ModalContext";
 import { useHoverContext } from "../components/HoverContext";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
 
 export default function GenericPOI(props) {
 	const group = useRef();
