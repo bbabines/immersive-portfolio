@@ -1,25 +1,42 @@
-// import React, { useEffect } from "react";
-// import nipplejs from "nipplejs";
+import React, { useRef, useEffect } from "react";
+import nipplejs from "nipplejs";
 
-// function Joystick({ onMove }) {
-// 	useEffect(() => {
-// 		let joystick = nipplejs.create({
-// 			zone: document.getElementById("joystick"),
-// 			mode: "static",
-// 			position: { left: "50%", top: "50%" },
-// 			size: 200,
-// 		});
+function Joystick({ onMove }) {
+	const containerRef = useRef(null);
 
-// 		joystick.on("move", (_, data) => {
-// 			onMove(data);
-// 		});
+	useEffect(() => {
+		if (!containerRef.current) return;
 
-// 		return () => {
-// 			joystick.destroy();
-// 		};
-// 	}, [onMove]);
+		const joystick = new nipplejs.create({
+			zone: containerRef.current,
+			mode: "static",
+			position: { left: "50%", top: "50%" },
+			color: "white",
+		});
 
-// 	return <div id="joystick" style={{ width: "100%", height: "100vh" }} />;
-// }
+		joystick.on("move", (event, data) => {
+			if (onMove) {
+				onMove(data);
+			}
+		});
 
-// export default Joystick;
+		return () => {
+			joystick.destroy();
+		};
+	}, [onMove]);
+
+	return (
+		<div
+			ref={containerRef}
+			style={{
+				position: "absolute",
+				bottom: "10px",
+				left: "50%",
+				width: "100px",
+				height: "100px",
+			}}
+		/>
+	);
+}
+
+export default Joystick;

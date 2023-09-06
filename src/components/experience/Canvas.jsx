@@ -15,7 +15,7 @@ import Mailbox from "../../models/Mailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
 import { useProfileContext } from "../ProfileContext";
-// import Joystick from "../experience/Joystick";
+import Joystick from "../experience/Joystick";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -31,6 +31,16 @@ export default function MyCanvas() {
 	const { showProfile, setShowProfile } = useProfileContext();
 
 	const [loadingStarted, setLoadingStarted] = useState(false);
+
+	// const handleJoystickMove = (data) => {
+	// 	if (!meshRef.current) return;
+	// 	const speed = 0.05;
+
+	// 	meshRef.current.position.x +=
+	// 		Math.cos(data.angle.radian) * data.force * speed;
+	// 	meshRef.current.position.y +=
+	// 		Math.sin(data.angle.radian) * data.force * speed;
+	// };
 
 	return (
 		<>
@@ -112,11 +122,19 @@ export default function MyCanvas() {
 							<MainPOI scale={0.2} />
 							<Mailbox position={[0, -0.5, -16.5]} scale={0.25} />
 							{/* <GenericPOI scale={0.2} /> */}
+
+							{/* Joystick Test Mesh */}
+							{/* <mesh ref={meshRef}>
+								<boxBufferGeometry args={[1, 1, 1]} />
+								<meshStandardMaterial color="orange" />
+							</mesh> */}
 						</Physics>
 					</>
 				)}
 			</Canvas>
-			{/* <Joystick onMove={handleJoystickMove} /> */}
+			<Joystick
+			// onMove={handleJoystickMove}
+			/>
 		</>
 	);
 }
