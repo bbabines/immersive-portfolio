@@ -29,7 +29,7 @@ const CharacterController = () => {
 
 	const camera = useThree((state) => state.camera);
 
-	// TEST
+	// For handling shift/running properly
 	useEffect(() => {
 		const handleKeyDown = (event) => {
 			if (event.key === "Shift") {
@@ -57,8 +57,6 @@ const CharacterController = () => {
 			setCharacterAnimationState("idle");
 		}
 	}, [setCharacterAnimationState, characterAnimationState]);
-
-	// TEST
 
 	useFrame((state, delta) => {
 		// Know if the WASD keys are being pressed

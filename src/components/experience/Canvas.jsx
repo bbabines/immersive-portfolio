@@ -26,7 +26,7 @@ export const keyboardMap = [
 	{ name: "leftward", keys: ["ArrowLeft", "KeyA"] },
 	{ name: "rightward", keys: ["ArrowRight", "KeyD"] },
 	{ name: "jump", keys: ["Space"] },
-	{ name: "run", keys: ["Shift"] },
+	{ name: "run", keys: ["ShiftLeft", "ShiftRight"] },
 ];
 
 export default function MyCanvas() {

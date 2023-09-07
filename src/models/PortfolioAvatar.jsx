@@ -23,44 +23,15 @@ export default function PortfolioAvatar(props) {
 	}, []);
 
 	const handleKeyPress = (event) => {
-		const codesOfInterest = [
-			"KeyW",
-			"KeyS",
-			"KeyA",
-			"KeyD",
-			"ArrowUp",
-			"ArrowDown",
-			"ArrowLeft",
-			"ArrowRight",
-		];
-
-		if (codesOfInterest.includes(event.code)) {
-			setKeysPressed((keys) => ({
-				...keys,
-				[event.code]: true,
-				Shift: event.shiftKey,
-			}));
-		}
+		setKeysPressed((keys) => ({
+			...keys,
+			[event.code]: true,
+			Shift: event.shiftKey,
+		}));
 	};
 
 	const handleKeyRelease = (event) => {
-		const codesOfInterest = [
-			"KeyW",
-			"KeyS",
-			"KeyA",
-			"KeyD",
-			"ArrowUp",
-			"ArrowDown",
-			"ArrowLeft",
-			"ArrowRight",
-			"ShiftLeft",
-			"ShiftRight",
-		];
-
-		if (
-			codesOfInterest.includes(event.code) ||
-			(event.code.startsWith("Shift") && !event.shiftKey)
-		) {
+		if (!event.code.startsWith("Shift") || !event.shiftKey) {
 			setKeysPressed((keys) => ({
 				...keys,
 				[event.code]: false,
