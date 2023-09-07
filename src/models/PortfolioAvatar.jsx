@@ -92,7 +92,7 @@ export default function PortfolioAvatar(props) {
 		}
 	}, [keysPressed, currentAnimation]);
 
-	console.log("Current keys pressed: ", keysPressed);
+	// console.log("Current keys pressed: ", keysPressed);
 
 	useEffect(() => {
 		window.addEventListener("keydown", handleKeyPress);
