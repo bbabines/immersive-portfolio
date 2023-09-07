@@ -1,6 +1,6 @@
 import { Billboard, Center, Text3D } from "@react-three/drei";
 
-import { useHoverContext } from "@/components/HoverContext";
+import { useHoverContext } from "@/components/context/HoverContext";
 
 const ModalText = ({ text, sign, position }) => {
 	const { hoverText } = useHoverContext();

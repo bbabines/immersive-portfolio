@@ -12,8 +12,8 @@ import {
 } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 
-import { useModalContext } from "../components/ModalContext";
-import { useHoverContext } from "../components/HoverContext";
+import { useModalContext } from "../components/context/ModalContext";
+import { useHoverContext } from "../components/context/HoverContext";
 import ModalText from "../components/experience/ModalText";
 
 export default function MainPOI(props) {

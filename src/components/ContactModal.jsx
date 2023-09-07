@@ -2,7 +2,7 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
-import { useModalContext } from "./ModalContext";
+import { useModalContext } from "./context/ModalContext";
 
 const ContactModal = ({ signType }) => {
 	const { signSelected, setSignSelected } = useModalContext();

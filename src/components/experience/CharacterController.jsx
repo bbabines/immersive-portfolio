@@ -6,16 +6,21 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { CapsuleCollider, RigidBody, useRapier } from "@react-three/rapier";
 import { useKeyboardControls, OrbitControls } from "@react-three/drei";
 
+import { useMovementContext } from "../context/MovementContext";
+import { useAnimationContext } from "../context/CharacterAnimationContext";
+
 import PortfolioAvatar from "@/models/PortfolioAvatar";
-import { useMovementContext } from "../MovementContext";
 
 const CharacterController = () => {
 	const { movement, setMovement } = useMovementContext();
+	const { characterAnimationState, setCharacterAnimationState } =
+		useAnimationContext();
 
 	const [subscriberKeys, getKeys] = useKeyboardControls(); // getKeys() is a function to get the current states of the keys
-	const [characterAnimationState, setCharacterAnimationState] = useState("");
+
 	const [smoothedCameraPosition] = useState(() => new THREE.Vector3());
 	const [smoothedCameraTarget] = useState(() => new THREE.Vector3());
+	const [isRunning, setIsRunning] = useState(false);
 
 	const rigidBodyRef = useRef(); // Used for character controls
 	const characterRef = useRef(); // Used for rotating the model
@@ -24,15 +29,47 @@ const CharacterController = () => {
 
 	const camera = useThree((state) => state.camera);
 
+	// TEST
+	useEffect(() => {
+		const handleKeyDown = (event) => {
+			if (event.key === "Shift") {
+				setIsRunning(true);
+			}
+		};
+
+		const handleKeyUp = (event) => {
+			if (event.key === "Shift") {
+				setIsRunning(false);
+			}
+		};
+
+		window.addEventListener("keydown", handleKeyDown);
+		window.addEventListener("keyup", handleKeyUp);
+
+		return () => {
+			window.removeEventListener("keydown", handleKeyDown);
+			window.removeEventListener("keyup", handleKeyUp);
+		};
+	}, []);
+
+	useEffect(() => {
+		if (isRunning !== true) {
+			setCharacterAnimationState("idle");
+		}
+	}, [setCharacterAnimationState, characterAnimationState]);
+
+	// TEST
+
 	useFrame((state, delta) => {
 		// Know if the WASD keys are being pressed
-		const { forward, backward, leftward, rightward, jump, run } = getKeys();
+		const { forward, backward, leftward, rightward, jump, run, shift } =
+			getKeys();
 		const impulse = { x: 0, y: 0, z: 0 };
 
 		const MOVEMENT_SPEED = 200 * delta;
 		const JUMP_FORCE = 500 * delta;
 		const MAX_VEL = 5;
-		const RUN_FACTOR = run ? 2 : 1; // If 'run' key is pressed, RUN_FACTOR is 3, else 1
+		const RUN_FACTOR = isRunning ? 2 : 1; // If 'run' key is pressed, RUN_FACTOR is 3, else 1
 		const LERP_FACTOR = 0.1; // Adjust this for faster/slower interpolation. 0.1 means 10% of the distance will be covered in each frame.
 		let movementMultiplier = 1; // Default multiplier for walking
 		movementMultiplier *= RUN_FACTOR;
@@ -59,7 +96,6 @@ const CharacterController = () => {
 			linearVelocity.x ** 2 + linearVelocity.y ** 2 + linearVelocity.z ** 2
 		);
 
-		// console.log(movement.forward);
 		// Main Controls
 		if (
 			forward &&
@@ -73,7 +109,7 @@ const CharacterController = () => {
 			impulse.x += cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z += cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
-			setCharacterAnimationState("walk");
+			// setCharacterAnimationState("walk");
 		}
 
 		if (
@@ -88,7 +124,7 @@ const CharacterController = () => {
 			impulse.x -= cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z -= cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
-			setCharacterAnimationState("walk");
+			// setCharacterAnimationState("walk");
 		}
 
 		if (
@@ -103,7 +139,7 @@ const CharacterController = () => {
 			impulse.x -= cameraRight.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z -= cameraRight.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
-			setCharacterAnimationState("walk");
+			// setCharacterAnimationState("walk");
 		}
 
 		if (
@@ -112,21 +148,20 @@ const CharacterController = () => {
 			//  ||
 			// (movement.rightward && magnitude < MAX_VEL * movementMultiplier)
 		) {
-			// Joystick State
+			// Joystick Statedw
 			// setMovement((prevState) => ({ ...prevState, rightward: true }));
 
 			impulse.x += cameraRight.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z += cameraRight.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
-			setCharacterAnimationState("walk");
+			// setCharacterAnimationState("walk");
 		}
 
 		const desiredChange = new THREE.Vector3();
 
 		// Run
-		if (run) {
-			const RUN_FACTOR = 20;
-			setCharacterAnimationState("run");
+		if (isRunning) {
+			// setCharacterAnimationState(isRunning ? "run" : "idle");
 
 			if (forward) {
 				desiredChange.x += cameraForward.x * MOVEMENT_SPEED * RUN_FACTOR;
@@ -166,7 +201,6 @@ const CharacterController = () => {
 		if (jump && isOnFloor.current) {
 			impulse.y += JUMP_FORCE * 0.9;
 			isOnFloor.current = false;
-			setCharacterAnimationState("jump");
 		}
 
 		if (changeRotation) {
@@ -225,14 +259,11 @@ const CharacterController = () => {
 			>
 				<CapsuleCollider args={[0.7, 0.3]} position={[2, 3.0, 2]} />
 				<group position={[2, 2, 2]} ref={characterRef}>
-					<PortfolioAvatar
-						setCharacterAnimationState={setCharacterAnimationState}
-						characterAnimationState={characterAnimationState}
-					/>
+					<PortfolioAvatar />
 				</group>
 			</RigidBody>
 
-			<OrbitControls ref={orbitControlsRef} maxDistance={25} />
+			<OrbitControls ref={orbitControlsRef} maxDistance={25} minDistance={20} />
 		</>
 	);
 };

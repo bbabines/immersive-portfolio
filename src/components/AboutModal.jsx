@@ -1,4 +1,4 @@
-import { useModalContext } from "./ModalContext";
+import { useModalContext } from "./context/ModalContext";
 import { about } from "../components/data/data";
 
 const AboutModal = ({ signType }) => {

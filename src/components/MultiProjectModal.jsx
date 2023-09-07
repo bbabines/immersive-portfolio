@@ -1,4 +1,4 @@
-import { useModalContext } from "../components/ModalContext";
+import { useModalContext } from "./context/ModalContext";
 import { allProjects } from "./data/data";
 
 const MultiProjectModal = ({ title, signType }) => {

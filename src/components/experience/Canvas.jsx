@@ -16,8 +16,8 @@ import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
 import Joystick from "../experience/Joystick";
 
-import { useProfileContext } from "../ProfileContext";
-import { useMovementContext } from "../MovementContext";
+import { useProfileContext } from "../context/ProfileContext";
+import { useMovementContext } from "../context/MovementContext";
 
 //  Keyboard control preset
 export const keyboardMap = [

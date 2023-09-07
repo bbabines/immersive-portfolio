@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { useProfileContext } from "./ProfileContext";
+import { useProfileContext } from "./context/ProfileContext";
 
 const ShowProfile = () => {
 	const { showProfile, setShowProfile } = useProfileContext();

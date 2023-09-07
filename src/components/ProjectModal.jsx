@@ -1,4 +1,4 @@
-import { useModalContext } from "../components/ModalContext";
+import { useModalContext } from "./context/ModalContext";
 
 const ProjectModal = ({
 	title,
