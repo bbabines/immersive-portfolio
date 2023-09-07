@@ -21,7 +21,6 @@ export default create(
 				set((state) => {
 					return { currentAnimation: state.animationSet.idle };
 				});
-				console.log(state.animationSet.idle);
 			},
 
 			walk: () => {
