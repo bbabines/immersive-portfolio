@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import nipplejs from "nipplejs";
 
-function Joystick({ onMove }) {
+function Joystick({ onMove, onEnd }) {
 	const containerRef = useRef(null);
 
 	useEffect(() => {
@@ -10,6 +10,9 @@ function Joystick({ onMove }) {
 		const joystick = new nipplejs.create({
 			zone: containerRef.current,
 			mode: "static",
+			// Test
+			multitouch: true,
+			// Test
 			position: { left: "50%", top: "50%" },
 			color: "white",
 		});
@@ -20,6 +23,11 @@ function Joystick({ onMove }) {
 			}
 		});
 
+		//    joystick.on("end", (evt, nipple) => {
+		//   	x: 0,
+		//	 	y: 0,
+		// 		});
+
 		return () => {
 			joystick.destroy();
 		};
@@ -28,10 +36,11 @@ function Joystick({ onMove }) {
 	return (
 		<div
 			ref={containerRef}
+			className="sm:hidden"
 			style={{
 				position: "absolute",
-				bottom: "10px",
-				left: "50%",
+				bottom: "5%",
+				left: "45%",
 				width: "100px",
 				height: "100px",
 			}}

@@ -7,6 +7,7 @@ import {
 	Text,
 	Text3D,
 	PresentationControls,
+	Html,
 } from "@react-three/drei";
 
 import Lights from "../Lights";
@@ -32,22 +33,10 @@ export default function ReactLogoCanvas() {
 				>
 					<Reactlogo scale={5} />
 				</PresentationControls>
-				<Text3D
-					font="inter_Bold.json"
-					position={[-15, -20, 5]}
-					rotation={[0, 0.9, 0]}
-					scale={8}
-					curveSegments={12}
-					bevelEnabled
-					bevelThickness={0.02}
-					bevelSize={0.02}
-					bevelOffset={0}
-					bevelSegments={5}
-				>
-					React
-					<meshStandardMaterial />
-				</Text3D>
 			</Canvas>
+			<p className="text-[3.5rem] font-bold text-[#61dbfb] relative left-[35%] bottom-[20%] select-none">
+				React
+			</p>
 		</>
 	);
 }

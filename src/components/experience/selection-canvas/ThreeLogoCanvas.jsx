@@ -32,23 +32,10 @@ export default function SelectionCanvas() {
 				>
 					<ThreeLogo scale={0.2} />
 				</PresentationControls>
-
-				<Text3D
-					font="inter_Bold.json"
-					position={[-25, -22, 7]}
-					rotation={[0, 0.9, 0]}
-					scale={8}
-					curveSegments={12}
-					bevelEnabled
-					bevelThickness={0.02}
-					bevelSize={0.02}
-					bevelOffset={0}
-					bevelSegments={5}
-				>
-					three.js
-					<meshStandardMaterial />
-				</Text3D>
 			</Canvas>
+			<p className="w-[250px] text-[3.5rem] font-bold text-[white] relative left-[30%] bottom-[20%] select-none ">
+				three.js
+			</p>
 		</>
 	);
 }

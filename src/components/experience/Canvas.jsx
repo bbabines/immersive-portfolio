@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, KeyboardControls, Sky } from "@react-three/drei";
 import { Physics, Debug, RigidBody } from "@react-three/rapier";
@@ -14,8 +14,10 @@ import GenericPOI from "../../models/GenericPOI";
 import Mailbox from "../../models/Mailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
-import { useProfileContext } from "../ProfileContext";
 import Joystick from "../experience/Joystick";
+
+import { useProfileContext } from "../ProfileContext";
+import { useMovementContext } from "../MovementContext";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -29,17 +31,34 @@ export const keyboardMap = [
 
 export default function MyCanvas() {
 	const { showProfile, setShowProfile } = useProfileContext();
+	const { setMovement } = useMovementContext();
 
 	const [loadingStarted, setLoadingStarted] = useState(false);
 
-	// const handleJoystickMove = (data) => {
-	// 	if (!meshRef.current) return;
-	// 	const speed = 0.05;
+	// const handleMove = (data) => {
+	// 	const { direction } = data;
 
-	// 	meshRef.current.position.x +=
-	// 		Math.cos(data.angle.radian) * data.force * speed;
-	// 	meshRef.current.position.y +=
-	// 		Math.sin(data.angle.radian) * data.force * speed;
+	// 	if (direction) {
+	// 		setMovement((prevMovement) => ({
+	// 			...prevMovement,
+	// 			leftward: direction.x === "left",
+	// 			rightward: direction.x === "right",
+	// 			forward: direction.y === "up",
+	// 			backward: direction.y === "down",
+	// 		}));
+	// 	}
+	// };
+
+	// This isn't working
+	// const handleMoveEnd = (event) => {
+	// 	event.stopPropagation();
+	// 	console.log("Joystick input ended.");
+	// 	setMovement({
+	// 		leftward: false,
+	// 		rightward: false,
+	// 		forward: false,
+	// 		backward: false,
+	// 	});
 	// };
 
 	return (
@@ -63,6 +82,12 @@ export default function MyCanvas() {
 							className="h-[100px]"
 						/>
 					</div>
+
+					{/* Joystick Controller */}
+					<Joystick
+					// onMove={handleMove}
+					//  onEnd={handleMoveEnd}
+					/>
 
 					{/* Profile Image */}
 					<div
@@ -122,19 +147,10 @@ export default function MyCanvas() {
 							<MainPOI scale={0.2} />
 							<Mailbox position={[0, -0.5, -16.5]} scale={0.25} />
 							{/* <GenericPOI scale={0.2} /> */}
-
-							{/* Joystick Test Mesh */}
-							{/* <mesh ref={meshRef}>
-								<boxBufferGeometry args={[1, 1, 1]} />
-								<meshStandardMaterial color="orange" />
-							</mesh> */}
 						</Physics>
 					</>
 				)}
 			</Canvas>
-			<Joystick
-			// onMove={handleJoystickMove}
-			/>
 		</>
 	);
 }

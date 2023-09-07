@@ -7,8 +7,11 @@ import { CapsuleCollider, RigidBody, useRapier } from "@react-three/rapier";
 import { useKeyboardControls, OrbitControls } from "@react-three/drei";
 
 import PortfolioAvatar from "@/models/PortfolioAvatar";
+import { useMovementContext } from "../MovementContext";
 
 const CharacterController = () => {
+	const { movement, setMovement } = useMovementContext();
+
 	const [subscriberKeys, getKeys] = useKeyboardControls(); // getKeys() is a function to get the current states of the keys
 	const [characterAnimationState, setCharacterAnimationState] = useState("");
 	const [smoothedCameraPosition] = useState(() => new THREE.Vector3());
@@ -56,29 +59,62 @@ const CharacterController = () => {
 			linearVelocity.x ** 2 + linearVelocity.y ** 2 + linearVelocity.z ** 2
 		);
 
+		// console.log(movement.forward);
 		// Main Controls
-		if (forward && magnitude < MAX_VEL * movementMultiplier) {
+		if (
+			forward &&
+			magnitude < MAX_VEL * movementMultiplier
+			// ||
+			// (movement.forward && magnitude < MAX_VEL * movementMultiplier)
+		) {
+			// Joystick State
+			// setMovement((prevState) => ({ ...prevState, forward: true }));
+
 			impulse.x += cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z += cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
 			setCharacterAnimationState("walk");
 		}
 
-		if (backward && magnitude < MAX_VEL * movementMultiplier) {
+		if (
+			backward &&
+			magnitude < MAX_VEL * movementMultiplier
+			// ||
+			// (movement.backward && magnitude < MAX_VEL * movementMultiplier)
+		) {
+			// Joystick State
+			// setMovement((prevState) => ({ ...prevState, backward: true }));
+
 			impulse.x -= cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z -= cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
 			setCharacterAnimationState("walk");
 		}
 
-		if (leftward && magnitude < MAX_VEL * movementMultiplier) {
+		if (
+			leftward &&
+			magnitude < MAX_VEL * movementMultiplier
+			//  ||
+			// (movement.leftward && magnitude < MAX_VEL * movementMultiplier)
+		) {
+			// Joystick State
+			// setMovement((prevState) => ({ ...prevState, leftward: true }));
+
 			impulse.x -= cameraRight.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z -= cameraRight.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
 			setCharacterAnimationState("walk");
 		}
 
-		if (rightward && magnitude < MAX_VEL * movementMultiplier) {
+		if (
+			rightward &&
+			magnitude < MAX_VEL * movementMultiplier
+			//  ||
+			// (movement.rightward && magnitude < MAX_VEL * movementMultiplier)
+		) {
+			// Joystick State
+			// setMovement((prevState) => ({ ...prevState, rightward: true }));
+
 			impulse.x += cameraRight.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z += cameraRight.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
@@ -155,6 +191,8 @@ const CharacterController = () => {
 		const cameraTarget = new THREE.Vector3();
 		cameraTarget.copy(bodyPosition);
 		cameraTarget.y += 8.25;
+		cameraTarget.z += 1.25;
+		cameraTarget.x += 1.25;
 
 		// Lerp Camera Target
 		smoothedCameraTarget.lerp(cameraTarget, LERP_FACTOR);
