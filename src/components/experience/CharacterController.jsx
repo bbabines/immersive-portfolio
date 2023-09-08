@@ -13,6 +13,7 @@ import PortfolioAvatar from "@/models/PortfolioAvatar";
 
 const CharacterController = ({ moveData }) => {
 	// const { movement, setMovement } = useMovementContext();
+
 	// Joystick movement
 	const {
 		leftwardJoystick,
@@ -239,7 +240,7 @@ const CharacterController = ({ moveData }) => {
 			>
 				<CapsuleCollider args={[0.7, 0.3]} position={[2, 3.0, 2]} />
 				<group position={[2, 2, 2]} ref={characterRef}>
-					<PortfolioAvatar />
+					<PortfolioAvatar moveData={moveData} />
 				</group>
 			</RigidBody>
 

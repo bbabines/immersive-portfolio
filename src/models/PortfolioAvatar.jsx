@@ -12,6 +12,15 @@ export default function PortfolioAvatar(props) {
 	const { nodes, materials, animations } = useGLTF("/PortfolioAvatar.glb");
 	const { actions, names } = useAnimations(animations, group);
 
+	// Joystick movement
+	const {
+		leftwardJoystick,
+		rightwardJoystick,
+		forwardJoystick,
+		backwardJoystick,
+	} = props.moveData;
+	// console.log(forwardJoystick);
+
 	const setAnimationState = useAnimationStore(
 		(state) => state.setAnimationState
 	);
@@ -58,7 +67,13 @@ export default function PortfolioAvatar(props) {
 			actions[names[17]].stop(); // Stop walking animation
 			actions[names[16]].play(); // Running animation
 			setAnimationState("running");
-		} else if (isWalking) {
+		} else if (
+			isWalking ||
+			forwardJoystick ||
+			backwardJoystick ||
+			leftwardJoystick ||
+			rightwardJoystick
+		) {
 			actions[names[14]].stop(); // Stop idle animation
 			actions[names[16]].stop(); // Stop running animation
 			actions[names[17]].play(); // Walking animation
@@ -69,7 +84,13 @@ export default function PortfolioAvatar(props) {
 			actions[names[14]].play(); // Idle animation
 			setAnimationState("idle");
 		}
-	}, [keysPressed]);
+	}, [
+		keysPressed,
+		forwardJoystick,
+		backwardJoystick,
+		leftwardJoystick,
+		rightwardJoystick,
+	]);
 
 	useEffect(() => {
 		window.addEventListener("keydown", handleKeyPress);
