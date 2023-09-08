@@ -1,6 +1,7 @@
 "use client";
+import dynamic from "next/dynamic";
 
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, KeyboardControls, Sky } from "@react-three/drei";
 import { Physics, Debug, RigidBody } from "@react-three/rapier";
@@ -14,6 +15,7 @@ import GenericPOI from "../../models/GenericPOI";
 import Mailbox from "../../models/Mailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
+
 import Joystick from "../experience/Joystick";
 
 import { useProfileContext } from "../context/ProfileContext";
@@ -34,32 +36,39 @@ export default function MyCanvas() {
 	const { setMovement } = useMovementContext();
 
 	const [loadingStarted, setLoadingStarted] = useState(false);
+	const [joystickDirection, setJoystickDirection] = useState({
+		leftwardJoystick: false,
+		rightwardJoystick: false,
+		forwardJoystick: false,
+		backwardJoystick: false,
+	});
 
-	// const handleMove = (data) => {
-	// 	const { direction } = data;
+	const handleJoystickMove = (data) => {
+		const { raw } = data;
+		const position = raw.position;
 
-	// 	if (direction) {
-	// 		setMovement((prevMovement) => ({
-	// 			...prevMovement,
-	// 			leftward: direction.x === "left",
-	// 			rightward: direction.x === "right",
-	// 			forward: direction.y === "up",
-	// 			backward: direction.y === "down",
-	// 		}));
-	// 	}
-	// };
+		// console.log("Raw X:", position.x, "Raw Y:", position.y); // Log the raw values
 
-	// This isn't working
-	// const handleMoveEnd = (event) => {
-	// 	event.stopPropagation();
-	// 	console.log("Joystick input ended.");
-	// 	setMovement({
-	// 		leftward: false,
-	// 		rightward: false,
-	// 		forward: false,
-	// 		backward: false,
-	// 	});
-	// };
+		setJoystickDirection({
+			leftwardJoystick: position.x < 274,
+			rightwardJoystick: position.x > 275,
+			forwardJoystick: position.y < 435,
+			backwardJoystick: position.y > 435,
+		});
+	};
+
+	const handleJoystickEnd = () => {
+		setJoystickDirection({
+			leftwardJoystick: false,
+			rightwardJoystick: false,
+			forwardJoystick: false,
+			backwardJoystick: false,
+		});
+	};
+
+	// useEffect(() => {
+	// console.log(joystickDirection);
+	// }, [joystickDirection]);
 
 	return (
 		<>
@@ -84,10 +93,7 @@ export default function MyCanvas() {
 					</div>
 
 					{/* Joystick Controller */}
-					<Joystick
-					// onMove={handleMove}
-					//  onEnd={handleMoveEnd}
-					/>
+					<Joystick onMove={handleJoystickMove} onEnd={handleJoystickEnd} />
 
 					{/* Profile Image */}
 					<div
@@ -131,7 +137,10 @@ export default function MyCanvas() {
 						>
 							<KeyboardControls map={keyboardMap}>
 								{/* Avatar */}
-								<CharacterController />
+								<CharacterController
+									moveData={joystickDirection}
+									// animationData={animationFromJoystick}
+								/>
 							</KeyboardControls>
 
 							{/* Land */}
