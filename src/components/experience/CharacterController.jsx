@@ -108,6 +108,8 @@ const CharacterController = ({ moveData }) => {
 			(forward && magnitude < MAX_VEL * movementMultiplier) ||
 			(forwardJoystick && magnitude < MAX_VEL * movementMultiplier)
 		) {
+			// console.log(forwardJoystick);
+
 			impulse.x += cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z += cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;

@@ -8,18 +8,18 @@ import { Physics, Debug, RigidBody } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
 
 import Lights from "./Lights";
-import TimeOfDay from "./TimeOfDay";
 import CharacterController from "../experience/CharacterController";
 import MainPOI from "../../models/MainPOI";
-import GenericPOI from "../../models/GenericPOI";
 import Mailbox from "../../models/Mailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
-
-import Joystick from "../experience/Joystick";
+import GenericPOI from "../../models/GenericPOI";
+import TimeOfDay from "./TimeOfDay";
 
 import { useProfileContext } from "../context/ProfileContext";
-import { useMovementContext } from "../context/MovementContext";
+
+// import Joystick from "../experience/Joystick";
+import { Joystick } from "react-joystick-component";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -33,7 +33,6 @@ export const keyboardMap = [
 
 export default function MyCanvas() {
 	const { showProfile, setShowProfile } = useProfileContext();
-	const { setMovement } = useMovementContext();
 
 	const [loadingStarted, setLoadingStarted] = useState(false);
 	const [joystickDirection, setJoystickDirection] = useState({
@@ -43,17 +42,14 @@ export default function MyCanvas() {
 		backwardJoystick: false,
 	});
 
-	const handleJoystickMove = (data) => {
-		const { raw } = data;
-		const position = raw.position;
-
-		// console.log("Raw X:", position.x, "Raw Y:", position.y); // Log the raw values
-
+	const handleJoystickMove = (pos) => {
+		// console.log(pos.x);
+		// console.log(pos.y);
 		setJoystickDirection({
-			leftwardJoystick: position.x < 274,
-			rightwardJoystick: position.x > 275,
-			forwardJoystick: position.y < 435,
-			backwardJoystick: position.y > 435,
+			leftwardJoystick: pos.x < 0.0,
+			rightwardJoystick: pos.x > 0.01,
+			forwardJoystick: pos.y > 0.0,
+			backwardJoystick: pos.y < 0.01,
 		});
 	};
 
@@ -65,10 +61,6 @@ export default function MyCanvas() {
 			backwardJoystick: false,
 		});
 	};
-
-	// useEffect(() => {
-	// console.log(joystickDirection);
-	// }, [joystickDirection]);
 
 	return (
 		<>
@@ -93,7 +85,16 @@ export default function MyCanvas() {
 					</div>
 
 					{/* Joystick Controller */}
-					<Joystick onMove={handleJoystickMove} onEnd={handleJoystickEnd} />
+					<div className="absolute bottom-[5%] left-[45%] z-[20]">
+						<Joystick
+							size={100}
+							// sticky={true}
+							baseColor="rgba(255,255,255, 0.5)"
+							stickColor="rgba(255,255,255, 0.8)"
+							move={handleJoystickMove}
+							stop={handleJoystickEnd}
+						/>
+					</div>
 
 					{/* Profile Image */}
 					<div
@@ -137,10 +138,7 @@ export default function MyCanvas() {
 						>
 							<KeyboardControls map={keyboardMap}>
 								{/* Avatar */}
-								<CharacterController
-									moveData={joystickDirection}
-									// animationData={animationFromJoystick}
-								/>
+								<CharacterController moveData={joystickDirection} />
 							</KeyboardControls>
 
 							{/* Land */}
