@@ -1,11 +1,12 @@
 "use client";
 import dynamic from "next/dynamic";
 
-import React, { useCallback, useContext, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, KeyboardControls, Sky } from "@react-three/drei";
 import { Physics, Debug, RigidBody } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
+import { Joystick } from "react-joystick-component";
 
 import Lights from "./Lights";
 import CharacterController from "../experience/CharacterController";
@@ -17,9 +18,6 @@ import GenericPOI from "../../models/GenericPOI";
 import TimeOfDay from "./TimeOfDay";
 
 import { useProfileContext } from "../context/ProfileContext";
-
-// import Joystick from "../experience/Joystick";
-import { Joystick } from "react-joystick-component";
 
 //  Keyboard control preset
 export const keyboardMap = [
@@ -40,16 +38,21 @@ export default function MyCanvas() {
 		rightwardJoystick: false,
 		forwardJoystick: false,
 		backwardJoystick: false,
+		isRunningJoystick: false,
 	});
 
 	const handleJoystickMove = (pos) => {
-		// console.log(pos.x);
-		// console.log(pos.y);
+		const isRunningThreshold = 0.4; // Adjust value based on sensitivity of the joystick grid
+		const isRunningJoystick =
+			Math.abs(pos.x) > isRunningThreshold ||
+			Math.abs(pos.y) > isRunningThreshold;
+
 		setJoystickDirection({
 			leftwardJoystick: pos.x < 0.0,
 			rightwardJoystick: pos.x > 0.01,
 			forwardJoystick: pos.y > 0.0,
 			backwardJoystick: pos.y < 0.01,
+			isRunningJoystick,
 		});
 	};
 
@@ -59,6 +62,7 @@ export default function MyCanvas() {
 			rightwardJoystick: false,
 			forwardJoystick: false,
 			backwardJoystick: false,
+			isRunningJoystick: false,
 		});
 	};
 
@@ -137,7 +141,6 @@ export default function MyCanvas() {
 							// debug
 						>
 							<KeyboardControls map={keyboardMap}>
-								{/* Avatar */}
 								<CharacterController moveData={joystickDirection} />
 							</KeyboardControls>
 

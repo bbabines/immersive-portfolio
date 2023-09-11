@@ -18,8 +18,8 @@ export default function PortfolioAvatar(props) {
 		rightwardJoystick,
 		forwardJoystick,
 		backwardJoystick,
+		isRunningJoystick,
 	} = props.moveData;
-	// console.log(forwardJoystick);
 
 	const setAnimationState = useAnimationStore(
 		(state) => state.setAnimationState
@@ -59,7 +59,7 @@ export default function PortfolioAvatar(props) {
 		keysPressed.ArrowLeft ||
 		keysPressed.ArrowRight;
 
-	const isRunning = keysPressed.Shift && isWalking;
+	const isRunning = (keysPressed.Shift && isWalking) || isRunningJoystick;
 
 	useEffect(() => {
 		if (isRunning) {
@@ -90,6 +90,7 @@ export default function PortfolioAvatar(props) {
 		backwardJoystick,
 		leftwardJoystick,
 		rightwardJoystick,
+		isRunningJoystick,
 	]);
 
 	useEffect(() => {

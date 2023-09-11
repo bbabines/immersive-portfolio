@@ -1,25 +1,23 @@
 "use client";
 
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
-import { CapsuleCollider, RigidBody, useRapier } from "@react-three/rapier";
+import { CapsuleCollider, RigidBody } from "@react-three/rapier";
 import { useKeyboardControls, OrbitControls } from "@react-three/drei";
 
-// import { useMovementContext } from "../context/MovementContext";
 import { useAnimationContext } from "../context/CharacterAnimationContext";
 
 import PortfolioAvatar from "@/models/PortfolioAvatar";
 
 const CharacterController = ({ moveData }) => {
-	// const { movement, setMovement } = useMovementContext();
-
 	// Joystick movement
 	const {
 		leftwardJoystick,
 		rightwardJoystick,
 		forwardJoystick,
 		backwardJoystick,
+		isRunningJoystick,
 	} = moveData;
 
 	const { characterAnimationState, setCharacterAnimationState } =
@@ -61,6 +59,17 @@ const CharacterController = ({ moveData }) => {
 		};
 	}, []);
 
+	// For handling joystick running
+	useEffect(() => {
+		if (isRunningJoystick === true) {
+			setIsRunning(true);
+		}
+
+		if (isRunningJoystick === false) {
+			setIsRunning(false);
+		}
+	}, [isRunningJoystick]);
+
 	useEffect(() => {
 		if (isRunning !== true) {
 			setCharacterAnimationState("idle");
@@ -71,6 +80,7 @@ const CharacterController = ({ moveData }) => {
 		// Know if the WASD keys are being pressed
 		const { forward, backward, leftward, rightward, jump, run, shift } =
 			getKeys();
+
 		const impulse = { x: 0, y: 0, z: 0 };
 
 		const MOVEMENT_SPEED = 200 * delta;
@@ -107,9 +117,9 @@ const CharacterController = ({ moveData }) => {
 		if (
 			(forward && magnitude < MAX_VEL * movementMultiplier) ||
 			(forwardJoystick && magnitude < MAX_VEL * movementMultiplier)
+			// ||
+			// (isRunningJoystick && magnitude < MAX_VEL * movementMultiplier)
 		) {
-			// console.log(forwardJoystick);
-
 			impulse.x += cameraForward.x * MOVEMENT_SPEED * movementMultiplier;
 			impulse.z += cameraForward.z * MOVEMENT_SPEED * movementMultiplier;
 			changeRotation = true;
@@ -144,24 +154,24 @@ const CharacterController = ({ moveData }) => {
 
 		const desiredChange = new THREE.Vector3();
 
-		// Run
-		if (isRunning) {
-			if (forward) {
+		// Run but also handled in the event.key useEffect
+		if (isRunning || isRunningJoystick) {
+			if (forward || forwardJoystick) {
 				desiredChange.x += cameraForward.x * MOVEMENT_SPEED * RUN_FACTOR;
 				desiredChange.z += cameraForward.z * MOVEMENT_SPEED * RUN_FACTOR;
 			}
 
-			if (backward) {
+			if (backward || backwardJoystick) {
 				desiredChange.x -= cameraForward.x * MOVEMENT_SPEED * RUN_FACTOR;
 				desiredChange.z -= cameraForward.z * MOVEMENT_SPEED * RUN_FACTOR;
 			}
 
-			if (leftward) {
+			if (leftward || leftwardJoystick) {
 				desiredChange.x -= cameraRight.x * MOVEMENT_SPEED * RUN_FACTOR;
 				desiredChange.z -= cameraRight.z * MOVEMENT_SPEED * RUN_FACTOR;
 			}
 
-			if (rightward) {
+			if (rightward || rightwardJoystick) {
 				desiredChange.x += cameraRight.x * MOVEMENT_SPEED * RUN_FACTOR;
 				desiredChange.z += cameraRight.z * MOVEMENT_SPEED * RUN_FACTOR;
 			}
