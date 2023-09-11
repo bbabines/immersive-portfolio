@@ -43,7 +43,7 @@ export default function App() {
 											features="OAuth, Stripe Integration, Asset Uploads, Pagination, and a User Dashboard."
 											img1="/kubera.png"
 											stack="Next.js, Typescript, React, and TailwindCSS."
-											liveLink="http://www.kuberalink.com"
+											liveLink="https://kubera-staging.netlify.app/"
 											githubLink="https://github.com/KuberaLink/KuberaLink"
 										/>
 									</div>
