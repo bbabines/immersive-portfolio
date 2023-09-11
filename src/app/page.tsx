@@ -53,8 +53,8 @@ export default function App() {
 										<ProjectModal
 											signType="react-two"
 											title="Ikon Clothing"
-											description="This is an e-commerce clothing store made with React that has user authentication/database support via firebase."
-											features="User Authentication and Firebase."
+											description="Ikon Clothing is a sprawling e-commerce clothing store application inspired by giants in the industry like Shopify. At its core, it harnesses the power of React to ensure a seamless, responsive, and interactive user experience. To complement its front-end capabilities, Ikon Clothing integrates Firebase, offering robust user authentication mechanisms and a reliable database structure, ensuring that every transaction is secure and every piece of data is stored with integrity."
+											features="React Hooks, React Router, Context API, User Authentication, and Firebase."
 											img1="/ikon.png"
 											stack="React, React Router, and Styled Components."
 											liveLink="https://ikon-clothing.netlify.app/"
@@ -67,10 +67,10 @@ export default function App() {
 										<ProjectModal
 											signType="three-one"
 											title="Legends of Aetheria"
-											description="This is the start of an action combat MMORPG. Currently, it is a character selection screen which will load into a multiplayer area."
-											features="3D Animations, Shaders (GLSL), and Multiplayer Functionality"
+											description="Dive into the magical realms of my RPG with a state-of-the-art Character Selection Screen built with React Three Fiber. Seamlessly blending the power of React's component-based architecture with the visually stunning capabilities of Three.js, this application offers both beauty and functionality."
+											features="Asset Collection with Unity, Optimized Assets, 3D Modeling with Blender, State Management, Character Animations"
 											img1="/rpg.png"
-											stack="Next.js, React, React Three Fiber, and Socket.io."
+											stack="Next.js, React Three Fiber, and React."
 											liveLink="https://mmorpg-character-selection.netlify.app/"
 											githubLink="https://github.com/bbabines/character-selection"
 										/>
@@ -81,10 +81,10 @@ export default function App() {
 										<ProjectModal
 											signType="three-two"
 											title="Marble Madness"
-											description="An immersive mini-game navigating a marble to the finish line in the shortest time possible."
-											features="Character Controller, Respawning, and Post-Processing."
+											description="Marble Madness invites players to try an immersive mini-game, where they take control of a marble, navigating it through a maze of challenges and obstacles. This isn't just about precision, but also about speed. As soon as the game begins, a timer starts ticking, urging players to race to the finish line as swiftly as they can. And if you think you can do better? A convenient restart button awaits at the end, tempting you to shave off those few extra seconds."
+											features="Physics, Character Controller, Camera Animation, Game Mechanics, and Post-Processing."
 											img1="/marble.png"
-											stack="React Three Fiber, React, and Zustand"
+											stack="React Three Fiber, React, and Zustand."
 											liveLink="https://marble-madness.netlify.app/"
 											githubLink="https://github.com/bbabines/marble-madness"
 										/>

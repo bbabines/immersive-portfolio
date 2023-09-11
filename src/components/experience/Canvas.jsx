@@ -88,10 +88,9 @@ export default function MyCanvas() {
 						/>
 					</div>
 
-					{/* Joystick Controller */}
-					<div className="absolute bottom-[5%] left-[45%] z-[20]">
+					<div className="absolute bottom-[8%] left-[50%] z-[20] sm:hidden">
 						<Joystick
-							size={100}
+							size={70}
 							// sticky={true}
 							baseColor="rgba(255,255,255, 0.5)"
 							stickColor="rgba(255,255,255, 0.8)"

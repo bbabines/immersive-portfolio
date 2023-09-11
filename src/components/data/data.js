@@ -58,44 +58,44 @@ const allProjects = [
 		live_demo_link: "https://cohering-minds.netlify.app/",
 	},
 
-	{
-		name: "Family Brand Clothing",
-		description:
-			"I was contracted to build a three.js component that would be implemented into an already existing site for a premium clothing company",
-		tags: [
-			{
-				name: "React",
-			},
-			{
-				name: "React Three Fiber",
-			},
-			{
-				name: "Vite",
-			},
-		],
-		image: "family-clothing.png",
-		source_code_link: "https://github.com/bbabines/family-test/tree/main",
-		live_demo_link: "https://family-clothing-component.netlify.app/",
-	},
-	{
-		name: "Topology AI",
-		description:
-			"I small startup seeking initial funding hired me to build a splash page for their company. ",
-		tags: [
-			{
-				name: "Typescript",
-			},
-			{
-				name: "React Three Fiber",
-			},
-			{
-				name: "GLSL",
-			},
-		],
-		image: "topology-ai.png",
-		source_code_link: "https://github.com/bbabines/topology-ai",
-		live_demo_link: "https://topology-ai.netlify.app/",
-	},
+	// {
+	// 	name: "Family Brand Clothing",
+	// 	description:
+	// 		"I was contracted to build a three.js component that would be implemented into an already existing site for a premium clothing company",
+	// 	tags: [
+	// 		{
+	// 			name: "React",
+	// 		},
+	// 		{
+	// 			name: "React Three Fiber",
+	// 		},
+	// 		{
+	// 			name: "Vite",
+	// 		},
+	// 	],
+	// 	image: "family-clothing.png",
+	// 	source_code_link: "https://github.com/bbabines/family-test/tree/main",
+	// 	live_demo_link: "https://family-clothing-component.netlify.app/",
+	// },
+	// {
+	// 	name: "Topology AI",
+	// 	description:
+	// 		"I small startup seeking initial funding hired me to build a splash page for their company. ",
+	// 	tags: [
+	// 		{
+	// 			name: "Typescript",
+	// 		},
+	// 		{
+	// 			name: "React Three Fiber",
+	// 		},
+	// 		{
+	// 			name: "GLSL",
+	// 		},
+	// 	],
+	// 	image: "topology-ai.png",
+	// 	source_code_link: "https://github.com/bbabines/topology-ai",
+	// 	live_demo_link: "https://topology-ai.netlify.app/",
+	// },
 	// {
 	// 	name: "Marble Madness",
 	// 	description:
@@ -137,121 +137,6 @@ const allProjects = [
 	},
 ];
 
-const reactProjectOne = [
-	{
-		name: "Kubera Link",
-		description:
-			"A large freelance project for a startup to build an MVP for their crypto call channel SPA. The project is currently on-going.",
-
-		tags: [
-			{
-				name: "FREELANCE",
-				color: "orange-text-gradient",
-			},
-			{
-				name: "react",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "tailwind",
-				color: "green-text-gradient",
-			},
-			{
-				name: "next.js",
-				color: "pink-text-gradient",
-			},
-		],
-		// image: kubera,
-		source_code_link: "https://github.com/KuberaLink/KuberaLink",
-		live_demo_link: "http://www.kuberalink.com/",
-	},
-];
-
-const reactProjectTwo = [
-	{
-		name: "Ikon Clothing",
-		description:
-			"An e-commerce clothing store made with React that has user authentication and database support via firebase.",
-		tags: [
-			{
-				name: "react",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "styled-components",
-				color: "green-text-gradient",
-			},
-			{
-				name: "firebase",
-				color: "pink-text-gradient",
-			},
-		],
-		// image: brads,
-		source_code_link: "https://github.com/bbabines/brads-clothing",
-		live_demo_link: "https://ikon-clothing.netlify.app/",
-	},
-];
-
-const threeProjectOne = [
-	{
-		name: "Kubera Link",
-		description:
-			"A large freelance project for a startup to build an MVP for their crypto call channel SPA. The project is currently on-going.",
-
-		tags: [
-			{
-				name: "FREELANCE",
-				color: "orange-text-gradient",
-			},
-			{
-				name: "react",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "tailwind",
-				color: "green-text-gradient",
-			},
-			{
-				name: "next.js",
-				color: "pink-text-gradient",
-			},
-		],
-		// image: kubera,
-		source_code_link: "https://github.com/KuberaLink/KuberaLink",
-		live_demo_link: "http://www.kuberalink.com/",
-	},
-];
-
-const threeProjectTwo = [
-	{
-		name: "Kubera Link",
-		description:
-			"A large freelance project for a startup to build an MVP for their crypto call channel SPA. The project is currently on-going.",
-
-		tags: [
-			{
-				name: "FREELANCE",
-				color: "orange-text-gradient",
-			},
-			{
-				name: "react",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "tailwind",
-				color: "green-text-gradient",
-			},
-			{
-				name: "next.js",
-				color: "pink-text-gradient",
-			},
-		],
-		// image: kubera,
-		source_code_link: "https://github.com/KuberaLink/KuberaLink",
-		live_demo_link: "http://www.kuberalink.com/",
-	},
-];
-
 const about = {
 	intro:
 		"I live in Columbus, Ohio with my wife and two kids. Software development is a second career for me as I worked 10 years in the healthcare industry as a critical care dietitian. I now spend my time between traditional web dev applications with React and immersive experiences with three.js & React Three Fiber.",
@@ -267,11 +152,4 @@ const about = {
 	favoriteQuotes: `"Success is being in charge of your lifestyle and creating something you're proud of, surrounded by the people you love." -Troye Sivan`,
 };
 
-export {
-	allProjects,
-	reactProjectOne,
-	reactProjectTwo,
-	threeProjectOne,
-	threeProjectTwo,
-	about,
-};
+export { allProjects, about };
