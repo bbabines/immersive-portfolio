@@ -88,10 +88,9 @@ export default function MyCanvas() {
 						/>
 					</div>
 
-					<div className="absolute bottom-[8%] left-[50%] z-[20] sm:hidden">
+					<div className="absolute bottom-[12%] left-[50%] z-[20] sm:hidden">
 						<Joystick
 							size={70}
-							// sticky={true}
 							baseColor="rgba(255,255,255, 0.5)"
 							stickColor="rgba(255,255,255, 0.8)"
 							move={handleJoystickMove}
