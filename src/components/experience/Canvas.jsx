@@ -11,7 +11,7 @@ import { Joystick } from "react-joystick-component";
 import Lights from "./Lights";
 import CharacterController from "../experience/CharacterController";
 import MainPOI from "../../models/MainPOI";
-import Mailbox from "../../models/Mailbox";
+import SmallMailbox from "../../models/SmallMailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
 import GenericPOI from "../../models/GenericPOI";
@@ -153,8 +153,7 @@ export default function MyCanvas() {
 							</RigidBody>
 
 							<MainPOI scale={0.2} />
-							<Mailbox position={[0, -0.5, -16.5]} scale={0.25} />
-							{/* <GenericPOI scale={0.2} /> */}
+							<SmallMailbox scale={0.1} />
 						</Physics>
 					</>
 				)}
