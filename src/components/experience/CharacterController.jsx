@@ -8,7 +8,6 @@ import { useKeyboardControls, OrbitControls } from "@react-three/drei";
 
 import { useAnimationContext } from "../context/CharacterAnimationContext";
 
-import PortfolioAvatar from "@/models/PortfolioAvatar";
 import PrunedPortfolioAvatar from "@/models/PrunedPortfolioAvatar";
 
 const CharacterController = ({ moveData }) => {
@@ -253,8 +252,7 @@ const CharacterController = ({ moveData }) => {
 			>
 				<CapsuleCollider args={[0.7, 0.3]} position={[2, 3.0, 2]} />
 				<group position={[2, 2, 2]} ref={characterRef}>
-					<PortfolioAvatar moveData={moveData} />
-					{/* <PrunedPortfolioAvatar /> */}
+					<PrunedPortfolioAvatar moveData={moveData} />
 				</group>
 			</RigidBody>
 
