@@ -60,8 +60,9 @@ const ShowProfile = () => {
 								<span className="text-[lightgreen]">2</span>
 							</p>
 
-							<div className="max-sm:flex max-sm:flex-col max-sm:items-center">
-								Resume:
+							<div className="flex max-sm:flex max-sm:flex-col max-sm:items-center">
+								<p>Resume:</p>
+
 								<a
 									href="resume.pdf"
 									target="_blank"

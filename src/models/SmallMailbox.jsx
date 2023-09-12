@@ -44,7 +44,7 @@ export default function SmallMailbox(props) {
 			{/* Invisible Mailbox Physics  & Event Listeners*/}
 			<RigidBody type="fixed" includeInvisible>
 				<mesh
-					position={[-14, 2, 647]}
+					position={[-14, 3, 647]}
 					visible={false}
 					onClick={() => {
 						setSignSelected("contact");
@@ -61,7 +61,7 @@ export default function SmallMailbox(props) {
 						setMailboxText("");
 					}}
 				>
-					<boxGeometry args={[16, 20, 9]} />
+					<boxGeometry args={[20, 30, 9]} />
 					<meshStandardMaterial color="mediumpurple" />
 				</mesh>
 			</RigidBody>

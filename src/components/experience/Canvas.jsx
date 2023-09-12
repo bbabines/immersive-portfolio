@@ -1,16 +1,15 @@
 "use client";
-import dynamic from "next/dynamic";
 
 import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, KeyboardControls, Sky } from "@react-three/drei";
+import { KeyboardControls, Sky } from "@react-three/drei";
 import { Physics, Debug, RigidBody } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
 import { Joystick } from "react-joystick-component";
 
 import Lights from "./Lights";
 import CharacterController from "../experience/CharacterController";
-import MainPOI from "../../models/MainPOI";
+import PrunedPOI from "../../models/PrunedPOI";
 import SmallMailbox from "../../models/SmallMailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
@@ -128,8 +127,7 @@ export default function MyCanvas() {
 						{/* Delete Lights and Sky when TimeOfDay is finished */}
 						<Lights />
 						<Sky />
-						{/* <Perf position="top-left" /> */}
-						{/* <OrbitControls /> */}
+						<Perf position="top-left" />
 
 						<fog attach="fog" args={["white", 20, 200]} />
 
@@ -151,7 +149,7 @@ export default function MyCanvas() {
 								/>
 							</RigidBody>
 
-							<MainPOI scale={0.2} />
+							<PrunedPOI scale={0.2} />
 							<SmallMailbox scale={0.1} />
 						</Physics>
 					</>
