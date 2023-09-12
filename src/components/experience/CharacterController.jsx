@@ -7,7 +7,6 @@ import { CapsuleCollider, RigidBody } from "@react-three/rapier";
 import { useKeyboardControls, OrbitControls } from "@react-three/drei";
 
 import { useAnimationContext } from "../context/CharacterAnimationContext";
-
 import PrunedPortfolioAvatar from "@/models/PrunedPortfolioAvatar";
 
 const CharacterController = ({ moveData }) => {

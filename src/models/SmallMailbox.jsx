@@ -37,8 +37,8 @@ export default function SmallMailbox(props) {
 				</Html>
 			)}
 
-			<group scale={2}>
-				<ModalText text={"Contact"} position={[-2, 50, 320]} sign={"contact"} />
+			<group scale={1.75}>
+				<ModalText text={"Contact"} position={[-2, 50, 380]} sign={"contact"} />
 			</group>
 
 			{/* Invisible Mailbox Physics  & Event Listeners*/}
