@@ -24,7 +24,7 @@ export default function SmallMailbox(props) {
 	return (
 		<group ref={group} {...props} dispose={null}>
 			{mailboxText === "mailbox" && (
-				<Html center position={[-15, 25, 650]}>
+				<Html center position={[-15, 30, 650]}>
 					<div
 						style={{ userSelect: "none" }}
 						className="flex flex-col justify-center items-center"
@@ -37,7 +37,9 @@ export default function SmallMailbox(props) {
 				</Html>
 			)}
 
-			<ModalText text={"Contact"} position={[-2, 80, 650]} sign={"contact"} />
+			<group scale={2}>
+				<ModalText text={"Contact"} position={[-2, 50, 320]} sign={"contact"} />
+			</group>
 
 			{/* Invisible Mailbox Physics  & Event Listeners*/}
 			<RigidBody type="fixed" includeInvisible>
@@ -59,7 +61,7 @@ export default function SmallMailbox(props) {
 						setMailboxText("");
 					}}
 				>
-					<boxGeometry args={[12, 20, 9]} />
+					<boxGeometry args={[16, 20, 9]} />
 					<meshStandardMaterial color="mediumpurple" />
 				</mesh>
 			</RigidBody>
@@ -69,9 +71,6 @@ export default function SmallMailbox(props) {
 				rotation={[-Math.PI / 2, 0, Math.PI / 2]}
 				scale={0.032}
 			>
-				{/* <ModalText text={"contact"} position={[-60, 2, 650]} sign={"contact"} /> */}
-				<ModalText text={"Contact"} position={[-2, 80, 650]} sign={"contact"} />
-
 				<group rotation={[Math.PI / 2, 0, 0]}>
 					<mesh
 						castShadow
@@ -81,20 +80,6 @@ export default function SmallMailbox(props) {
 						position={[126.851, 271.501, 1442.32]}
 						rotation={[-Math.PI / 2, -0.027, 0]}
 						scale={100}
-						// onClick={() => {
-						// 	setSignSelected("contact");
-						// }}
-						// onPointerOver={() => {
-						// 	setHovered(true);
-						// 	setHoverText("contact");
-						// 	setMailboxText("mailbox");
-						// 	event.stopPropagation();
-						// }}
-						// onPointerOut={() => {
-						// 	setHovered(false);
-						// 	setHoverText("");
-						// 	setMailboxText("");
-						// }}
 					/>
 				</group>
 			</group>

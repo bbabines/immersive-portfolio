@@ -14,7 +14,6 @@ import MainPOI from "../../models/MainPOI";
 import SmallMailbox from "../../models/SmallMailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
-import GenericPOI from "../../models/GenericPOI";
 import TimeOfDay from "./TimeOfDay";
 
 import { useProfileContext } from "../context/ProfileContext";
