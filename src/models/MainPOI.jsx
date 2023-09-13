@@ -10,7 +10,7 @@ import { useModalContext } from "../components/context/ModalContext";
 import { useHoverContext } from "../components/context/HoverContext";
 import ModalText from "../components/experience/ModalText";
 
-export default function PrunedPOI(props) {
+export default function MainPOI(props) {
 	const group = useRef();
 	const { nodes, materials, animations } = useGLTF("/newPrunedPOI.glb");
 	const { actions } = useAnimations(animations, group);
@@ -514,7 +514,7 @@ export default function PrunedPOI(props) {
 					)}
 					<group
 						name="github_icon"
-						position={[20, -4, 326.46]}
+						position={[20, -3, 326.46]}
 						rotation={[-Math.PI / 2, 0, 3.117]}
 					>
 						<group name="root001">

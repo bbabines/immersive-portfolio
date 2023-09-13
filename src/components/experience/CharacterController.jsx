@@ -7,7 +7,7 @@ import { CapsuleCollider, RigidBody } from "@react-three/rapier";
 import { useKeyboardControls, OrbitControls } from "@react-three/drei";
 
 import { useAnimationContext } from "../context/CharacterAnimationContext";
-import PrunedPortfolioAvatar from "@/models/PrunedPortfolioAvatar";
+import Avatar from "@/models/Avatar";
 
 const CharacterController = ({ moveData }) => {
 	// Joystick movement
@@ -251,7 +251,7 @@ const CharacterController = ({ moveData }) => {
 			>
 				<CapsuleCollider args={[0.7, 0.3]} position={[2, 3.0, 2]} />
 				<group position={[2, 2, 2]} ref={characterRef}>
-					<PrunedPortfolioAvatar moveData={moveData} />
+					<Avatar moveData={moveData} />
 				</group>
 			</RigidBody>
 

@@ -9,8 +9,8 @@ import { Joystick } from "react-joystick-component";
 
 import Lights from "./Lights";
 import CharacterController from "../experience/CharacterController";
-import PrunedPOI from "../../models/PrunedPOI";
-import SmallMailbox from "../../models/SmallMailbox";
+import MainPOI from "../../models/MainPOI";
+import Mailbox from "../../models/Mailbox";
 import LoadingScreen from "../experience/LoadingScreen";
 import Terrain from "../../models/Terrain";
 import TimeOfDay from "./TimeOfDay";
@@ -127,7 +127,7 @@ export default function MyCanvas() {
 						{/* Delete Lights and Sky when TimeOfDay is finished */}
 						<Lights />
 						<Sky />
-						<Perf position="top-left" />
+						{/* <Perf position="top-left" /> */}
 
 						<fog attach="fog" args={["white", 20, 200]} />
 
@@ -143,14 +143,14 @@ export default function MyCanvas() {
 							<RigidBody type="fixed" colliders="trimesh" friction={2}>
 								<Terrain
 									position={[0, -1, 0]}
-									scale={0.6}
+									scale={0.38}
 									friction={1000}
 									restitution={0}
 								/>
 							</RigidBody>
 
-							<PrunedPOI scale={0.2} />
-							<SmallMailbox scale={0.1} />
+							<MainPOI scale={0.2} />
+							<Mailbox scale={0.1} />
 						</Physics>
 					</>
 				)}

@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, useAnimations, Html } from "@react-three/drei";
 import useAnimationStore from "../hooks/useAnimationStore";
 
-export default function PrunedPortfolioAvatar(props) {
+export default function Avatar(props) {
 	const group = useRef();
 	const { nodes, materials, animations } = useGLTF(
 		"/PrunedPortfolioAvatar.glb"

@@ -10,7 +10,7 @@ import { useModalContext } from "../components/context/ModalContext";
 import { useHoverContext } from "../components/context/HoverContext";
 import ModalText from "../components/experience/ModalText";
 
-export default function SmallMailbox(props) {
+export default function Mailbox(props) {
 	const group = useRef();
 	const { nodes, materials } = useGLTF("/PrunedMailbox.glb");
 
@@ -67,7 +67,7 @@ export default function SmallMailbox(props) {
 			</RigidBody>
 
 			<group
-				position={[-60, 2, 650]}
+				position={[-60, 4, 650]}
 				rotation={[-Math.PI / 2, 0, Math.PI / 2]}
 				scale={0.032}
 			>

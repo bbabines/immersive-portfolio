@@ -7,7 +7,7 @@ import { useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 
 export default function Terrain(props) {
-	const { nodes, materials } = useGLTF("/terrain.glb");
+	const { nodes, materials } = useGLTF("/1kMinusNormal.glb");
 	return (
 		<>
 			{/* Invisible Boundary */}
@@ -23,11 +23,11 @@ export default function Terrain(props) {
 					receiveShadow
 					geometry={nodes.Mesh_0.geometry}
 					material={materials.Material_0}
-					scale={0.019}
+					scale={0.028}
 				/>
 			</group>
 		</>
 	);
 }
 
-useGLTF.preload("/terrain.glb");
+useGLTF.preload("/1kMinusNormal.glb");
